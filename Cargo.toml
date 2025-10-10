@@ -1,0 +1,70 @@
+[package]
+name = "massive-graph-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jordan Rancie <jordan@econic.ai>"]
+description = "Core types and logic for Massive Graph database - WASM compatible"
+license = "MIT"
+
+[lib]
+name = "massive_graph_core"
+path = "src/lib.rs"
+
+[dependencies]
+# Core dependencies (WASM-compatible)
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+uuid = { workspace = true, features = ["js"] }
+chrono = { workspace = true }
+toml = "0.9.5"
+tracing = { workspace = true }
+
+# Data structures (WASM-compatible from workspace)
+dashmap = { workspace = true }
+arc-swap = { workspace = true }
+crossbeam-epoch = "0.9"
+bytes = { workspace = true }
+bincode = { workspace = true }
+rmp-serde = { workspace = true }
+crossbeam = { workspace = true }
+ahash = "0.8"
+
+# For ID generation (WASM-compatible)
+rand = { workspace = true }
+
+# WASM-specific dependencies (conditional)
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = { workspace = true }
+js-sys = { workspace = true }
+web-sys = { workspace = true, features = ["console"] }
+console_error_panic_hook = { workspace = true }
+getrandom = { version = "0.3.3", features = ["wasm_js"] }
+
+# Native dependencies (non-WASM)
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+prometheus = "0.14.0"
+
+[features]
+# default = ["debug-logging"]  # Debug logging OFF by default (use --features debug-logging to enable)
+default = []  # Debug logging OFF by default (use --features debug-logging to enable)
+debug-logging = []  # Enable verbose debug logging for OptimisedIndex operations
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+
+[[bench]]
+name = "segmented_stream"
+harness = false
+
+[[bench]]
+name = "spsc_bench"
+harness = false
+
+[[bench]]
+name = "compare_indexes_get_bench"
+harness = false
+
+[[bench]]
+name = "compare_indexes_insert_bench"
+harness = false
