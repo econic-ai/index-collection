@@ -11,7 +11,7 @@ fn main() -> Result<(), BuildError> {
 
     println!(
         "M0 table ready. contains(id)={}, load_factor={:.6}",
-        table.lookup(id),
+        table.contains(id),
         table.load_factor()
     );
 
