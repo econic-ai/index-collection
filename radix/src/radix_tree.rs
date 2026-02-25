@@ -1,18 +1,39 @@
-/// M1/M2 layout uses 64 slots per bucket and always stores fp8.
-pub const RADIX_BUCKET_SLOTS: usize = 64;
-pub const RADIX_SLOT_BITS: u8 = 6;
+/// Radix tree with 4 × 64-slot groups per bucket.
+/// Each group is cache-line-aligned (64 bytes).
+pub const GROUP_SLOTS: usize = 64;
+pub const SLOT_BITS: u8 = 6;
+pub const GROUPS_PER_BUCKET: usize = 4;
+pub const GROUP_BITS: u8 = 2;
+pub const BUCKET_SLOTS: usize = GROUPS_PER_BUCKET * GROUP_SLOTS;
 pub const RADIX_FP_EMPTY: u8 = 0x00;
 pub const RADIX_MAX_PROBE_ROUNDS: u8 = 64;
 
 use crate::{IndexTable, mix64};
-#[cfg(target_arch = "aarch64")]
 use core::arch::aarch64::*;
 
-/// 64-byte fingerprint bucket, cache-line-aligned.
-/// Each bucket occupies exactly one cache line on typical hardware.
+/// Hint the CPU to prefetch a cache line for reading.
+#[inline(always)]
+unsafe fn prefetch_read(addr: *const u8) {
+    unsafe {
+        core::arch::asm!(
+            "prfm pldl1keep, [{addr}]",
+            addr = in(reg) addr,
+            options(nostack, preserves_flags),
+        );
+    }
+}
+
+/// 64-byte fingerprint group, cache-line-aligned.
 #[derive(Debug, Clone)]
 #[repr(C, align(64))]
-pub struct FpBucket(pub [u8; RADIX_BUCKET_SLOTS]);
+pub struct FpGroup(pub [u8; GROUP_SLOTS]);
+
+/// Bucket containing 4 cache-line-aligned fingerprint groups (256 slots).
+#[derive(Debug, Clone)]
+#[repr(C)]
+pub struct Bucket {
+    pub groups: [FpGroup; GROUPS_PER_BUCKET],
+}
 
 #[derive(Debug, Clone, Copy)]
 pub struct RadixTreeConfig {
@@ -27,29 +48,65 @@ pub struct RadixTreeLayout {
     pub bucket_bits: u8,
     pub bucket_count: usize,
     pub bucket_slots: usize,
+    pub group_slots: usize,
     pub slot_bits: u8,
+    pub group_bits: u8,
 }
 
-#[derive(Debug, Clone)]
 pub struct RadixTree {
     pub config: RadixTreeConfig,
     pub layout: RadixTreeLayout,
-    /// 1 byte per slot, grouped into cache-line-aligned buckets.
-    pub fingerprints: Vec<FpBucket>,
-    /// Full-key confirmation arena.
+    /// Fingerprint arena: buckets of 4 cache-line-aligned groups.
+    pub fingerprints: Vec<Bucket>,
+    /// Full-key confirmation arena (flat, indexed by bucket*256 + group*64 + slot).
     pub hashes: Vec<u64>,
     pub len: usize,
     /// Precomputed for the hot path — avoids serial dependency chain.
-    slot_shift: u8,
+    bucket_shift: u8,
+    group_slot_shift: u8,
     fp_shift: u8,
     bucket_mask: usize,
+    /// Cached heap pointers — stable because Vecs never resize.
+    fp_ptr: *const u8,
+    hash_ptr: *const u64,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct HashParts {
-    pub bucket: usize,
-    pub preferred_slot: usize,
-    pub fingerprint: u8,
+// Raw pointers are not Send/Sync by default, but the heap allocations they
+// reference are owned by the Vecs in the same struct and never reallocated.
+unsafe impl Send for RadixTree {}
+unsafe impl Sync for RadixTree {}
+
+impl Clone for RadixTree {
+    fn clone(&self) -> Self {
+        let fingerprints = self.fingerprints.clone();
+        let hashes = self.hashes.clone();
+        let fp_ptr = fingerprints.as_ptr() as *const u8;
+        let hash_ptr = hashes.as_ptr();
+        Self {
+            config: self.config,
+            layout: self.layout,
+            fingerprints,
+            hashes,
+            len: self.len,
+            bucket_shift: self.bucket_shift,
+            group_slot_shift: self.group_slot_shift,
+            fp_shift: self.fp_shift,
+            bucket_mask: self.bucket_mask,
+            fp_ptr,
+            hash_ptr,
+        }
+    }
+}
+
+impl std::fmt::Debug for RadixTree {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("RadixTree")
+            .field("config", &self.config)
+            .field("layout", &self.layout)
+            .field("len", &self.len)
+            .field("bucket_mask", &self.bucket_mask)
+            .finish()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -61,7 +118,6 @@ pub enum RadixTreeBuildError {
 /// Pack the high bit of each byte in a u64 into the low 8 bits.
 /// Input: u64 where each byte is 0x00 or 0xFF (NEON comparison result).
 /// Output: u8 bitmask with one bit per byte.
-/// Used by scan_bucket_masks (insert path). Contains path uses sparse masks.
 #[inline]
 fn pack_msbs(v: u64) -> u8 {
     const HI: u64 = 0x8080_8080_8080_8080;
@@ -69,31 +125,39 @@ fn pack_msbs(v: u64) -> u8 {
     ((v & HI).wrapping_mul(MUL) >> 56) as u8
 }
 
-#[allow(dead_code)]
-const SPARSE_MSB: u64 = 0x8080_8080_8080_8080;
+/// Pack a 128-bit NEON byte comparison into a 16-bit mask.
+/// Bit i is set when byte i of `cmp` is 0xFF.
+#[inline]
+unsafe fn pack_neon_16(cmp: uint8x16_t) -> u16 {
+    unsafe {
+        let u64s = vreinterpretq_u64_u8(cmp);
+        let lo = pack_msbs(vgetq_lane_u64::<0>(u64s));
+        let hi = pack_msbs(vgetq_lane_u64::<1>(u64s));
+        (lo as u16) | ((hi as u16) << 8)
+    }
+}
 
-/// 8-byte group size — matches hashbrown's NEON group width.
-const GROUP_BYTES: usize = 8;
-/// Number of 8-byte groups per 64-slot bucket.
-const GROUPS_PER_BUCKET: usize = RADIX_BUCKET_SLOTS / GROUP_BYTES;
-
+/// 16-byte NEON chunk width within a 64-slot group.
+const CHUNK_WIDTH: usize = 16;
+/// Number of 16-byte chunks per group.
+const CHUNKS_PER_GROUP: usize = GROUP_SLOTS / CHUNK_WIDTH;
 
 impl RadixTree {
     pub fn new(config: RadixTreeConfig) -> Result<Self, RadixTreeBuildError> {
-        if config.capacity_bits < RADIX_SLOT_BITS {
+        let min_bits = GROUP_BITS + SLOT_BITS;
+        if config.capacity_bits < min_bits {
             return Err(RadixTreeBuildError::CapacityBitsTooSmall(
                 config.capacity_bits,
             ));
         }
 
-        // bucket bits + slot bits + fp bits must fit in a u64 hash.
         if config.capacity_bits > 56 {
             return Err(RadixTreeBuildError::CapacityBitsTooLarge(
                 config.capacity_bits,
             ));
         }
 
-        let bucket_bits = config.capacity_bits - RADIX_SLOT_BITS;
+        let bucket_bits = config.capacity_bits - GROUP_BITS - SLOT_BITS;
         let total_slots = 1usize << config.capacity_bits;
         let bucket_count = 1usize << bucket_bits;
         let layout = RadixTreeLayout {
@@ -101,370 +165,54 @@ impl RadixTree {
             total_slots,
             bucket_bits,
             bucket_count,
-            bucket_slots: RADIX_BUCKET_SLOTS,
-            slot_bits: RADIX_SLOT_BITS,
+            bucket_slots: BUCKET_SLOTS,
+            group_slots: GROUP_SLOTS,
+            slot_bits: SLOT_BITS,
+            group_bits: GROUP_BITS,
         };
 
-        let slot_shift = 64 - bucket_bits - RADIX_SLOT_BITS;
-        let fp_shift = slot_shift - 8;
+        // Hash layout (left to right):
+        //   [bucket_bits | group_bits(2) | slot_bits(6) | fp_bits(8) | ...]
+        let bucket_shift = if bucket_bits > 0 { 64 - bucket_bits } else { 0 };
+        let group_slot_shift = 64 - bucket_bits - GROUP_BITS - SLOT_BITS;
+        let fp_shift = group_slot_shift - 8;
         let bucket_mask = bucket_count.wrapping_sub(1);
+
+        let empty_bucket = Bucket {
+            groups: [
+                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+            ],
+        };
+
+        let fingerprints = vec![empty_bucket; bucket_count];
+        let hashes = vec![0u64; total_slots];
+        let fp_ptr = fingerprints.as_ptr() as *const u8;
+        let hash_ptr = hashes.as_ptr();
 
         Ok(Self {
             config,
             layout,
-            fingerprints: vec![FpBucket([RADIX_FP_EMPTY; RADIX_BUCKET_SLOTS]); bucket_count],
-            hashes: vec![0; total_slots],
+            fingerprints,
+            hashes,
             len: 0,
-            slot_shift,
+            bucket_shift,
+            group_slot_shift,
             fp_shift,
             bucket_mask,
+            fp_ptr,
+            hash_ptr,
         })
     }
 
-    /// Extract bucket, preferred_slot, and fingerprint from a raw id.
-    pub fn hash_parts(&self, id: u64) -> HashParts {
-        let h = mix64(id);
-
-        let bucket = (h >> (64 - self.layout.bucket_bits)) as usize & self.bucket_mask;
-        let preferred_slot = ((h >> self.slot_shift) & 0x3f) as usize;
-        let raw_fp = ((h >> self.fp_shift) & 0xff) as u8;
-        let fingerprint = raw_fp | ((raw_fp == 0) as u8);
-
-        HashParts {
-            bucket,
-            preferred_slot,
-            fingerprint,
-        }
-    }
-
-    // -----------------------------------------------------------------
-    // Bucket scanning
-    // -----------------------------------------------------------------
-
-    /// NEON: scan 64-byte bucket, returning (empty_mask, match_mask) as
-    /// 64-bit bitmasks with one bit per slot.
-    #[inline]
-    #[cfg(target_arch = "aarch64")]
-    fn scan_bucket_masks(&self, bucket: usize, target_fp: u8) -> (u64, u64) {
-        let ptr = self.fingerprints[bucket].0.as_ptr();
-        let mut empty_mask = 0u64;
-        let mut match_mask = 0u64;
-
-        // SAFETY: ptr points to a contiguous region of at least 64 bytes
-        // (one full bucket). NEON loads are unaligned-safe on AArch64.
-        // Bitmask extraction uses vreinterpret + vget_lane (matching
-        // hashbrown's NEON pattern) instead of store-to-stack.
-        unsafe {
-            let zero = vdupq_n_u8(0);
-            let target = vdupq_n_u8(target_fp);
-            let mut chunk = 0usize;
-            while chunk < 4 {
-                let p = ptr.add(chunk * 16);
-                let vals = vld1q_u8(p);
-
-                let ecmp = vceqq_u8(vals, zero);
-                let mcmp = vceqq_u8(vals, target);
-
-                let e64 = vreinterpretq_u64_u8(ecmp);
-                let m64 = vreinterpretq_u64_u8(mcmp);
-
-                let e_lo = pack_msbs(vgetq_lane_u64::<0>(e64));
-                let e_hi = pack_msbs(vgetq_lane_u64::<1>(e64));
-                let m_lo = pack_msbs(vgetq_lane_u64::<0>(m64));
-                let m_hi = pack_msbs(vgetq_lane_u64::<1>(m64));
-
-                let e16 = (e_lo as u64) | ((e_hi as u64) << 8);
-                let m16 = (m_lo as u64) | ((m_hi as u64) << 8);
-
-                empty_mask |= e16 << (chunk * 16);
-                match_mask |= m16 << (chunk * 16);
-                chunk += 1;
-            }
-        }
-
-        (empty_mask, match_mask)
-    }
-
-    /// Scalar fallback for non-AArch64 targets.
-    #[inline]
-    #[cfg(not(target_arch = "aarch64"))]
-    fn scan_bucket_masks(&self, bucket: usize, target_fp: u8) -> (u64, u64) {
-        let mut empty_mask = 0u64;
-        let mut match_mask = 0u64;
-
-        for i in 0..RADIX_BUCKET_SLOTS {
-            let fp = self.fingerprints[bucket].0[i];
-            if fp == RADIX_FP_EMPTY {
-                empty_mask |= 1u64 << i;
-            }
-            if fp == target_fp {
-                match_mask |= 1u64 << i;
-            }
-        }
-
-        (empty_mask, match_mask)
-    }
-
-    // -----------------------------------------------------------------
-    // contains variants — active version is wired in the IndexTable impl
-    // -----------------------------------------------------------------
-
-    /// v1: inline preferred-slot check at round 0, cold fallback using the
-    /// original rotation-based multi-round probe. Kept for reference.
-    #[inline]
-    pub fn contains_v1(&self, id: u64) -> bool {
-        let h = mix64(id);
-        let bucket_bits = self.layout.bucket_bits;
-        let slot_shift = 64 - bucket_bits - RADIX_SLOT_BITS;
-        let fp_shift = slot_shift - 8;
-
-        let bucket = if bucket_bits == 0 {
-            0
-        } else {
-            (h >> (64 - bucket_bits)) as usize
-        };
-        let preferred_slot = ((h >> slot_shift) & 0x3f) as usize;
-        let raw_fp = ((h >> fp_shift) & 0xff) as u8;
-        let fp = if raw_fp == 0 { 1 } else { raw_fp };
-
-        // SAFETY: bucket < bucket_count, preferred_slot < 64.
-        unsafe {
-            if *self.fingerprints.get_unchecked(bucket).0.get_unchecked(preferred_slot) == fp
-                && *self.hashes.get_unchecked(bucket * RADIX_BUCKET_SLOTS + preferred_slot) == id
-            {
-                return true;
-            }
-        }
-
-        self.contains_v1_slow(id, h)
-    }
-
-    #[cold]
-    #[inline(never)]
-    fn contains_v1_slow(&self, id: u64, mixed_hash: u64) -> bool {
-        for round in 0..RADIX_MAX_PROBE_ROUNDS {
-            let rotated = mixed_hash.rotate_left(round as u32);
-            let bucket_bits = self.layout.bucket_bits;
-            let slot_shift = 64 - bucket_bits - RADIX_SLOT_BITS;
-            let fp_shift = slot_shift - 8;
-            let bucket = if bucket_bits == 0 {
-                0
-            } else {
-                (rotated >> (64 - bucket_bits)) as usize
-            };
-            let preferred_slot = ((rotated >> slot_shift) & 0x3f) as usize;
-            let raw_fp = ((rotated >> fp_shift) & 0xff) as u8;
-            let fp = if raw_fp == 0 { 1 } else { raw_fp };
-
-            let (empty_mask, match_mask) = self.scan_bucket_masks(bucket, fp);
-            let rot_match = match_mask.rotate_right(preferred_slot as u32);
-            let rot_empty = empty_mask.rotate_right(preferred_slot as u32);
-            let first_empty = if rot_empty == 0 {
-                RADIX_BUCKET_SLOTS
-            } else {
-                rot_empty.trailing_zeros() as usize
-            };
-
-            let mut probe = if first_empty == 0 {
-                0
-            } else if first_empty == RADIX_BUCKET_SLOTS {
-                rot_match
-            } else {
-                rot_match & ((1u64 << first_empty) - 1)
-            };
-
-            while probe != 0 {
-                let offset = probe.trailing_zeros() as usize;
-                let slot = (preferred_slot + offset) & (RADIX_BUCKET_SLOTS - 1);
-                let idx = bucket * RADIX_BUCKET_SLOTS + slot;
-                if self.hashes[idx] == id {
-                    return true;
-                }
-                probe &= probe - 1;
-            }
-        }
-
-        false
-    }
-
-    /// v2: linear bucket advance, early termination on empty, fixed
-    /// preferred_slot/fp per key (only bucket changes on overflow).
-    #[inline]
-    pub fn contains_v2(&self, id: u64) -> bool {
-        let h = mix64(id);
-        let bucket_bits = self.layout.bucket_bits;
-        let slot_shift = 64 - bucket_bits - RADIX_SLOT_BITS;
-        let fp_shift = slot_shift - 8;
-
-        let bucket = if bucket_bits == 0 {
-            0
-        } else {
-            (h >> (64 - bucket_bits)) as usize
-        };
-        let preferred_slot = ((h >> slot_shift) & 0x3f) as usize;
-        let raw_fp = ((h >> fp_shift) & 0xff) as u8;
-        let fp = if raw_fp == 0 { 1 } else { raw_fp };
-
-        // SAFETY: bucket < bucket_count, preferred_slot < 64.
-        unsafe {
-            if *self.fingerprints.get_unchecked(bucket).0.get_unchecked(preferred_slot) == fp
-                && *self.hashes.get_unchecked(bucket * RADIX_BUCKET_SLOTS + preferred_slot) == id
-            {
-                return true;
-            }
-        }
-
-        self.contains_v2_slow(id, bucket, fp)
-    }
-
-    /// Slow path: scan bucket for fp matches, confirm against full hash.
-    /// Linear advance to next bucket on full bucket. Early exit on empty.
-    #[cold]
-    #[inline(never)]
-    fn contains_v2_slow(&self, id: u64, start_bucket: usize, fp: u8) -> bool {
-        let bucket_mask = self.layout.bucket_count.wrapping_sub(1);
-        let mut bucket = start_bucket;
-
-        for _ in 0..self.layout.bucket_count {
-            let (empty_mask, match_mask) = self.scan_bucket_masks(bucket, fp);
-
-            let mut probe = match_mask;
-            while probe != 0 {
-                let slot = probe.trailing_zeros() as usize;
-                if self.hashes[bucket * RADIX_BUCKET_SLOTS + slot] == id {
-                    return true;
-                }
-                probe &= probe - 1;
-            }
-
-            if empty_mask != 0 {
-                return false;
-            }
-
-            bucket = (bucket + 1) & bucket_mask;
-        }
-
-        false
-    }
-
-    /// v3: single-function contains — preferred-slot probe per bucket,
-    /// then progressive 8-byte group scan, linear bucket advance.
-    /// All SIMD logic inlined for full visibility and iteration control.
-    #[inline]
-    pub fn contains_v3(&self, id: u64) -> bool {
-        let h = mix64(id);
-
-        let mut bucket = (h >> (64 - self.layout.bucket_bits)) as usize & self.bucket_mask;
-        let preferred_slot = ((h >> self.slot_shift) & 0x3f) as usize;
-        let raw_fp = ((h >> self.fp_shift) & 0xff) as u8;
-        let fp = raw_fp | ((raw_fp == 0) as u8);
-
-        let fp_ptr = self.fingerprints.as_ptr() as *const u8;
-        let hash_ptr = self.hashes.as_ptr();
-        let bucket_mask = self.bucket_mask;
-        let start_group = preferred_slot / GROUP_BYTES;
-        let mut remaining = self.layout.bucket_count;
-
-        loop {
-            let base = bucket * RADIX_BUCKET_SLOTS;
-
-            // ── 1. Preferred-slot probe ────────────────────────────
-            unsafe {
-                let fp_at = *fp_ptr.add(base + preferred_slot);
-                if fp_at == fp {
-                    if *hash_ptr.add(base + preferred_slot) == id {
-                        return true;
-                    }
-                } else if fp_at == 0 {
-                    return false;
-                }
-            }
-
-            // ── 2. Progressive slot scan (8 groups of 8 bytes) ────
-            let mut sg_has_empty = false;
-
-            unsafe {
-                for gi in 0..GROUPS_PER_BUCKET as u8 {
-                    let g = ((start_group as u8) + gi) & (GROUPS_PER_BUCKET as u8 - 1);
-                    let gp = fp_ptr.add(base + (g as usize) * GROUP_BYTES);
-                    let gh = hash_ptr.add(base + (g as usize) * GROUP_BYTES);
-
-                    let mut group_has_empty = false;
-                    for si in 0..GROUP_BYTES {
-                        let b = *gp.add(si);
-                        if b == fp {
-                            if *gh.add(si) == id {
-                                return true;
-                            }
-                        } else if b == 0 {
-                            group_has_empty = true;
-                        }
-                    }
-
-                    if group_has_empty {
-                        if gi == 0 {
-                            sg_has_empty = true;
-                        } else {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            if sg_has_empty {
-                return false;
-            }
-
-            // SIMD variant (kept for switching back):
-            // unsafe {
-            //     for gi in 0..GROUPS_PER_BUCKET as u8 {
-            //         let g = ((start_group as u8) + gi) & (GROUPS_PER_BUCKET as u8 - 1);
-            //         let gp = fp_ptr.add(base + (g as usize) * GROUP_BYTES);
-            //         let gh = hash_ptr.add(base + (g as usize) * GROUP_BYTES);
-            //         #[cfg(target_arch = "aarch64")]
-            //         let (empty, matched) = {
-            //             let vals = vld1_u8(gp);
-            //             (
-            //                 vget_lane_u64::<0>(vreinterpret_u64_u8(vceq_u8(vals, vdup_n_u8(0)))) & SPARSE_MSB,
-            //                 vget_lane_u64::<0>(vreinterpret_u64_u8(vceq_u8(vals, vdup_n_u8(fp)))) & SPARSE_MSB,
-            //             )
-            //         };
-            //         #[cfg(not(target_arch = "aarch64"))]
-            //         let (empty, matched) = {
-            //             let (mut e, mut m) = (0u64, 0u64);
-            //             for i in 0..8usize {
-            //                 let b = *gp.add(i);
-            //                 if b == 0 { e |= 0x80u64 << (i * 8); }
-            //                 if b == fp { m |= 0x80u64 << (i * 8); }
-            //             }
-            //             (e, m)
-            //         };
-            //         let mut m = matched;
-            //         while m != 0 {
-            //             let byte_idx = (m.trailing_zeros() >> 3) as usize;
-            //             if *gh.add(byte_idx) == id { return true; }
-            //             m &= m - 1;
-            //         }
-            //         if empty != 0 {
-            //             if gi == 0 { sg_has_empty = true; }
-            //             else { return false; }
-            //         }
-            //     }
-            // }
-            // if sg_has_empty { return false; }
-
-            // ── 3. Bucket full — advance ──────────────────────────
-            bucket = (bucket + 1) & bucket_mask;
-            remaining -= 1;
-            if remaining == 0 {
-                return false;
-            }
-        }
-    }
 }
 
 impl IndexTable for RadixTree {
-    /// Insert with linear bucket advance (matches contains_v2 probe sequence).
+    /// Scalar probe at preferred_offset with bulk hash-line prefetch for
+    /// the NEON fallback. The preferred_offset bit is masked out of the
+    /// NEON match scan to avoid duplicate work.
     #[inline]
     fn insert(&mut self, id: u64) -> bool {
         if self.len == self.layout.total_slots {
@@ -473,53 +221,163 @@ impl IndexTable for RadixTree {
 
         let h = mix64(id);
 
-        let start_bucket = (h >> (64 - self.layout.bucket_bits)) as usize & self.bucket_mask;
-        let preferred_slot = ((h >> self.slot_shift) & 0x3f) as usize;
-        let raw_fp = ((h >> self.fp_shift) & 0xff) as u8;
+        let start_bucket = (h >> self.bucket_shift) as usize & self.bucket_mask;
+        let group_slot = ((h >> self.group_slot_shift) & 0xFF) as u8;
+        let group = (group_slot >> 6) as usize;
+        let preferred_slot = (group_slot & 0x3F) as usize;
+        let raw_fp = ((h >> self.fp_shift) & 0xFF) as u8;
         let fp = raw_fp | ((raw_fp == 0) as u8);
 
+        let start_chunk = preferred_slot >> 4;
+        let preferred_offset = preferred_slot & 0xF;
+        let pref_bit = 1u16 << preferred_offset;
         let mut bucket = start_bucket;
+        let hash_ptr = self.hash_ptr;
 
         for _ in 0..self.layout.bucket_count {
-            let (empty_mask, match_mask) = self.scan_bucket_masks(bucket, fp);
+            let group_ptr = self.fingerprints[bucket].groups[group].0.as_ptr();
+            let hash_base = bucket * BUCKET_SLOTS + group * GROUP_SLOTS;
 
-            // Dedup: check all fp-matching slots in this bucket.
-            let mut probe = match_mask;
-            while probe != 0 {
-                let slot = probe.trailing_zeros() as usize;
-                if self.hashes[bucket * RADIX_BUCKET_SLOTS + slot] == id {
-                    return false;
+            unsafe {
+                for ci in 0..CHUNKS_PER_GROUP {
+                    let c = (start_chunk + ci) & (CHUNKS_PER_GROUP - 1);
+                    let chunk_offset = c * CHUNK_WIDTH;
+                    let pref_addr = chunk_offset + preferred_offset;
+
+                    // Prefetch both hash cache lines for this chunk (16 hashes = 128 bytes)
+                    prefetch_read(hash_ptr.add(hash_base + chunk_offset) as *const u8);
+                    prefetch_read(hash_ptr.add(hash_base + chunk_offset + 8) as *const u8);
+
+                    // Scalar check at preferred offset
+                    let pref_byte = *group_ptr.add(pref_addr);
+                    if pref_byte == fp {
+                        if self.hashes[hash_base + pref_addr] == id {
+                            return false;
+                        }
+                    } else if pref_byte == 0 {
+                        self.fingerprints[bucket].groups[group].0[pref_addr] = fp;
+                        self.hashes[hash_base + pref_addr] = id;
+                        self.len += 1;
+                        return true;
+                    }
+
+                    // NEON scan — preferred_offset excluded via pref_bit
+                    let zero = vdupq_n_u8(0);
+                    let target = vdupq_n_u8(fp);
+                    let vals = vld1q_u8(group_ptr.add(chunk_offset));
+                    let match_mask = pack_neon_16(vceqq_u8(vals, target)) & !pref_bit;
+                    let empty_mask = pack_neon_16(vceqq_u8(vals, zero));
+
+                    let mut m = match_mask;
+                    while m != 0 {
+                        let pos = m.trailing_zeros() as usize;
+                        if self.hashes[hash_base + chunk_offset + pos] == id {
+                            return false;
+                        }
+                        m &= m - 1;
+                    }
+
+                    // Place at first reachable empty (displacement order)
+                    if empty_mask != 0 {
+                        let shifted = empty_mask.rotate_right(
+                            ((preferred_offset + 1) & 0xF) as u32,
+                        );
+                        let dist = shifted.trailing_zeros() as usize;
+                        let pos = (preferred_offset + 1 + dist) & 0xF;
+                        let slot = chunk_offset + pos;
+                        self.fingerprints[bucket].groups[group].0[slot] = fp;
+                        self.hashes[hash_base + slot] = id;
+                        self.len += 1;
+                        return true;
+                    }
                 }
-                probe &= probe - 1;
             }
 
-            // Place at nearest empty slot after preferred_slot (wrapping).
-            if empty_mask != 0 {
-                let rot_empty = empty_mask.rotate_right(preferred_slot as u32);
-                let offset = rot_empty.trailing_zeros() as usize;
-                let slot = (preferred_slot + offset) & (RADIX_BUCKET_SLOTS - 1);
-                self.fingerprints[bucket].0[slot] = fp;
-                let idx = bucket * RADIX_BUCKET_SLOTS + slot;
-                self.hashes[idx] = id;
-                self.len += 1;
-                return true;
-            }
-
+            // Group full — same group, next bucket.
             bucket = (bucket + 1) & self.bucket_mask;
         }
 
         false
     }
 
-    /// Active contains — delegates to the current best version.
+    /// Scalar probe at preferred_offset with bulk hash-line prefetch for
+    /// the NEON fallback. The preferred_offset bit is masked out of the
+    /// NEON match scan to avoid duplicate work.
     #[inline]
     fn contains(&self, id: u64) -> bool {
-        self.contains_v3(id)
+        let h = mix64(id);
+
+        let mut bucket = (h >> self.bucket_shift) as usize & self.bucket_mask;
+        let group_slot = ((h >> self.group_slot_shift) & 0xFF) as u8;
+        let group = (group_slot >> 6) as usize;
+        let preferred_slot = (group_slot & 0x3F) as usize;
+        let raw_fp = ((h >> self.fp_shift) & 0xFF) as u8;
+        let fp = raw_fp | ((raw_fp == 0) as u8);
+
+        let fp_ptr = self.fp_ptr;
+        let hash_ptr = self.hash_ptr;
+        let group_offset = group * GROUP_SLOTS;
+        let start_chunk = preferred_slot >> 4;
+        let preferred_offset = preferred_slot & 0xF;
+        let pref_bit = 1u16 << preferred_offset;
+
+        unsafe {
+            let bucket_mask = self.bucket_mask;
+            let mut remaining = self.layout.bucket_count;
+
+            loop {
+                let group_base = bucket * BUCKET_SLOTS + group_offset;
+                let zero = vdupq_n_u8(0);
+                let target = vdupq_n_u8(fp);
+
+                for ci in 0..CHUNKS_PER_GROUP {
+                    let c = (start_chunk + ci) & (CHUNKS_PER_GROUP - 1);
+                    let chunk_base = group_base + c * CHUNK_WIDTH;
+
+                    // Prefetch both hash cache lines for this chunk (16 hashes = 128 bytes)
+                    prefetch_read(hash_ptr.add(chunk_base) as *const u8);
+                    prefetch_read(hash_ptr.add(chunk_base + 8) as *const u8);
+
+                    // Scalar check at preferred offset
+                    let pref_byte = *fp_ptr.add(chunk_base + preferred_offset);
+                    if pref_byte == fp {
+                        if *hash_ptr.add(chunk_base + preferred_offset) == id {
+                            return true;
+                        }
+                    } else if pref_byte == 0 {
+                        return false;
+                    }
+
+                    // NEON scan — preferred_offset excluded via pref_bit
+                    let vals = vld1q_u8(fp_ptr.add(chunk_base));
+                    let match_mask = pack_neon_16(vceqq_u8(vals, target)) & !pref_bit;
+                    let empty_mask = pack_neon_16(vceqq_u8(vals, zero));
+
+                    let mut m = match_mask;
+                    while m != 0 {
+                        let pos = m.trailing_zeros() as usize;
+                        if *hash_ptr.add(chunk_base + pos) == id {
+                            return true;
+                        }
+                        m &= m - 1;
+                    }
+
+                    if empty_mask != 0 {
+                        return false;
+                    }
+                }
+
+                bucket = (bucket + 1) & bucket_mask;
+                remaining -= 1;
+                if remaining == 0 {
+                    return false;
+                }
+            }
+        }
     }
 
     #[inline]
     fn get(&self, _id: u64) -> Option<u64> {
-        // Placeholder: full key-value retrieval deferred to later milestone.
         todo!("RadixTree::get not yet implemented")
     }
 
@@ -537,13 +395,13 @@ impl IndexTable for RadixTree {
 #[cfg(test)]
 mod tests {
     use super::{
-        RADIX_BUCKET_SLOTS, RADIX_FP_EMPTY, RADIX_MAX_PROBE_ROUNDS, RadixTree,
+        BUCKET_SLOTS, GROUP_SLOTS, RADIX_FP_EMPTY, RADIX_MAX_PROBE_ROUNDS, RadixTree,
         RadixTreeBuildError, RadixTreeConfig,
     };
     use crate::IndexTable;
 
     #[test]
-    fn rejects_capacity_bits_below_slot_bits() {
+    fn rejects_capacity_bits_below_minimum() {
         let t = RadixTree::new(RadixTreeConfig { capacity_bits: 5 });
         assert!(matches!(
             t,
@@ -555,9 +413,10 @@ mod tests {
     fn builds_layout_from_capacity_bits() {
         let t = RadixTree::new(RadixTreeConfig { capacity_bits: 18 }).expect("build");
         assert_eq!(t.layout.total_slots, 1 << 18);
-        assert_eq!(t.layout.bucket_bits, 12);
-        assert_eq!(t.layout.bucket_count, 1 << 12);
-        assert_eq!(t.layout.bucket_slots, RADIX_BUCKET_SLOTS);
+        assert_eq!(t.layout.bucket_bits, 10);
+        assert_eq!(t.layout.bucket_count, 1 << 10);
+        assert_eq!(t.layout.bucket_slots, BUCKET_SLOTS);
+        assert_eq!(t.layout.group_slots, GROUP_SLOTS);
     }
 
     #[test]
@@ -573,11 +432,15 @@ mod tests {
     #[test]
     fn fingerprints_start_empty() {
         let t = RadixTree::new(RadixTreeConfig { capacity_bits: 10 }).expect("build");
-        assert!(t.fingerprints.iter().all(|b| b.0.iter().all(|&fp| fp == RADIX_FP_EMPTY)));
+        assert!(t.fingerprints.iter().all(|b| {
+            b.groups
+                .iter()
+                .all(|g| g.0.iter().all(|&fp| fp == RADIX_FP_EMPTY))
+        }));
     }
 
     #[test]
-    fn can_fill_to_high_load_with_multi_round_probe() {
+    fn can_fill_to_high_load() {
         let capacity_bits = 16;
         let mut t = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
         let target = ((t.capacity() as f64) * 0.95) as usize;

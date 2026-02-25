@@ -1,0 +1,241 @@
+timestamp,impl,op,load_factor,metric,value,unit,tag
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.50,mean,5093.337104,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.50,median,5443.227778,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.50,std_dev,1125.917044,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,25130871.447134,ops/s,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.75,mean,12515.391457,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.75,median,13789.720500,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.75,std_dev,3102.492020,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,10227406.824679,ops/s,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.50,mean,7.601058,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.50,median,7.417202,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.50,std_dev,0.534899,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,131560635.914386,ops/s,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.75,mean,11.807052,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.75,median,11.746015,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.75,std_dev,0.929700,ns,radix take 1
+2026-02-22T10:40:15.127746+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,84695145.903681,ops/s,radix take 1
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.50,mean,14444.967661,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.50,median,15672.595198,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.50,std_dev,3026.173717,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,8861217.484151,ops/s,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.75,mean,14469.307890,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.75,median,15801.140766,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.75,std_dev,3304.888578,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,8846311.169235,ops/s,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.50,mean,12.044355,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.50,median,11.849122,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.50,std_dev,0.796952,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,83026446.240604,ops/s,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.75,mean,16.246067,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.75,median,16.115811,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.75,std_dev,1.061454,ns,Introducing SIMD
+2026-02-22T11:10:49.575216+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,61553359.848470,ops/s,Introducing SIMD
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.50,mean,14444.967661,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.50,median,15672.595198,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.50,std_dev,3026.173717,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,8861217.484151,ops/s,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.75,mean,14469.307890,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.75,median,15801.140766,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.75,std_dev,3304.888578,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,8846311.169235,ops/s,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.50,mean,12.044355,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.50,median,11.849122,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.50,std_dev,0.796952,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,83026446.240604,ops/s,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.75,mean,16.246067,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.75,median,16.115811,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.75,std_dev,1.061454,ns,Introducing SIMD 2
+2026-02-22T11:17:38.113651+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,61553359.848470,ops/s,Introducing SIMD 2
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.01,mean,9413.126221,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.01,median,9413.126221,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.01,std_dev,162.217132,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,13598032.895647,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.25,mean,10155.937012,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.25,median,10155.937012,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.25,std_dev,220.823095,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,12603465.327946,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.50,mean,7845.793945,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.50,median,7845.793945,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.50,std_dev,135.934373,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,16314473.830462,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.75,mean,8706.842773,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.75,median,8706.842773,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.75,std_dev,52.444674,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,14701080.900473,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.01,mean,2.600827,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.01,median,2.675463,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.01,std_dev,0.182310,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,384493138.058998,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.25,mean,3.801854,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.25,median,3.784903,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.25,std_dev,0.313718,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,263029598.164546,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.50,mean,7.211404,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.50,median,7.261569,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.50,std_dev,0.454902,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,138669253.290739,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,mean,11.993451,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,median,12.243226,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,std_dev,0.982815,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,83378838.758391,ops/s,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,1.686657,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.686657,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.032428,ns,slot aligned
+2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,592888607.049264,ops/s,slot aligned
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,mean,3128.753796,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,median,3439.404786,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,std_dev,885.525498,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,40910857.276236,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.25,mean,3813.572805,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.25,median,4144.271558,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.25,std_dev,870.024028,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,33564325.778525,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.50,mean,5702.355519,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.50,median,6051.851488,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.50,std_dev,1297.437425,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,22446864.209632,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.75,mean,9991.599204,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.75,median,11318.428001,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.75,std_dev,3714.489750,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,12810762.060307,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.01,mean,5.736085,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.01,median,5.767929,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.01,std_dev,0.373935,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,174334920.057031,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.25,mean,7.231786,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.25,median,7.344892,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.25,std_dev,0.430079,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,138278426.513779,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.50,mean,10.499559,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.50,median,10.784067,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.50,std_dev,0.749362,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,95242098.507733,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,mean,15.098076,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,median,15.235223,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,std_dev,1.484506,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,66233606.748366,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,3.798094,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,median,3.811805,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.296254,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,263289935.014413,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,mean,5.472053,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,median,5.596555,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,std_dev,0.355411,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,182746784.562817,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.25,mean,9.609763,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.25,median,9.200288,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.25,std_dev,2.519235,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,104060840.682076,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.50,mean,18.744137,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.50,median,19.073714,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.50,std_dev,1.347547,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,53350016.109159,ops/s,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.75,mean,26.607447,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.75,median,27.411298,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.75,std_dev,1.742764,ns,preferred linear SIMD/NEON
+2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,37583462.515388,ops/s,preferred linear SIMD/NEON
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.01,mean,2664.253258,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.01,median,2905.236553,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.01,std_dev,627.322008,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,48043480.716202,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.25,mean,3044.889296,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.25,median,3363.615751,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.25,std_dev,707.132482,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,42037653.110939,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.50,mean,4175.601634,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.50,median,4447.200124,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.50,std_dev,778.787476,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,30654265.233816,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.75,mean,4893.067610,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.75,median,5165.784485,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.75,std_dev,1023.611942,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,26159458.686364,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.01,mean,2.938128,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.01,median,3.001989,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.01,std_dev,0.224755,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,340352723.258561,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.25,mean,3.440781,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.25,median,3.436977,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.25,std_dev,0.225767,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,290631712.265124,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.50,mean,5.491230,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.50,median,5.445565,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.50,std_dev,0.554966,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,182108547.385888,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,mean,7.944562,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,median,7.963712,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,std_dev,0.606550,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,125872267.605150,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.973354,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,median,0.974261,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.057950,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1027375603.383991,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,mean,2.932593,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,median,2.995774,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,std_dev,0.206423,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,340995158.291935,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.25,mean,6.245290,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.25,median,6.337536,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.25,std_dev,0.410654,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,160120679.231784,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.50,mean,10.125417,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.50,median,10.303912,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.50,std_dev,0.684587,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,98761360.663368,ops/s,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.75,mean,12.481636,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.75,median,12.498560,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.75,std_dev,0.974055,ns,prefetching
+2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,80117703.465424,ops/s,prefetching
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.01,mean,2645.426317,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.01,median,2783.398673,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.01,std_dev,813.109175,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,48385396.031434,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.25,mean,3089.298000,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.25,median,3354.051689,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.25,std_dev,684.139104,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,41433361.230604,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.50,mean,4082.773941,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.50,median,4326.082996,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.50,std_dev,890.212542,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,31351233.707936,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.75,mean,4975.649737,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.75,median,5262.459120,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.75,std_dev,968.471274,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,25725283.482769,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.01,mean,2.871942,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.01,median,2.886466,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.01,std_dev,0.151120,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,348196480.347669,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.25,mean,3.663199,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.25,median,3.680415,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.25,std_dev,0.288564,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,272985446.845260,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.50,mean,5.248413,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.50,median,5.276836,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.50,std_dev,0.420486,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,190533779.163867,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,mean,7.883539,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,median,7.972288,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,std_dev,0.485164,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,126846585.673018,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.989432,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.016785,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.059107,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1010680529.570544,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,mean,2.800604,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,median,2.766815,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,std_dev,0.185688,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,357065867.217329,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.25,mean,6.011500,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.25,median,6.028370,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.25,std_dev,0.433374,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,166347826.214123,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.50,mean,9.846423,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.50,median,9.726846,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.50,std_dev,0.566193,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,101559727.906760,ops/s,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,mean,12.355719,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,median,12.316937,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,std_dev,0.844760,ns,minor tweak on zero/target instruction
+2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,80934178.166947,ops/s,minor tweak on zero/target instruction

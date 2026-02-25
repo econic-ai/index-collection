@@ -70,3 +70,77 @@ Mode: `--quick`
 | 25% | 3.1 µs | 7.1 µs | 2.3x slower |
 | 50% | 26.9 µs | 7.7 µs | 3.5x faster |
 | 75% | 28.8 µs | 8.2 µs | 3.5x faster |
+
+## Run 3 — 4×64 group-per-bucket structure (Bucket + FpGroup)
+
+Date: 2026-02-23
+Notes: Bucket = 4 × FpGroup (each 64 bytes, `#[repr(C, align(64))]`).
+Hash → bucket + group(2 bits) + slot(6 bits) + fp(8 bits). Group+slot extracted as single byte.
+Lookup/insert only touch the hash-directed group; overflow to same group in next bucket.
+bucket_bits = capacity_bits − 8; bucket_count = 1024 (was 4096).
+Mode: `--quick`
+
+### Lookup Hit
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 2 |
+|------|-----------|------------|-------|----------|
+| tiny | 720 ps | 1.67 ns | 2.3x slower | ~same |
+| 1% | 2.73 ns | 2.95 ns | 1.1x slower | −16% slower |
+| 25% | 2.81 ns | 4.29 ns | 1.5x slower | −11% slower |
+| 50% | 2.79 ns | 7.81 ns | 2.8x slower | −10% slower |
+| 75% | 3.25 ns | 12.52 ns | 3.9x slower | −8% slower |
+
+### Lookup Miss
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 2 |
+|------|-----------|------------|-------|----------|
+| 1% | 1.67 ns | 2.62 ns | 1.6x slower | −12% slower |
+| 25% | 2.06 ns | 7.18 ns | 3.5x slower | −7% slower |
+| 50% | 2.80 ns | 13.30 ns | 4.8x slower | −9% slower |
+| 75% | 8.62 ns | 20.46 ns | 2.4x slower | −9% slower |
+
+### Insert Marginal
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 2 |
+|------|-----------|------------|-------|----------|
+| 1% | 68.7 µs | 11.3 µs | 6.1x faster | −71% slower |
+| 25% | 66.7 µs | 7.54 µs | 8.8x faster | −6% slower |
+| 50% | 3.62 µs | 7.85 µs | 2.2x slower | ~same |
+| 75% | 69.1 µs | 7.61 µs | 9.1x faster | +7% faster |
+
+## Run 4 — progressive 16-byte NEON chunk walk with rotated preferred_offset
+
+Date: 2026-02-23
+Notes: Both `insert` and `contains` use identical progressive walk: rotate match/empty
+masks by `preferred_offset`, iterate set bits via `trailing_zeros`, checking preferred
+offset position first in *every* chunk. Chunks scanned cyclically from start_chunk.
+Insert is now progressive (early-exit on first empty) instead of full-group scan.
+Mode: `--quick`
+
+### Lookup Hit
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 3 |
+|------|-----------|------------|-------|----------|
+| tiny | 705 ps | 4.59 ns | 6.5x slower | −175% slower |
+| 1% | 2.85 ns | 8.48 ns | 3.0x slower | −187% slower |
+| 25% | 3.00 ns | 8.47 ns | 2.8x slower | −97% slower |
+| 50% | 2.82 ns | 7.58 ns | 2.7x slower | +3% faster |
+| 75% | 3.19 ns | 8.15 ns | 2.6x slower | +35% faster |
+
+### Lookup Miss
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 3 |
+|------|-----------|------------|-------|----------|
+| 1% | 1.71 ns | 6.07 ns | 3.6x slower | −132% slower |
+| 25% | 2.06 ns | 6.44 ns | 3.1x slower | +10% faster |
+| 50% | 2.97 ns | 7.30 ns | 2.5x slower | +45% faster |
+| 75% | 9.72 ns | 11.14 ns | 1.1x slower | +46% faster |
+
+### Insert Marginal
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 3 |
+|------|-----------|------------|-------|----------|
+| 1% | 66.5 µs | 8.22 µs | 8.1x faster | +27% faster |
+| 25% | 3.03 µs | 5.47 µs | 1.8x slower | +27% faster |
+| 50% | 3.31 µs | 5.03 µs | 1.5x slower | +36% faster |
+| 75% | 4.07 µs | 6.22 µs | 1.5x slower | +18% faster |
