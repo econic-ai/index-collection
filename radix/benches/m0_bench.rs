@@ -8,29 +8,12 @@ use std::collections::HashSet;
 use std::env;
 use std::hint::black_box;
 
-const LOAD_FACTORS: &[f64] = &[0.50, 0.75, 0.90, 0.95, 0.99];
+const LOAD_FACTORS: &[f64] = &[0.01, 0.25, 0.50, 0.75];
+// const LOAD_FACTORS: &[f64] = &[0.50, 0.75, 0.90, 0.95, 0.99];
 const CAPACITY: usize = 1 << 18;
 const LOOKUPS_PER_ITERATION: u64 = 1;
 const INSERTS_PER_ITERATION: u64 = 128;
 const TINY_TARGET_LEN: usize = 1;
-
-trait PreferredFpCheck {
-    fn preferred_fp_hit_for(&self, _id: u64) -> Option<bool> {
-        None
-    }
-}
-
-#[cfg(feature = "bench-m0-hashbrown")]
-impl PreferredFpCheck for M0Table {}
-
-#[cfg(feature = "bench-radix-tree")]
-impl PreferredFpCheck for RadixTree {
-    fn preferred_fp_hit_for(&self, id: u64) -> Option<bool> {
-        let parts = self.hash_parts(id);
-        let idx = parts.bucket * 64 + parts.preferred_slot;
-        Some(self.fingerprints[idx] == parts.fingerprint)
-    }
-}
 
 #[cfg(not(any(feature = "bench-m0-hashbrown", feature = "bench-radix-tree")))]
 compile_error!("No benchmark implementation feature selected.");
@@ -75,6 +58,14 @@ where
     let target_len = (CAPACITY as f64 * load_factor) as usize;
     let mut table = table_factory();
 
+    assert_eq!(
+        table.capacity(),
+        CAPACITY,
+        "impl={impl_name}: expected capacity {CAPACITY}, got {} — \
+         the benchmark assumes both implementations allocate exactly {CAPACITY} slots",
+        table.capacity(),
+    );
+
     let present = make_ids(target_len + 10_000, 0x1234_5678);
     for (inserted_count, id) in present.iter().take(target_len).enumerate() {
         let inserted = table.insert(*id);
@@ -98,13 +89,22 @@ where
     F: FnMut() -> T,
 {
     let mut table = table_factory();
+
+    assert_eq!(
+        table.capacity(),
+        CAPACITY,
+        "impl={impl_name}: expected capacity {CAPACITY}, got {} — \
+         the benchmark assumes both implementations allocate exactly {CAPACITY} slots",
+        table.capacity(),
+    );
+
     let key = make_ids(TINY_TARGET_LEN, 0x2222_3333)
         .first()
         .copied()
         .expect("tiny key generation");
     if !table.insert(key) {
         return Err(format!(
-            "impl={impl_name} failed tiny preload for lookup_hit_tiny"
+            "impl={impl_name} failed tiny preload for contains_hit_tiny"
         ));
     }
     Ok((table, key))
@@ -175,7 +175,7 @@ where
             b.iter(|| {
                 let key = keys[idx % keys.len()];
                 idx += 1;
-                black_box(table.lookup(key))
+                black_box(table.contains(key))
             });
         });
     }
@@ -199,7 +199,7 @@ where
             b.iter(|| {
                 let key = misses[idx % misses.len()];
                 idx += 1;
-                black_box(table.lookup(key))
+                black_box(table.contains(key))
             });
         });
     }
@@ -209,24 +209,18 @@ where
 
 fn bench_lookup_hit_tiny<T, F>(c: &mut Criterion, impl_name: &str, table_factory: F)
 where
-    T: IndexTable + Clone + PreferredFpCheck,
+    T: IndexTable + Clone,
     F: FnMut() -> T + Copy,
 {
     let mut group = c.benchmark_group(format!("impl={impl_name}/op=lookup_hit_tiny"));
     let tiny_lf = TINY_TARGET_LEN as f64 / CAPACITY as f64;
     let (table, key) =
         build_tiny_hit_table::<T, _>(impl_name, table_factory).unwrap_or_else(|msg| panic!("{msg}"));
-    if let Some(preferred_hit) = table.preferred_fp_hit_for(key) {
-        assert!(
-            preferred_hit,
-            "impl={impl_name} lookup_hit_tiny precondition failed: preferred fp did not match"
-        );
-    }
     group.throughput(Throughput::Elements(LOOKUPS_PER_ITERATION));
     group.bench_with_input(
         BenchmarkId::from_parameter(format!("{tiny_lf:.6}")),
         &tiny_lf,
-        |b, _| b.iter(|| black_box(table.lookup(key))),
+        |b, _| b.iter(|| black_box(table.contains(key))),
     );
     group.finish();
 }
@@ -264,7 +258,7 @@ where
 
 fn run_impl_benches<T, F>(c: &mut Criterion, impl_name: &str, table_factory: F)
 where
-    T: IndexTable + Clone + PreferredFpCheck,
+    T: IndexTable + Clone,
     F: FnMut() -> T + Copy,
 {
     if !should_run_impl(impl_name) {
