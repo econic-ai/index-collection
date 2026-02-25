@@ -1,0 +1,131 @@
+~/code/econic/index-collection/radix (main ✗) make bench IMPL=all OPS=lookup_hit_tiny
+echo CARGO_TARGET_DIR=target OPS=lookup_hit_tiny
+CARGO_TARGET_DIR=target OPS=lookup_hit_tiny
+CARGO_TARGET_DIR=target OPS=lookup_hit_tiny cargo bench --bench m0_bench --no-default-features --features bench-m0-hashbrown,bench-radix-tree -- 
+   Compiling radix v0.1.0 (/Users/jordan/code/econic/index-collection/radix)
+    Finished `bench` profile [optimized] target(s) in 6.74s
+     Running benches/m0_bench.rs (target/release/deps/m0_bench-5362b2ad676b8ea6)
+Gnuplot not found, using plotters backend
+impl=m0_hashbrown/op=lookup_hit_tiny/0.000004
+                        time:   [691.98 ps 696.45 ps 701.55 ps]
+                        thrpt:  [1.4254 Gelem/s 1.4359 Gelem/s 1.4451 Gelem/s]
+                 change:
+                        time:   [−2.6577% −1.9200% −1.2078%] (p = 0.00 < 0.05)
+                        thrpt:  [+1.2225% +1.9576% +2.7303%]
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  8 (8.00%) high mild
+
+impl=radix_tree/op=lookup_hit_tiny/0.000004
+                        time:   [427.18 ps 430.71 ps 434.72 ps]
+                        thrpt:  [2.3004 Gelem/s 2.3218 Gelem/s 2.3410 Gelem/s]
+                 change:
+                        time:   [−2.3787% −1.5450% −0.5753%] (p = 0.00 < 0.05)
+                        thrpt:  [+0.5786% +1.5692% +2.4367%]
+                        Change within noise threshold.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
+
+~/code/econic/index-collection/radix (main ✗) make bench IMPL=all  OPS=lookup_hit,lookup_miss LFS=0.5,0.9,0.99
+echo CARGO_TARGET_DIR=target OPS=lookup_hit,lookup_miss LFS=0.5,0.9,0.99
+CARGO_TARGET_DIR=target OPS=lookup_hit,lookup_miss LFS=0.5,0.9,0.99
+CARGO_TARGET_DIR=target OPS=lookup_hit,lookup_miss LFS=0.5,0.9,0.99 cargo bench --bench m0_bench --no-default-features --features bench-m0-hashbrown,bench-radix-tree -- 
+    Finished `bench` profile [optimized] target(s) in 0.02s
+     Running benches/m0_bench.rs (target/release/deps/m0_bench-5362b2ad676b8ea6)
+Gnuplot not found, using plotters backend
+impl=m0_hashbrown/op=lookup_hit/0.50
+                        time:   [2.9524 ns 2.9823 ns 3.0135 ns]
+                        thrpt:  [331.84 Melem/s 335.31 Melem/s 338.70 Melem/s]
+                 change:
+                        time:   [−8.0223% −6.7301% −5.4488%] (p = 0.00 < 0.05)
+                        thrpt:  [+5.7628% +7.2158% +8.7220%]
+                        Performance has improved.
+Found 12 outliers among 100 measurements (12.00%)
+  1 (1.00%) low mild
+  9 (9.00%) high mild
+  2 (2.00%) high severe
+impl=m0_hashbrown/op=lookup_hit/0.90
+                        time:   [3.0574 ns 3.1002 ns 3.1525 ns]
+                        thrpt:  [317.21 Melem/s 322.56 Melem/s 327.08 Melem/s]
+                 change:
+                        time:   [−6.8857% −4.4736% −2.5294%] (p = 0.00 < 0.05)
+                        thrpt:  [+2.5951% +4.6831% +7.3949%]
+                        Performance has improved.
+Found 10 outliers among 100 measurements (10.00%)
+  9 (9.00%) high mild
+  1 (1.00%) high severe
+impl=m0_hashbrown/op=lookup_hit/0.99
+                        time:   [3.0960 ns 3.1298 ns 3.1676 ns]
+                        thrpt:  [315.70 Melem/s 319.51 Melem/s 323.00 Melem/s]
+                 change:
+                        time:   [−6.5089% −5.3176% −4.0710%] (p = 0.00 < 0.05)
+                        thrpt:  [+4.2438% +5.6162% +6.9620%]
+                        Performance has improved.
+Found 15 outliers among 100 measurements (15.00%)
+  1 (1.00%) low mild
+  4 (4.00%) high mild
+  10 (10.00%) high severe
+
+impl=m0_hashbrown/op=lookup_miss/0.50
+                        time:   [1.9823 ns 2.0007 ns 2.0214 ns]
+                        thrpt:  [494.70 Melem/s 499.82 Melem/s 504.46 Melem/s]
+                 change:
+                        time:   [−3.1705% −1.9676% −0.6263%] (p = 0.00 < 0.05)
+                        thrpt:  [+0.6302% +2.0071% +3.2743%]
+                        Change within noise threshold.
+Found 2 outliers among 100 measurements (2.00%)
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+impl=m0_hashbrown/op=lookup_miss/0.90
+                        time:   [2.4674 ns 2.4958 ns 2.5274 ns]
+                        thrpt:  [395.67 Melem/s 400.67 Melem/s 405.29 Melem/s]
+                 change:
+                        time:   [−6.0575% −4.9309% −3.8421%] (p = 0.00 < 0.05)
+                        thrpt:  [+3.9956% +5.1866% +6.4481%]
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+impl=m0_hashbrown/op=lookup_miss/0.99
+                        time:   [2.6843 ns 2.7098 ns 2.7396 ns]
+                        thrpt:  [365.02 Melem/s 369.03 Melem/s 372.53 Melem/s]
+                 change:
+                        time:   [−5.3691% −4.0736% −2.7354%] (p = 0.00 < 0.05)
+                        thrpt:  [+2.8124% +4.2466% +5.6737%]
+                        Performance has improved.
+Found 12 outliers among 100 measurements (12.00%)
+  11 (11.00%) high mild
+  1 (1.00%) high severe
+
+impl=radix_tree/op=lookup_hit/0.50
+                        time:   [5.2708 ns 5.3638 ns 5.4628 ns]
+                        thrpt:  [183.06 Melem/s 186.44 Melem/s 189.72 Melem/s]
+                 change:
+                        time:   [−19.789% −18.098% −16.268%] (p = 0.00 < 0.05)
+                        thrpt:  [+19.428% +22.098% +24.671%]
+                        Performance has improved.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+impl=radix_tree/op=lookup_hit/0.90
+                        time:   [8.5500 ns 8.6802 ns 8.8243 ns]
+                        thrpt:  [113.32 Melem/s 115.20 Melem/s 116.96 Melem/s]
+                 change:
+                        time:   [−32.485% −30.896% −29.125%] (p = 0.00 < 0.05)
+                        thrpt:  [+41.092% +44.709% +48.116%]
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+impl=radix_tree/op=lookup_hit/0.99
+                        time:   [15.007 ns 15.178 ns 15.352 ns]
+                        thrpt:  [65.139 Melem/s 65.886 Melem/s 66.637 Melem/s]
+                 change:
+                        time:   [−16.754% −13.727% −10.670%] (p = 0.00 < 0.05)
+                        thrpt:  [+11.944% +15.911% +20.125%]
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  3 (3.00%) low severe
+  1 (1.00%) low mild
+  2 (2.00%) high severe
+
+Benchmarking impl=radix_tree/op=lookup_miss/0.50: Warming up for 3.0000 s^Cmake: *** [bench] Interrupt: 2
