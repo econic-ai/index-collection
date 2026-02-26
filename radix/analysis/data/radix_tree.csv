@@ -239,3 +239,155 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,median,12.316937,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,std_dev,0.844760,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,80934178.166947,ops/s,minor tweak on zero/target instruction
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.01,mean,2558.621994,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.01,median,2790.056524,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.01,std_dev,615.638170,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,50026928.666769,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.25,mean,2909.721168,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.25,median,3200.850356,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.25,std_dev,682.093596,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,43990469.399874,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.50,mean,3982.947669,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.50,median,4240.476996,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.50,std_dev,746.351747,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,32137002.697847,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.75,mean,4757.161286,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.75,median,5042.297717,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.75,std_dev,980.201035,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,26906802.671344,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.01,mean,4.653577,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.01,median,4.698262,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.01,std_dev,0.205380,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,214888481.098803,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.25,mean,5.284495,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.25,median,5.265864,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.25,std_dev,0.539133,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,189232842.407568,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.50,mean,5.370163,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.50,median,5.527498,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.50,std_dev,0.332732,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,186214085.262822,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,mean,5.611296,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,median,5.628660,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,std_dev,0.365705,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,178211960.580869,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,3.207463,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,median,3.251292,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.191601,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,311772883.229144,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,mean,3.172185,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,median,3.168811,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,std_dev,0.216929,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,315240107.663426,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.25,mean,6.176396,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.25,median,6.101378,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.25,std_dev,0.538707,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,161906720.201936,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.50,mean,10.291469,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.50,median,10.275148,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.50,std_dev,0.768777,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,97167858.107335,ops/s,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.75,mean,13.293824,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.75,median,13.515865,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.75,std_dev,0.890275,ns,NEON only + empty check
+2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,75222903.152048,ops/s,NEON only + empty check
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.01,mean,2644.314503,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.01,median,2887.774342,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.01,std_dev,657.862952,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,48405739.880916,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.25,mean,3252.006552,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.25,median,3380.474551,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.25,std_dev,618.267159,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,39360314.302768,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.50,mean,3579.232585,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.50,median,3847.404861,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.50,std_dev,929.803716,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,35761855.915027,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.75,mean,4954.891782,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.75,median,5154.267274,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.75,std_dev,1061.725443,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,25833056.631372,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.01,mean,2.833729,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.01,median,2.813900,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.01,std_dev,0.156254,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,352891852.899215,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.25,mean,3.503039,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.25,median,3.472829,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.25,std_dev,0.195812,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,285466449.140668,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.50,mean,5.488886,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.50,median,5.448977,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.50,std_dev,0.376403,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,182186315.214915,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,mean,7.772072,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,median,7.692860,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,std_dev,0.633619,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,128665810.270196,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.986142,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.001941,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.054682,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1014052933.742091,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,mean,2.912725,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,median,2.959244,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,std_dev,0.198223,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,343321077.394162,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.25,mean,6.119896,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.25,median,6.133176,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.25,std_dev,0.389602,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,163401481.064164,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.50,mean,9.765875,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.50,median,9.557352,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.50,std_dev,0.731954,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,102397376.057746,ops/s,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.75,mean,12.727403,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.75,median,12.777785,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.75,std_dev,0.953170,ns,Reverted to preferred+NEON
+2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,78570624.146578,ops/s,Reverted to preferred+NEON
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.01,mean,95718.362793,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.01,median,95718.362793,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.01,std_dev,1148.042411,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.01,throughput_ops_per_sec,27382415.698741,ops/s,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.25,mean,350800.128906,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.25,median,350800.128906,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.25,std_dev,2618.963314,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.25,throughput_ops_per_sec,186818631.464968,ops/s,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.50,mean,587232.421875,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.50,median,587232.421875,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.50,std_dev,2550.379480,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.50,throughput_ops_per_sec,223202934.847321,ops/s,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.75,mean,360993.447266,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.75,median,360993.447266,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.75,std_dev,12726.715008,ns,iter using hashes
+2026-02-26T07:16:39.746455+00:00,radix_tree,iter,0.75,throughput_ops_per_sec,544630384.538068,ops/s,iter using hashes
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.01,mean,101728.921875,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.01,median,101728.921875,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.01,std_dev,3371.993366,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.01,throughput_ops_per_sec,25764551.041056,ops/s,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.25,mean,377727.541016,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.25,median,377727.541016,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.25,std_dev,11006.650141,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.25,throughput_ops_per_sec,173500719.126247,ops/s,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.50,mean,579258.468750,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.50,median,579258.468750,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.50,std_dev,12717.801596,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.50,throughput_ops_per_sec,226275500.611747,ops/s,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.75,mean,337694.582031,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.75,median,337694.582031,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.75,std_dev,13087.115733,ns,iter using fps
+2026-02-26T07:17:31.419943+00:00,radix_tree,iter,0.75,throughput_ops_per_sec,582206557.231072,ops/s,iter using fps
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.01,mean,13841.105225,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.01,median,13841.105225,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.01,std_dev,8.919282,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.01,throughput_ops_per_sec,189363490.665462,ops/s,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.25,mean,48296.773438,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.25,median,48296.773438,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.25,std_dev,1612.311184,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.25,throughput_ops_per_sec,1356943649.347693,ops/s,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.50,mean,119301.392578,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.50,median,119301.392578,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.50,std_dev,2862.321294,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.50,throughput_ops_per_sec,1098662783.120214,ops/s,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,mean,200643.575195,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,median,200643.575195,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,std_dev,3057.771409,ns,iter using neon
+2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,throughput_ops_per_sec,979886845.659602,ops/s,iter using neon

@@ -144,3 +144,39 @@ Mode: `--quick`
 | 25% | 3.03 µs | 5.47 µs | 1.8x slower | +27% faster |
 | 50% | 3.31 µs | 5.03 µs | 1.5x slower | +36% faster |
 | 75% | 4.07 µs | 6.22 µs | 1.5x slower | +18% faster |
+
+## Run 5 — single scalar preferred-offset probe + bulk hash-line prefetch
+
+Date: 2026-02-25
+Notes: Scalar byte check at `preferred_offset` first; two explicit `prfm` prefetches
+for the hash cache lines covering the 16-byte chunk; `preferred_offset` masked out of
+the NEON scan via `pref_bit` to avoid duplicate work. Insert uses same pattern.
+Mode: `--quick`
+
+### Lookup Hit
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 4 |
+|------|-----------|------------|-------|----------|
+| tiny | 764 ps | 909 ps | 1.2x slower | +80% faster |
+| 1% | 2.66 ns | 2.85 ns | 1.1x slower | +66% faster |
+| 25% | 2.85 ns | 3.58 ns | 1.3x slower | +58% faster |
+| 50% | 3.12 ns | 5.70 ns | 1.8x slower | +25% faster |
+| 75% | 3.48 ns | 8.32 ns | 2.4x slower | −2% slower |
+
+### Lookup Miss
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 4 |
+|------|-----------|------------|-------|----------|
+| 1% | 1.71 ns | 2.75 ns | 1.6x slower | +55% faster |
+| 25% | 1.90 ns | 6.22 ns | 3.3x slower | +3% faster |
+| 50% | 2.65 ns | 10.11 ns | 3.8x slower | −38% slower |
+| 75% | 9.79 ns | 12.94 ns | 1.3x slower | −16% slower |
+
+### Insert Marginal
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 4 |
+|------|-----------|------------|-------|----------|
+| 1% | 30.6 µs | 26.6 µs | 1.2x faster | noisy |
+| 25% | 3.17 µs | 3.85 µs | 1.2x slower | +30% faster |
+| 50% | 3.45 µs | 4.70 µs | 1.4x slower | +7% faster |
+| 75% | 4.00 µs | 5.86 µs | 1.5x slower | +6% faster |

@@ -12,6 +12,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--impl", required=True, help="Implementation key (e.g. m0_hashbrown)")
     parser.add_argument("--tag", default="", help="Optional run tag appended to each row")
+    parser.add_argument("--op", default="", help="Filter to a specific op (e.g. iter_neon). Empty = all ops.")
     parser.add_argument(
         "--criterion-dir",
         default="target/criterion",
@@ -138,6 +139,8 @@ def main() -> int:
         return 1
 
     rows = collect_rows(criterion_dir, args.impl, args.tag)
+    if args.op:
+        rows = [r for r in rows if r["op"] == args.op]
     if not rows:
         print(f"No matching Criterion summaries found for impl={args.impl}")
         return 1
