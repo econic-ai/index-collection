@@ -8,6 +8,8 @@ pub const BUCKET_SLOTS: usize = GROUPS_PER_BUCKET * GROUP_SLOTS;
 pub const RADIX_FP_EMPTY: u8 = 0x00;
 pub const RADIX_MAX_PROBE_ROUNDS: u8 = 64;
 
+pub mod analysis;
+
 use crate::{IndexTable, mix64};
 use core::arch::aarch64::*;
 
@@ -209,7 +211,67 @@ impl RadixTree {
 
 }
 
+// ── Iteration ──────────────────────────────────────────────────────
+
+/// NEON-accelerated iterator over stored keys.
+/// Loads 16 fingerprint bytes at a time, compares against zero to build
+/// an occupied bitmask, then iterates set bits to yield hashes.
+pub struct Iter<'a> {
+    fp_ptr: *const u8,
+    hash_ptr: *const u64,
+    /// Absolute slot position of the current 16-byte chunk start.
+    chunk_base: usize,
+    /// Remaining occupied-bits mask for the current 16-byte chunk.
+    mask: u16,
+    total: usize,
+    _marker: std::marker::PhantomData<&'a ()>,
+}
+
+impl<'a> Iter<'a> {
+    /// Advance to the next 16-byte chunk that has at least one occupied slot.
+    #[inline]
+    fn advance_chunk(&mut self) -> bool {
+        while self.chunk_base < self.total {
+            let occupied = unsafe {
+                let ptr = self.fp_ptr.add(self.chunk_base);
+                let chunk = vld1q_u8(ptr);
+                let zero = vdupq_n_u8(0);
+                let eq = vceqq_u8(chunk, zero);
+                let empty_mask = pack_neon_16(eq);
+                !empty_mask & 0xFFFF
+            };
+            if occupied != 0 {
+                self.mask = occupied;
+                return true;
+            }
+            self.chunk_base += 16;
+        }
+        false
+    }
+}
+
+impl<'a> Iterator for Iter<'a> {
+    type Item = u64;
+    #[inline]
+    fn next(&mut self) -> Option<u64> {
+        loop {
+            if self.mask != 0 {
+                let bit = self.mask.trailing_zeros() as usize;
+                self.mask &= self.mask - 1;
+                let slot = self.chunk_base + bit;
+                return Some(unsafe { *self.hash_ptr.add(slot) });
+            }
+            self.chunk_base += 16;
+            if !self.advance_chunk() {
+                return None;
+            }
+        }
+    }
+}
+
 impl IndexTable for RadixTree {
+    type KeyIter<'a> = Iter<'a>;
+
     /// Scalar probe at preferred_offset with bulk hash-line prefetch for
     /// the NEON fallback. The preferred_offset bit is masked out of the
     /// NEON match scan to avoid duplicate work.
@@ -376,6 +438,10 @@ impl IndexTable for RadixTree {
         }
     }
 
+    fn contains_probable(&self, _id: u64) -> bool {
+        todo!("RadixTree::contains_probable — fingerprint-only check without hash confirmation")
+    }
+
     #[inline]
     fn get(&self, _id: u64) -> Option<u64> {
         todo!("RadixTree::get not yet implemented")
@@ -389,6 +455,19 @@ impl IndexTable for RadixTree {
     #[inline]
     fn capacity(&self) -> usize {
         self.layout.total_slots
+    }
+
+    fn iter(&self) -> Self::KeyIter<'_> {
+        let mut it = Iter {
+            fp_ptr: self.fp_ptr,
+            hash_ptr: self.hash_ptr,
+            chunk_base: 0,
+            mask: 0,
+            total: self.layout.total_slots,
+            _marker: std::marker::PhantomData,
+        };
+        it.advance_chunk();
+        it
     }
 }
 
@@ -484,5 +563,25 @@ mod tests {
             let absent = i.wrapping_mul(0xdead_beef_cafe_babe).wrapping_add(0xffff);
             assert!(!t.contains(absent), "false positive for absent key {}", absent);
         }
+    }
+
+    #[test]
+    fn iter_yields_all_inserted_keys() {
+        let mut t = RadixTree::new(RadixTreeConfig { capacity_bits: 14 }).expect("build");
+        let n = (t.layout.total_slots as f64 * 0.50) as usize;
+        let mut expected: Vec<u64> = Vec::with_capacity(n);
+        for i in 0..n {
+            let key = crate::mix64(i as u64 + 1);
+            t.insert(key);
+            expected.push(key);
+        }
+        assert_eq!(t.len(), n);
+
+        let mut got: Vec<u64> = t.iter().collect();
+        assert_eq!(got.len(), n);
+
+        expected.sort();
+        got.sort();
+        assert_eq!(got, expected);
     }
 }
