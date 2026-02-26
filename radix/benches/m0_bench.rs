@@ -256,6 +256,35 @@ where
     group.finish();
 }
 
+fn bench_iter<T, F>(c: &mut Criterion, impl_name: &str, load_factors: &[f64], table_factory: F)
+where
+    T: IndexTable + Clone,
+    F: FnMut() -> T + Copy,
+{
+    let mut group = c.benchmark_group(format!("impl={impl_name}/op=iter"));
+    for &lf in load_factors {
+        let (table, _) =
+            build_filled_table::<T, _>(lf, impl_name, table_factory).unwrap_or_else(|msg| panic!("{msg}"));
+        let expected_len = table.len() as u64;
+
+        group.throughput(Throughput::Elements(expected_len));
+        group.bench_with_input(BenchmarkId::from_parameter(format!("{lf:.2}")), &lf, |b, _| {
+            b.iter(|| {
+                let mut count: u64 = 0;
+                let iter = table.iter();
+                for key in iter {
+                    black_box(key);
+                    count += 1;
+                }
+                debug_assert_eq!(count, expected_len);
+                count
+            });
+        });
+    }
+
+    group.finish();
+}
+
 fn run_impl_benches<T, F>(c: &mut Criterion, impl_name: &str, table_factory: F)
 where
     T: IndexTable + Clone,
@@ -281,6 +310,9 @@ where
     }
     if should_run_op("insert_marginal") {
         bench_insert::<T, _>(c, impl_name, &load_factors, table_factory);
+    }
+    if should_run_op("iter") {
+        bench_iter::<T, _>(c, impl_name, &load_factors, table_factory);
     }
 }
 
