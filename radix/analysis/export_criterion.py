@@ -10,9 +10,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Export Criterion summaries to analysis/data/<impl>.csv"
     )
-    parser.add_argument("--impl", required=True, help="Implementation key (e.g. m0_hashbrown)")
+    parser.add_argument("--impl", required=True, dest="impl_name", help="Implementation key (e.g. hashbrown, radix_tree)")
+    parser.add_argument("--csv-name", default="", help="Output CSV stem (e.g. m1_radix_tree_gpu). Defaults to --impl value.")
     parser.add_argument("--tag", default="", help="Optional run tag appended to each row")
-    parser.add_argument("--op", default="", help="Filter to a specific op (e.g. iter_neon). Empty = all ops.")
+    parser.add_argument("--op", default="", help="Filter to a specific op (e.g. iter). Empty = all ops.")
     parser.add_argument(
         "--criterion-dir",
         default="target/criterion",
@@ -31,8 +32,8 @@ def parse_op_and_lf_from_benchmark(benchmark_path: Path, impl: str) -> tuple[str
         return None
     data = json.loads(benchmark_path.read_text())
     group_id = data.get("group_id")
-    load_factor = data.get("value_str")
-    if not isinstance(group_id, str) or not isinstance(load_factor, str):
+    value_str = data.get("value_str")
+    if not isinstance(group_id, str) or not isinstance(value_str, str):
         return None
 
     prefix = f"impl={impl}/op="
@@ -40,11 +41,10 @@ def parse_op_and_lf_from_benchmark(benchmark_path: Path, impl: str) -> tuple[str
         return None
 
     op = group_id.removeprefix(prefix)
-    try:
-        float(load_factor)
-    except ValueError:
-        return None
-    return op, load_factor
+
+    # value_str may be a plain float ("0.50") or a composite ("size=256K/lf=0.10").
+    # Use the raw string as the load_factor column in either case.
+    return op, value_str
 
 
 def load_point_estimates(estimates_path: Path) -> dict[str, float]:
@@ -138,14 +138,17 @@ def main() -> int:
         print(f"Criterion directory not found: {criterion_dir}")
         return 1
 
-    rows = collect_rows(criterion_dir, args.impl, args.tag)
+    impl_name = args.impl_name
+    csv_name = args.csv_name if args.csv_name else impl_name
+
+    rows = collect_rows(criterion_dir, impl_name, args.tag)
     if args.op:
         rows = [r for r in rows if r["op"] == args.op]
     if not rows:
-        print(f"No matching Criterion summaries found for impl={args.impl}")
+        print(f"No matching Criterion summaries found for impl={impl_name}")
         return 1
 
-    out_csv = Path(args.out_dir) / f"{args.impl}.csv"
+    out_csv = Path(args.out_dir) / f"{csv_name}.csv"
     append_rows(out_csv, rows)
     print(f"Appended {len(rows)} rows to {out_csv}")
     return 0
