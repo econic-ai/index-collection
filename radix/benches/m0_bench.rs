@@ -1,6 +1,6 @@
 use criterion::{BenchmarkId, Criterion, Throughput, criterion_group, criterion_main};
 use radix::IndexTable;
-#[cfg(feature = "bench-m0-hashbrown")]
+#[cfg(feature = "bench-hashbrown")]
 use radix::{M0Table, RadixConfig};
 #[cfg(feature = "bench-radix-tree")]
 use radix::radix_tree::{RadixTree, RadixTreeConfig};
@@ -15,7 +15,7 @@ const LOOKUPS_PER_ITERATION: u64 = 1;
 const INSERTS_PER_ITERATION: u64 = 128;
 const TINY_TARGET_LEN: usize = 1;
 
-#[cfg(not(any(feature = "bench-m0-hashbrown", feature = "bench-radix-tree")))]
+#[cfg(not(any(feature = "bench-hashbrown", feature = "bench-radix-tree")))]
 compile_error!("No benchmark implementation feature selected.");
 
 fn make_ids(n: usize, seed: u64) -> Vec<u64> {
@@ -35,7 +35,7 @@ fn capacity_bits_from_slots(total_slots: usize) -> u8 {
     total_slots.trailing_zeros() as u8
 }
 
-#[cfg(feature = "bench-m0-hashbrown")]
+#[cfg(feature = "bench-hashbrown")]
 fn new_m0_table() -> M0Table {
     M0Table::new(RadixConfig {
         prefix_bits: 10,
@@ -317,8 +317,8 @@ where
 }
 
 fn benches(c: &mut Criterion) {
-    #[cfg(feature = "bench-m0-hashbrown")]
-    run_impl_benches::<M0Table, _>(c, "m0_hashbrown", new_m0_table);
+    #[cfg(feature = "bench-hashbrown")]
+    run_impl_benches::<M0Table, _>(c, "hashbrown", new_m0_table);
     #[cfg(feature = "bench-radix-tree")]
     run_impl_benches::<RadixTree, _>(c, "radix_tree", new_radix_tree_table);
 }
