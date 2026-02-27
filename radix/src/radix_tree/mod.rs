@@ -144,6 +144,38 @@ const CHUNK_WIDTH: usize = 16;
 /// Number of 16-byte chunks per group.
 const CHUNKS_PER_GROUP: usize = GROUP_SLOTS / CHUNK_WIDTH;
 
+#[cfg(feature = "gpu32")]
+type IterMask = u32;
+#[cfg(not(feature = "gpu32"))]
+type IterMask = u16;
+
+#[cfg(feature = "gpu32")]
+const ITER_CHUNK_WIDTH: usize = 32;
+#[cfg(not(feature = "gpu32"))]
+const ITER_CHUNK_WIDTH: usize = 16;
+
+#[inline]
+unsafe fn iter_occupied_mask(ptr: *const u8) -> IterMask {
+    unsafe {
+        let zero = vdupq_n_u8(0);
+        #[cfg(feature = "gpu32")]
+        {
+            let lo = vld1q_u8(ptr);
+            let hi = vld1q_u8(ptr.add(16));
+            let lo_empty = pack_neon_16(vceqq_u8(lo, zero)) as u32;
+            let hi_empty = pack_neon_16(vceqq_u8(hi, zero)) as u32;
+            let empty = lo_empty | (hi_empty << 16);
+            !empty
+        }
+        #[cfg(not(feature = "gpu32"))]
+        {
+            let chunk = vld1q_u8(ptr);
+            let empty = pack_neon_16(vceqq_u8(chunk, zero));
+            !empty
+        }
+    }
+}
+
 impl RadixTree {
     pub fn new(config: RadixTreeConfig) -> Result<Self, RadixTreeBuildError> {
         let min_bits = GROUP_BITS + SLOT_BITS;
@@ -221,30 +253,23 @@ pub struct Iter<'a> {
     hash_ptr: *const u64,
     /// Absolute slot position of the current 16-byte chunk start.
     chunk_base: usize,
-    /// Remaining occupied-bits mask for the current 16-byte chunk.
-    mask: u16,
+    /// Remaining occupied-bits mask for the current iterator chunk.
+    mask: IterMask,
     total: usize,
     _marker: std::marker::PhantomData<&'a ()>,
 }
 
 impl<'a> Iter<'a> {
-    /// Advance to the next 16-byte chunk that has at least one occupied slot.
+    /// Advance to the next iterator chunk that has at least one occupied slot.
     #[inline]
     fn advance_chunk(&mut self) -> bool {
         while self.chunk_base < self.total {
-            let occupied = unsafe {
-                let ptr = self.fp_ptr.add(self.chunk_base);
-                let chunk = vld1q_u8(ptr);
-                let zero = vdupq_n_u8(0);
-                let eq = vceqq_u8(chunk, zero);
-                let empty_mask = pack_neon_16(eq);
-                !empty_mask & 0xFFFF
-            };
+            let occupied = unsafe { iter_occupied_mask(self.fp_ptr.add(self.chunk_base)) };
             if occupied != 0 {
                 self.mask = occupied;
                 return true;
             }
-            self.chunk_base += 16;
+            self.chunk_base += ITER_CHUNK_WIDTH;
         }
         false
     }
@@ -261,7 +286,7 @@ impl<'a> Iterator for Iter<'a> {
                 let slot = self.chunk_base + bit;
                 return Some(unsafe { *self.hash_ptr.add(slot) });
             }
-            self.chunk_base += 16;
+            self.chunk_base += ITER_CHUNK_WIDTH;
             if !self.advance_chunk() {
                 return None;
             }
