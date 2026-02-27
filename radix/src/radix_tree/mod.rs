@@ -15,9 +15,9 @@ use core::arch::aarch64::*;
 #[cfg(feature = "gpu32")]
 use core::ffi::c_void;
 #[cfg(feature = "gpu32")]
-use std::cell::RefCell;
+use metal::{Buffer, CompileOptions, ComputePipelineState, Device, MTLResourceOptions, MTLSize};
 #[cfg(feature = "gpu32")]
-use metal::{CompileOptions, ComputePipelineState, Device, MTLResourceOptions, MTLSize};
+extern crate libc;
 
 /// Hint the CPU to prefetch a cache line for reading.
 #[inline(always)]
@@ -77,6 +77,15 @@ pub struct RadixTree {
     /// Cached heap pointers — stable because Vecs never resize.
     fp_ptr: *const u8,
     hash_ptr: *const u64,
+    /// Page-aligned fingerprint memory for zero-copy Metal buffer.
+    /// When gpu32 is active, `fingerprints` Vec is empty and this owns the memory.
+    #[cfg(feature = "gpu32")]
+    fp_page_ptr: *mut u8,
+    /// Page-aligned hash memory for zero-copy Metal buffer.
+    #[cfg(feature = "gpu32")]
+    hash_page_ptr: *mut u64,
+    #[cfg(feature = "gpu32")]
+    gpu: GpuState,
 }
 
 // Raw pointers are not Send/Sync by default, but the heap allocations they
@@ -86,22 +95,65 @@ unsafe impl Sync for RadixTree {}
 
 impl Clone for RadixTree {
     fn clone(&self) -> Self {
-        let fingerprints = self.fingerprints.clone();
-        let hashes = self.hashes.clone();
-        let fp_ptr = fingerprints.as_ptr() as *const u8;
-        let hash_ptr = hashes.as_ptr();
-        Self {
-            config: self.config,
-            layout: self.layout,
-            fingerprints,
-            hashes,
-            len: self.len,
-            bucket_shift: self.bucket_shift,
-            group_slot_shift: self.group_slot_shift,
-            fp_shift: self.fp_shift,
-            bucket_mask: self.bucket_mask,
-            fp_ptr,
-            hash_ptr,
+        #[cfg(not(feature = "gpu32"))]
+        {
+            let fingerprints = self.fingerprints.clone();
+            let hashes = self.hashes.clone();
+            let fp_ptr = fingerprints.as_ptr() as *const u8;
+            let hash_ptr = hashes.as_ptr();
+            Self {
+                config: self.config,
+                layout: self.layout,
+                fingerprints,
+                hashes,
+                len: self.len,
+                bucket_shift: self.bucket_shift,
+                group_slot_shift: self.group_slot_shift,
+                fp_shift: self.fp_shift,
+                bucket_mask: self.bucket_mask,
+                fp_ptr,
+                hash_ptr,
+            }
+        }
+        #[cfg(feature = "gpu32")]
+        {
+            let total = self.layout.total_slots;
+            let bucket_count = self.layout.bucket_count;
+            let fp_page_ptr = unsafe { page_alloc(total) };
+            let hash_page_ptr = unsafe { page_alloc(total * 8) }.cast::<u64>();
+            unsafe {
+                std::ptr::copy_nonoverlapping(self.fp_ptr, fp_page_ptr, total);
+                std::ptr::copy_nonoverlapping(self.hash_ptr, hash_page_ptr, total);
+            }
+            let fingerprints = unsafe {
+                Vec::from_raw_parts(
+                    fp_page_ptr.cast::<Bucket>(),
+                    bucket_count,
+                    bucket_count,
+                )
+            };
+            let hashes = unsafe {
+                Vec::from_raw_parts(hash_page_ptr, total, total)
+            };
+            let fp_ptr = fp_page_ptr as *const u8;
+            let hash_ptr = hash_page_ptr as *const u64;
+            let gpu = GpuState::new(fp_ptr, hash_ptr, total);
+            Self {
+                config: self.config,
+                layout: self.layout,
+                fingerprints,
+                hashes,
+                len: self.len,
+                bucket_shift: self.bucket_shift,
+                group_slot_shift: self.group_slot_shift,
+                fp_shift: self.fp_shift,
+                bucket_mask: self.bucket_mask,
+                fp_ptr,
+                hash_ptr,
+                fp_page_ptr,
+                hash_page_ptr,
+                gpu,
+            }
         }
     }
 }
@@ -157,44 +209,159 @@ type IterMask = u16;
 const ITER_CHUNK_WIDTH: usize = 16;
 
 #[cfg(feature = "gpu32")]
-struct GpuScanContext {
-    device: Device,
-    pipeline: ComputePipelineState,
-    queue: metal::CommandQueue,
-}
-
-#[cfg(feature = "gpu32")]
-impl GpuScanContext {
-    fn new() -> Option<Self> {
-        let device = Device::system_default()?;
-        let queue = device.new_command_queue();
-        let opts = CompileOptions::new();
-        let src = r#"
+const GPU_KERNEL_SRC: &str = r#"
 #include <metal_stdlib>
 using namespace metal;
 
-kernel void mark_occupied(
-    const device uchar* fps [[buffer(0)]],
-    device uchar* flags [[buffer(1)]],
+kernel void gather_keys(
+    const device uchar*  fps    [[buffer(0)]],
+    const device ulong*  hashes [[buffer(1)]],
+    device ulong*        out    [[buffer(2)]],
+    device atomic_uint*  count  [[buffer(3)]],
     uint gid [[thread_position_in_grid]]
 ) {
-    flags[gid] = fps[gid] != 0;
+    if (fps[gid] != 0) {
+        uint idx = atomic_fetch_add_explicit(count, 1, memory_order_relaxed);
+        out[idx] = hashes[gid];
+    }
 }
 "#;
-        let lib = device.new_library_with_source(src, &opts).ok()?;
-        let func = lib.get_function("mark_occupied", None).ok()?;
-        let pipeline = device.new_compute_pipeline_state_with_function(&func).ok()?;
-        Some(Self {
-            device,
-            pipeline,
-            queue,
-        })
-    }
+
+/// Persistent Metal resources for GPU-accelerated iteration.
+/// Created once at table construction, reused across all `iter()` calls.
+#[cfg(feature = "gpu32")]
+struct GpuState {
+    queue: metal::CommandQueue,
+    pipeline: ComputePipelineState,
+    /// Zero-copy buffer wrapping page-aligned fingerprint memory.
+    fp_buf: Buffer,
+    /// Zero-copy buffer wrapping page-aligned hash memory.
+    hash_buf: Buffer,
+    /// Pre-allocated output buffer for gathered keys (capacity = total_slots).
+    out_buf: Buffer,
+    /// 4-byte atomic counter buffer.
+    count_buf: Buffer,
+    total_slots: usize,
+    tg_width: u64,
 }
 
 #[cfg(feature = "gpu32")]
-thread_local! {
-    static GPU_SCAN_CONTEXT: RefCell<Option<GpuScanContext>> = const { RefCell::new(None) };
+impl GpuState {
+    fn new(
+        fp_ptr: *const u8,
+        hash_ptr: *const u64,
+        total_slots: usize,
+    ) -> Self {
+        let device = Device::system_default()
+            .expect("gpu32: no Metal device available");
+        let queue = device.new_command_queue();
+
+        let opts = CompileOptions::new();
+        let lib = device
+            .new_library_with_source(GPU_KERNEL_SRC, &opts)
+            .expect("gpu32: Metal shader compilation failed");
+        let func = lib
+            .get_function("gather_keys", None)
+            .expect("gpu32: gather_keys function not found");
+        let pipeline = device
+            .new_compute_pipeline_state_with_function(&func)
+            .expect("gpu32: pipeline creation failed");
+
+        let shared = MTLResourceOptions::StorageModeShared;
+
+        let fp_buf = device.new_buffer_with_bytes_no_copy(
+            fp_ptr as *const c_void,
+            page_ceil(total_slots) as u64,
+            shared,
+            None,
+        );
+        let hash_buf = device.new_buffer_with_bytes_no_copy(
+            hash_ptr as *const c_void,
+            page_ceil(total_slots * 8) as u64,
+            shared,
+            None,
+        );
+
+        let out_buf = device.new_buffer(
+            (total_slots * 8) as u64,
+            shared,
+        );
+        let count_buf = device.new_buffer(4, shared);
+
+        let tg_width = pipeline.thread_execution_width().max(1) as u64;
+
+        Self {
+            queue,
+            pipeline,
+            fp_buf,
+            hash_buf,
+            out_buf,
+            count_buf,
+            total_slots,
+            tg_width,
+        }
+    }
+
+    /// Dispatch the gather kernel and return a slice of collected keys.
+    /// The returned count is the number of occupied slots found by the GPU.
+    fn gather_keys(&self) -> usize {
+        unsafe {
+            // Reset atomic counter to zero.
+            let cnt_ptr = self.count_buf.contents().cast::<u32>();
+            *cnt_ptr = 0;
+        }
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&self.hash_buf), 0);
+        enc.set_buffer(2, Some(&self.out_buf), 0);
+        enc.set_buffer(3, Some(&self.count_buf), 0);
+
+        let grid = MTLSize {
+            width: self.total_slots as u64,
+            height: 1,
+            depth: 1,
+        };
+        let threadgroup = MTLSize {
+            width: self.tg_width,
+            height: 1,
+            depth: 1,
+        };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        unsafe { *(self.count_buf.contents().cast::<u32>()) as usize }
+    }
+
+    /// Read gathered keys from the output buffer.
+    unsafe fn read_keys(&self, count: usize) -> &[u64] {
+        unsafe {
+            std::slice::from_raw_parts(self.out_buf.contents().cast::<u64>(), count)
+        }
+    }
+}
+
+/// Round `size` up to the next page boundary (4096).
+#[cfg(feature = "gpu32")]
+fn page_ceil(size: usize) -> usize {
+    (size + 4095) & !4095
+}
+
+/// Allocate page-aligned memory via `posix_memalign`.
+/// Returns a pointer suitable for `newBufferWithBytesNoCopy`.
+#[cfg(feature = "gpu32")]
+unsafe fn page_alloc(size: usize) -> *mut u8 {
+    let alloc_size = page_ceil(size);
+    let mut ptr: *mut c_void = std::ptr::null_mut();
+    let ret = unsafe { libc::posix_memalign(&mut ptr, 4096, alloc_size) };
+    assert_eq!(ret, 0, "gpu32: posix_memalign failed");
+    unsafe { std::ptr::write_bytes(ptr.cast::<u8>(), 0, alloc_size); }
+    ptr.cast::<u8>()
 }
 
 impl RadixTree {
@@ -233,102 +400,92 @@ impl RadixTree {
         let fp_shift = group_slot_shift - 8;
         let bucket_mask = bucket_count.wrapping_sub(1);
 
-        let empty_bucket = Bucket {
-            groups: [
-                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
-                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
-                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
-                FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
-            ],
-        };
+        #[cfg(not(feature = "gpu32"))]
+        {
+            let empty_bucket = Bucket {
+                groups: [
+                    FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                    FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                    FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                    FpGroup([RADIX_FP_EMPTY; GROUP_SLOTS]),
+                ],
+            };
+            let fingerprints = vec![empty_bucket; bucket_count];
+            let hashes = vec![0u64; total_slots];
+            let fp_ptr = fingerprints.as_ptr() as *const u8;
+            let hash_ptr = hashes.as_ptr();
 
-        let fingerprints = vec![empty_bucket; bucket_count];
-        let hashes = vec![0u64; total_slots];
-        let fp_ptr = fingerprints.as_ptr() as *const u8;
-        let hash_ptr = hashes.as_ptr();
+            Ok(Self {
+                config,
+                layout,
+                fingerprints,
+                hashes,
+                len: 0,
+                bucket_shift,
+                group_slot_shift,
+                fp_shift,
+                bucket_mask,
+                fp_ptr,
+                hash_ptr,
+            })
+        }
 
-        Ok(Self {
-            config,
-            layout,
-            fingerprints,
-            hashes,
-            len: 0,
-            bucket_shift,
-            group_slot_shift,
-            fp_shift,
-            bucket_mask,
-            fp_ptr,
-            hash_ptr,
-        })
+        #[cfg(feature = "gpu32")]
+        {
+            // Page-aligned allocation for zero-copy Metal buffers.
+            // Memory is zeroed by page_alloc (RADIX_FP_EMPTY == 0x00).
+            let fp_page_ptr = unsafe { page_alloc(total_slots) };
+            let hash_page_ptr = unsafe { page_alloc(total_slots * 8) }.cast::<u64>();
+
+            // Wrap page-aligned memory in Vecs so insert/contains work unchanged.
+            let fingerprints = unsafe {
+                Vec::from_raw_parts(
+                    fp_page_ptr.cast::<Bucket>(),
+                    bucket_count,
+                    bucket_count,
+                )
+            };
+            let hashes = unsafe {
+                Vec::from_raw_parts(hash_page_ptr, total_slots, total_slots)
+            };
+
+            let fp_ptr = fp_page_ptr as *const u8;
+            let hash_ptr = hash_page_ptr as *const u64;
+            let gpu = GpuState::new(fp_ptr, hash_ptr, total_slots);
+
+            Ok(Self {
+                config,
+                layout,
+                fingerprints,
+                hashes,
+                len: 0,
+                bucket_shift,
+                group_slot_shift,
+                fp_shift,
+                bucket_mask,
+                fp_ptr,
+                hash_ptr,
+                fp_page_ptr,
+                hash_page_ptr,
+                gpu,
+            })
+        }
     }
 
 }
 
 #[cfg(feature = "gpu32")]
-impl RadixTree {
-    fn collect_iter_keys_gpu(&self) -> Vec<u64> {
-        let total = self.layout.total_slots;
-        if total == 0 {
-            return Vec::new();
+impl Drop for RadixTree {
+    fn drop(&mut self) {
+        // Prevent Vec from calling the Rust allocator on posix_memalign memory.
+        let fp = std::mem::take(&mut self.fingerprints);
+        let h = std::mem::take(&mut self.hashes);
+        std::mem::forget(fp);
+        std::mem::forget(h);
+        unsafe {
+            libc::free(self.fp_page_ptr.cast::<c_void>());
+            libc::free(self.hash_page_ptr.cast::<c_void>());
         }
-
-        let mut occupied = vec![0u8; total];
-
-        GPU_SCAN_CONTEXT.with(|ctx_cell| {
-            if ctx_cell.borrow().is_none() {
-                *ctx_cell.borrow_mut() = GpuScanContext::new();
-            }
-
-            let ctx_borrow = ctx_cell.borrow();
-            let Some(ctx) = ctx_borrow.as_ref() else {
-                panic!("gpu32 enabled but no Metal device/pipeline available");
-            };
-
-            let fp_buf = ctx.device.new_buffer_with_data(
-                self.fp_ptr.cast::<c_void>(),
-                total as u64,
-                MTLResourceOptions::StorageModeShared,
-            );
-            let flag_buf = ctx
-                .device
-                .new_buffer(total as u64, MTLResourceOptions::StorageModeShared);
-
-            let cmd = ctx.queue.new_command_buffer();
-            let enc = cmd.new_compute_command_encoder();
-            enc.set_compute_pipeline_state(&ctx.pipeline);
-            enc.set_buffer(0, Some(&fp_buf), 0);
-            enc.set_buffer(1, Some(&flag_buf), 0);
-
-            let grid = MTLSize {
-                width: total as u64,
-                height: 1,
-                depth: 1,
-            };
-            let tg_width = ctx.pipeline.thread_execution_width().max(1) as u64;
-            let threadgroup = MTLSize {
-                width: tg_width,
-                height: 1,
-                depth: 1,
-            };
-            enc.dispatch_threads(grid, threadgroup);
-            enc.end_encoding();
-
-            cmd.commit();
-            cmd.wait_until_completed();
-
-            unsafe {
-                let src = std::slice::from_raw_parts(flag_buf.contents().cast::<u8>(), total);
-                occupied.copy_from_slice(src);
-            }
-        });
-
-        let mut keys = Vec::with_capacity(self.len);
-        for (slot, &is_set) in occupied.iter().enumerate() {
-            if is_set != 0 {
-                keys.push(unsafe { *self.hash_ptr.add(slot) });
-            }
-        }
-        keys
     }
 }
 
@@ -355,20 +512,7 @@ impl<'a> Iter<'a> {
     #[inline]
     fn advance_chunk(&mut self) -> bool {
         while self.chunk_base < self.total {
-            #[cfg(feature = "gpu32")]
             let occupied = unsafe {
-                let ptr = self.fp_ptr.add(self.chunk_base);
-                let zero = vdupq_n_u8(0);
-                let lo = vld1q_u8(ptr);
-                let hi = vld1q_u8(ptr.add(16));
-                let lo_empty = pack_neon_16(vceqq_u8(lo, zero)) as u32;
-                let hi_empty = pack_neon_16(vceqq_u8(hi, zero)) as u32;
-                let empty = lo_empty | (hi_empty << 16);
-                !empty
-            };            
-            #[cfg(not(feature = "gpu32"))]
-            let occupied = unsafe {
-                // Keep the default 16B path identical to the original hot loop.
                 let ptr = self.fp_ptr.add(self.chunk_base);
                 let chunk = vld1q_u8(ptr);
                 let zero = vdupq_n_u8(0);
@@ -407,9 +551,14 @@ impl<'a> Iterator for Iter<'a> {
     }
 }
 
+/// GPU-backed iterator over stored keys.
+/// The gather kernel runs once at iterator creation; iteration reads
+/// from the pre-filled output buffer with no further GPU dispatch.
 #[cfg(feature = "gpu32")]
 pub struct Iter<'a> {
-    inner: std::vec::IntoIter<u64>,
+    keys: *const u64,
+    pos: usize,
+    count: usize,
     _marker: std::marker::PhantomData<&'a ()>,
 }
 
@@ -419,7 +568,13 @@ impl<'a> Iterator for Iter<'a> {
 
     #[inline]
     fn next(&mut self) -> Option<u64> {
-        self.inner.next()
+        if self.pos < self.count {
+            let val = unsafe { *self.keys.add(self.pos) };
+            self.pos += 1;
+            Some(val)
+        } else {
+            None
+        }
     }
 }
 
@@ -614,24 +769,27 @@ impl IndexTable for RadixTree {
     fn iter(&self) -> Self::KeyIter<'_> {
         #[cfg(feature = "gpu32")]
         {
-            let keys = self.collect_iter_keys_gpu();
+            let count = self.gpu.gather_keys();
+            let keys = unsafe { self.gpu.read_keys(count) };
             return Iter {
-                inner: keys.into_iter(),
+                keys: keys.as_ptr(),
+                pos: 0,
+                count,
                 _marker: std::marker::PhantomData,
             };
         }
         #[cfg(not(feature = "gpu32"))]
         {
-        let mut it = Iter {
-            fp_ptr: self.fp_ptr,
-            hash_ptr: self.hash_ptr,
-            chunk_base: 0,
-            mask: 0,
-            total: self.layout.total_slots,
-            _marker: std::marker::PhantomData,
-        };
-        it.advance_chunk();
-        it
+            let mut it = Iter {
+                fp_ptr: self.fp_ptr,
+                hash_ptr: self.hash_ptr,
+                chunk_base: 0,
+                mask: 0,
+                total: self.layout.total_slots,
+                _marker: std::marker::PhantomData,
+            };
+            it.advance_chunk();
+            it
         }
     }
 }
