@@ -105,7 +105,7 @@ bench-quick:
 
 extract:
 	@test -n "$(IMPL)" || (echo "IMPL is required" && exit 1)
-	python3 analysis/export_criterion.py --impl "$(CRITERION_IMPL)" --csv-name "$(CSV_NAME)" --tag "$(TAG)"
+	python3 analysis/export_criterion.py --impl "$(CRITERION_IMPL)" --csv-name "$(CSV_NAME)" --tag "$(TAG)" $(if $(strip $(OPS)),--op "$(OPS)")
 
 destroy:
 	@test -n "$(IMPL)" || (echo "IMPL is required" && exit 1)
