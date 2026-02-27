@@ -55,6 +55,9 @@ impl IndexTable for M0Table {
         self.set.contains(&id)
     }
 
+    // TODO: hashbrown does not expose raw slot-level access for a greedy
+    // linear scan. The default trait impl (falls back to `contains`) is used.
+
     fn contains_probable(&self, id: u64) -> bool {
         self.set.contains(&id)
     }

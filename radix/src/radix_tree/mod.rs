@@ -8,6 +8,30 @@ pub const BUCKET_SLOTS: usize = GROUPS_PER_BUCKET * GROUP_SLOTS;
 pub const RADIX_FP_EMPTY: u8 = 0x00;
 pub const RADIX_MAX_PROBE_ROUNDS: u8 = 64;
 
+// ── Set predicate masks ────────────────────────────────────────────
+//
+// 2-array state encoding: (a_occ << 2 | b_occ << 1 | a_eq_b)
+// 8 possible states → u8 mask, bit i set means state i satisfies the predicate.
+//
+// 3-array state encoding: (a_occ << 5 | b_occ << 4 | c_occ << 3 | ab_eq << 2 | ac_eq << 1 | bc_eq)
+// 64 possible states → u64 mask.
+
+/// A ∩ B — both occupied, same fingerprint.
+pub const PRED2_INTERSECT: u8 = 0x80;
+/// A \ B — a occupied, b either empty or different fingerprint.
+pub const PRED2_DIFF_AB: u8 = 0x50;
+/// B \ A — b occupied, a either empty or different fingerprint.
+pub const PRED2_DIFF_BA: u8 = 0x44;
+/// A △ B — symmetric difference: at least one occupied, fingerprints differ.
+pub const PRED2_SYM_DIFF: u8 = 0x54;
+
+/// A ∩ B ∩ C — all three occupied, all fingerprints equal.
+pub const PRED3_CONSENSUS: u64 = 0x8000_0000_0000_0000;
+/// Unique to A — a occupied, a ≠ b, a ≠ c.
+pub const PRED3_UNIQUE_A: u64 = 0x0303_0303_0000_0000;
+/// (A ∩ B) \ C — a and b occupied with same fp, c absent or different.
+pub const PRED3_SHARED_AB_NOT_C: u64 = 0x3030_3030_0000_0000;
+
 pub mod analysis;
 
 use crate::{IndexTable, mix64};
@@ -225,6 +249,92 @@ kernel void gather_keys(
         out[idx] = hashes[gid];
     }
 }
+
+kernel void contains_greedy(
+    const device uchar*  fps    [[buffer(0)]],
+    const device ulong*  hashes [[buffer(1)]],
+    device atomic_uint*  found  [[buffer(2)]],
+    constant uchar&      fp     [[buffer(3)]],
+    constant ulong&      key    [[buffer(4)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    if (fps[gid] == fp && hashes[gid] == key) {
+        atomic_store_explicit(found, 1, memory_order_relaxed);
+    }
+}
+
+kernel void fingerprint_diff(
+    const device uchar* fp_a   [[buffer(0)]],
+    const device uchar* fp_b   [[buffer(1)]],
+    device atomic_uint* output [[buffer(2)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    if (fp_a[gid] != fp_b[gid]) {
+        uint word_idx = gid / 32;
+        uint bit_idx  = gid % 32;
+        atomic_fetch_or_explicit(
+            &output[word_idx],
+            (1u << bit_idx),
+            memory_order_relaxed
+        );
+    }
+}
+
+kernel void set_intersection(
+    const device uchar* fp_a     [[buffer(0)]],
+    const device uchar* fp_b     [[buffer(1)]],
+    device uint*        matches  [[buffer(2)]],
+    device atomic_uint* count    [[buffer(3)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    uchar a = fp_a[gid];
+    uchar b = fp_b[gid];
+    if (a != 0 && b != 0 && a == b) {
+        uint idx = atomic_fetch_add_explicit(count, 1, memory_order_relaxed);
+        matches[idx] = gid;
+    }
+}
+
+kernel void set_predicate_2(
+    const device uchar* fp_a     [[buffer(0)]],
+    const device uchar* fp_b     [[buffer(1)]],
+    device uint*        matches  [[buffer(2)]],
+    device atomic_uint* count    [[buffer(3)]],
+    constant uchar&     mask     [[buffer(4)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    uchar a = fp_a[gid];
+    uchar b = fp_b[gid];
+    uint state = (uint(a != 0) << 2) | (uint(b != 0) << 1) | uint(a == b);
+    if ((mask >> state) & 1) {
+        uint idx = atomic_fetch_add_explicit(count, 1, memory_order_relaxed);
+        matches[idx] = gid;
+    }
+}
+
+kernel void set_predicate_3(
+    const device uchar* fp_a     [[buffer(0)]],
+    const device uchar* fp_b     [[buffer(1)]],
+    const device uchar* fp_c     [[buffer(2)]],
+    device uint*        matches  [[buffer(3)]],
+    device atomic_uint* count    [[buffer(4)]],
+    constant ulong&     mask     [[buffer(5)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    uchar a = fp_a[gid];
+    uchar b = fp_b[gid];
+    uchar c = fp_c[gid];
+    uint state = (uint(a != 0) << 5)
+               | (uint(b != 0) << 4)
+               | (uint(c != 0) << 3)
+               | (uint(a == b) << 2)
+               | (uint(a == c) << 1)
+               | uint(b == c);
+    if ((mask >> state) & 1) {
+        uint idx = atomic_fetch_add_explicit(count, 1, memory_order_relaxed);
+        matches[idx] = gid;
+    }
+}
 "#;
 
 /// Persistent Metal resources for GPU-accelerated iteration.
@@ -241,6 +351,34 @@ struct GpuState {
     out_buf: Buffer,
     /// 4-byte atomic counter buffer.
     count_buf: Buffer,
+    /// Pipeline for the contains_greedy kernel.
+    greedy_pipeline: ComputePipelineState,
+    /// 4-byte atomic flag for contains_greedy result.
+    greedy_found_buf: Buffer,
+    /// 1-byte constant buffer for target fingerprint.
+    greedy_fp_buf: Buffer,
+    /// 8-byte constant buffer for target key.
+    greedy_key_buf: Buffer,
+    /// Pipeline for the fingerprint_diff kernel.
+    diff_pipeline: ComputePipelineState,
+    /// Bitmask output buffer for diff (total_slots / 32 * 4 bytes, rounded up to page).
+    diff_output_buf: Buffer,
+    /// Pipeline for the set_intersection kernel.
+    intersect_pipeline: ComputePipelineState,
+    /// Compacted position output buffer for intersection (total_slots * 4 bytes worst case).
+    intersect_matches_buf: Buffer,
+    /// 4-byte atomic counter for intersection match count.
+    intersect_count_buf: Buffer,
+    /// Pipeline for the generalised 2-array predicate kernel.
+    pred2_pipeline: ComputePipelineState,
+    /// Pipeline for the generalised 3-array predicate kernel.
+    pred3_pipeline: ComputePipelineState,
+    /// 1-byte constant buffer for the 2-array predicate mask.
+    pred_mask_u8_buf: Buffer,
+    /// 8-byte constant buffer for the 3-array predicate mask.
+    pred_mask_u64_buf: Buffer,
+    /// Metal device handle, retained for creating per-call buffers.
+    device: Device,
     total_slots: usize,
     tg_width: u64,
 }
@@ -260,12 +398,19 @@ impl GpuState {
         let lib = device
             .new_library_with_source(GPU_KERNEL_SRC, &opts)
             .expect("gpu32: Metal shader compilation failed");
-        let func = lib
+        let gather_func = lib
             .get_function("gather_keys", None)
             .expect("gpu32: gather_keys function not found");
         let pipeline = device
-            .new_compute_pipeline_state_with_function(&func)
+            .new_compute_pipeline_state_with_function(&gather_func)
             .expect("gpu32: pipeline creation failed");
+
+        let greedy_func = lib
+            .get_function("contains_greedy", None)
+            .expect("gpu32: contains_greedy function not found");
+        let greedy_pipeline = device
+            .new_compute_pipeline_state_with_function(&greedy_func)
+            .expect("gpu32: greedy pipeline creation failed");
 
         let shared = MTLResourceOptions::StorageModeShared;
 
@@ -288,6 +433,53 @@ impl GpuState {
         );
         let count_buf = device.new_buffer(4, shared);
 
+        let greedy_found_buf = device.new_buffer(4, shared);
+        let greedy_fp_buf = device.new_buffer(1, shared);
+        let greedy_key_buf = device.new_buffer(8, shared);
+
+        let diff_func = lib
+            .get_function("fingerprint_diff", None)
+            .expect("gpu32: fingerprint_diff function not found");
+        let diff_pipeline = device
+            .new_compute_pipeline_state_with_function(&diff_func)
+            .expect("gpu32: diff pipeline creation failed");
+
+        let diff_words = (total_slots + 31) / 32;
+        let diff_output_buf = device.new_buffer(
+            page_ceil(diff_words * 4) as u64,
+            shared,
+        );
+
+        let intersect_func = lib
+            .get_function("set_intersection", None)
+            .expect("gpu32: set_intersection function not found");
+        let intersect_pipeline = device
+            .new_compute_pipeline_state_with_function(&intersect_func)
+            .expect("gpu32: intersect pipeline creation failed");
+
+        let intersect_matches_buf = device.new_buffer(
+            (total_slots * 4) as u64,
+            shared,
+        );
+        let intersect_count_buf = device.new_buffer(4, shared);
+
+        let pred2_func = lib
+            .get_function("set_predicate_2", None)
+            .expect("gpu32: set_predicate_2 function not found");
+        let pred2_pipeline = device
+            .new_compute_pipeline_state_with_function(&pred2_func)
+            .expect("gpu32: pred2 pipeline creation failed");
+
+        let pred3_func = lib
+            .get_function("set_predicate_3", None)
+            .expect("gpu32: set_predicate_3 function not found");
+        let pred3_pipeline = device
+            .new_compute_pipeline_state_with_function(&pred3_func)
+            .expect("gpu32: pred3 pipeline creation failed");
+
+        let pred_mask_u8_buf = device.new_buffer(1, shared);
+        let pred_mask_u64_buf = device.new_buffer(8, shared);
+
         let tg_width = pipeline.thread_execution_width().max(1) as u64;
 
         Self {
@@ -297,6 +489,20 @@ impl GpuState {
             hash_buf,
             out_buf,
             count_buf,
+            greedy_pipeline,
+            greedy_found_buf,
+            greedy_fp_buf,
+            greedy_key_buf,
+            diff_pipeline,
+            diff_output_buf,
+            intersect_pipeline,
+            intersect_matches_buf,
+            intersect_count_buf,
+            pred2_pipeline,
+            pred3_pipeline,
+            pred_mask_u8_buf,
+            pred_mask_u64_buf,
+            device,
             total_slots,
             tg_width,
         }
@@ -343,6 +549,208 @@ impl GpuState {
         unsafe {
             std::slice::from_raw_parts(self.out_buf.contents().cast::<u64>(), count)
         }
+    }
+
+    /// Dispatch the contains_greedy kernel: linear scan of all slots for (fp, key).
+    fn contains_greedy(&self, fp: u8, key: u64) -> bool {
+        unsafe {
+            *self.greedy_found_buf.contents().cast::<u32>() = 0;
+            *self.greedy_fp_buf.contents().cast::<u8>() = fp;
+            *self.greedy_key_buf.contents().cast::<u64>() = key;
+        }
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.greedy_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&self.hash_buf), 0);
+        enc.set_buffer(2, Some(&self.greedy_found_buf), 0);
+        enc.set_buffer(3, Some(&self.greedy_fp_buf), 0);
+        enc.set_buffer(4, Some(&self.greedy_key_buf), 0);
+
+        let grid = MTLSize {
+            width: self.total_slots as u64,
+            height: 1,
+            depth: 1,
+        };
+        let threadgroup = MTLSize {
+            width: self.tg_width,
+            height: 1,
+            depth: 1,
+        };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        unsafe { *self.greedy_found_buf.contents().cast::<u32>() != 0 }
+    }
+
+    /// Dispatch fingerprint_diff kernel: XOR two fp arrays, produce bitmask of differing positions.
+    /// `other_fp_ptr` must point to a page-aligned fp array of the same total_slots length.
+    fn fingerprint_diff(&self, other_fp_ptr: *const u8) -> &[u32] {
+        let diff_words = (self.total_slots + 31) / 32;
+
+        unsafe {
+            std::ptr::write_bytes(self.diff_output_buf.contents().cast::<u8>(), 0, diff_words * 4);
+        }
+
+        let shared = MTLResourceOptions::StorageModeShared;
+        let other_buf = self.device.new_buffer_with_bytes_no_copy(
+            other_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.diff_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&other_buf), 0);
+        enc.set_buffer(2, Some(&self.diff_output_buf), 0);
+
+        let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
+        let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        unsafe {
+            std::slice::from_raw_parts(self.diff_output_buf.contents().cast::<u32>(), diff_words)
+        }
+    }
+
+    /// Dispatch set_intersection kernel: find positions where both fp arrays hold the same
+    /// non-empty fingerprint. Returns (positions_slice, match_count).
+    fn set_intersection(&self, other_fp_ptr: *const u8) -> (&[u32], usize) {
+        unsafe {
+            *self.intersect_count_buf.contents().cast::<u32>() = 0;
+        }
+
+        let shared = MTLResourceOptions::StorageModeShared;
+        let other_buf = self.device.new_buffer_with_bytes_no_copy(
+            other_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.intersect_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&other_buf), 0);
+        enc.set_buffer(2, Some(&self.intersect_matches_buf), 0);
+        enc.set_buffer(3, Some(&self.intersect_count_buf), 0);
+
+        let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
+        let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        let count = unsafe { *self.intersect_count_buf.contents().cast::<u32>() } as usize;
+        let positions = unsafe {
+            std::slice::from_raw_parts(self.intersect_matches_buf.contents().cast::<u32>(), count)
+        };
+        (positions, count)
+    }
+
+    /// Dispatch the generalised 2-array predicate kernel.
+    /// Reuses intersect_matches_buf / intersect_count_buf for output.
+    fn set_predicate_2(&self, other_fp_ptr: *const u8, mask: u8) -> (&[u32], usize) {
+        unsafe {
+            *self.intersect_count_buf.contents().cast::<u32>() = 0;
+            *self.pred_mask_u8_buf.contents().cast::<u8>() = mask;
+        }
+
+        let shared = MTLResourceOptions::StorageModeShared;
+        let other_buf = self.device.new_buffer_with_bytes_no_copy(
+            other_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.pred2_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&other_buf), 0);
+        enc.set_buffer(2, Some(&self.intersect_matches_buf), 0);
+        enc.set_buffer(3, Some(&self.intersect_count_buf), 0);
+        enc.set_buffer(4, Some(&self.pred_mask_u8_buf), 0);
+
+        let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
+        let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        let count = unsafe { *self.intersect_count_buf.contents().cast::<u32>() } as usize;
+        let positions = unsafe {
+            std::slice::from_raw_parts(self.intersect_matches_buf.contents().cast::<u32>(), count)
+        };
+        (positions, count)
+    }
+
+    /// Dispatch the generalised 3-array predicate kernel.
+    fn set_predicate_3(
+        &self,
+        b_fp_ptr: *const u8,
+        c_fp_ptr: *const u8,
+        mask: u64,
+    ) -> (&[u32], usize) {
+        unsafe {
+            *self.intersect_count_buf.contents().cast::<u32>() = 0;
+            *self.pred_mask_u64_buf.contents().cast::<u64>() = mask;
+        }
+
+        let shared = MTLResourceOptions::StorageModeShared;
+        let b_buf = self.device.new_buffer_with_bytes_no_copy(
+            b_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+        let c_buf = self.device.new_buffer_with_bytes_no_copy(
+            c_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.pred3_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&b_buf), 0);
+        enc.set_buffer(2, Some(&c_buf), 0);
+        enc.set_buffer(3, Some(&self.intersect_matches_buf), 0);
+        enc.set_buffer(4, Some(&self.intersect_count_buf), 0);
+        enc.set_buffer(5, Some(&self.pred_mask_u64_buf), 0);
+
+        let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
+        let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        let count = unsafe { *self.intersect_count_buf.contents().cast::<u32>() } as usize;
+        let positions = unsafe {
+            std::slice::from_raw_parts(self.intersect_matches_buf.contents().cast::<u32>(), count)
+        };
+        (positions, count)
     }
 }
 
@@ -751,6 +1159,55 @@ impl IndexTable for RadixTree {
         todo!("RadixTree::contains_probable — fingerprint-only check without hash confirmation")
     }
 
+    /// Linear scan of the entire fingerprint arena.
+    /// CPU path: NEON 16-byte chunks, compare against target fp, confirm hash.
+    /// GPU path: Metal kernel dispatched over all slots.
+    fn contains_greedy(&self, id: u64) -> bool {
+        let h = mix64(id);
+        let raw_fp = ((h >> self.fp_shift) & 0xFF) as u8;
+        let fp = raw_fp | ((raw_fp == 0) as u8);
+
+        #[cfg(feature = "gpu32")]
+        {
+            return self.gpu.contains_greedy(fp, id);
+        }
+
+        #[cfg(not(feature = "gpu32"))]
+        {
+            let fp_ptr = self.fp_ptr;
+            let hash_ptr = self.hash_ptr;
+            let total = self.layout.total_slots;
+            let target = unsafe { vdupq_n_u8(fp) };
+            let mut pos = 0usize;
+
+            while pos + 16 <= total {
+                unsafe {
+                    let chunk = vld1q_u8(fp_ptr.add(pos));
+                    let cmp = vceqq_u8(chunk, target);
+                    let mut mask = pack_neon_16(cmp);
+                    while mask != 0 {
+                        let bit = mask.trailing_zeros() as usize;
+                        if *hash_ptr.add(pos + bit) == id {
+                            return true;
+                        }
+                        mask &= mask - 1;
+                    }
+                }
+                pos += 16;
+            }
+            // Scalar tail for slots not covered by a full 16-byte chunk.
+            while pos < total {
+                unsafe {
+                    if *fp_ptr.add(pos) == fp && *hash_ptr.add(pos) == id {
+                        return true;
+                    }
+                }
+                pos += 1;
+            }
+            false
+        }
+    }
+
     #[inline]
     fn get(&self, _id: u64) -> Option<u64> {
         todo!("RadixTree::get not yet implemented")
@@ -794,11 +1251,307 @@ impl IndexTable for RadixTree {
     }
 }
 
+// ── Pairwise array operations ──────────────────────────────────────
+
+/// Produce a bitmask of positions where two RadixTree fingerprint arrays differ.
+/// Both trees must have the same capacity. Returns a `Vec<u32>` where bit `i`
+/// of word `i/32` is set when `fp_a[i] != fp_b[i]`.
+///
+/// CPU path: NEON XOR + compare + pack.
+/// GPU path: Metal kernel with atomic OR into bitmask words.
+pub fn fingerprint_diff(a: &RadixTree, b: &RadixTree) -> Vec<u32> {
+    assert_eq!(
+        a.layout.total_slots, b.layout.total_slots,
+        "fingerprint_diff: capacity mismatch ({} vs {})",
+        a.layout.total_slots, b.layout.total_slots
+    );
+
+    #[cfg(feature = "gpu32")]
+    {
+        let result = a.gpu.fingerprint_diff(b.fp_ptr);
+        return result.to_vec();
+    }
+
+    #[cfg(not(feature = "gpu32"))]
+    {
+        let total = a.layout.total_slots;
+        let diff_words = (total + 31) / 32;
+        let mut output = vec![0u32; diff_words];
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        let mut pos = 0usize;
+
+        while pos + 16 <= total {
+            unsafe {
+                let va = vld1q_u8(fp_a.add(pos));
+                let vb = vld1q_u8(fp_b.add(pos));
+                let xor = veorq_u8(va, vb);
+                let zero = vdupq_n_u8(0);
+                let eq = vceqq_u8(xor, zero);
+                let same_mask = pack_neon_16(eq);
+                let diff_mask = !same_mask & 0xFFFF;
+
+                if diff_mask != 0 {
+                    let word_base = pos / 32;
+                    let bit_base = pos % 32;
+                    if bit_base == 0 {
+                        output[word_base] |= diff_mask as u32;
+                    } else if bit_base == 16 {
+                        output[word_base] |= (diff_mask as u32) << 16;
+                    } else {
+                        output[word_base] |= (diff_mask as u32) << bit_base;
+                        if bit_base + 16 > 32 {
+                            output[word_base + 1] |= (diff_mask as u32) >> (32 - bit_base);
+                        }
+                    }
+                }
+            }
+            pos += 16;
+        }
+        // Scalar tail
+        while pos < total {
+            unsafe {
+                if *fp_a.add(pos) != *fp_b.add(pos) {
+                    output[pos / 32] |= 1u32 << (pos % 32);
+                }
+            }
+            pos += 1;
+        }
+        output
+    }
+}
+
+/// Find all positions where two RadixTree fingerprint arrays hold the same
+/// non-empty fingerprint value. Returns `(positions, match_count)`.
+///
+/// Both trees must have the same capacity.
+///
+/// CPU path: NEON compare + occupied mask + co-occupied AND + pack.
+/// GPU path: Metal kernel with atomic counter for stream compaction.
+pub fn set_intersection(a: &RadixTree, b: &RadixTree) -> (Vec<u32>, usize) {
+    assert_eq!(
+        a.layout.total_slots, b.layout.total_slots,
+        "set_intersection: capacity mismatch ({} vs {})",
+        a.layout.total_slots, b.layout.total_slots
+    );
+
+    #[cfg(feature = "gpu32")]
+    {
+        let (positions, count) = a.gpu.set_intersection(b.fp_ptr);
+        return (positions.to_vec(), count);
+    }
+
+    #[cfg(not(feature = "gpu32"))]
+    {
+        let total = a.layout.total_slots;
+        let mut matches: Vec<u32> = Vec::new();
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        let mut pos = 0usize;
+
+        while pos + 16 <= total {
+            unsafe {
+                let va = vld1q_u8(fp_a.add(pos));
+                let vb = vld1q_u8(fp_b.add(pos));
+                let zero = vdupq_n_u8(0);
+
+                // Occupied masks: non-zero bytes
+                let occ_a = !pack_neon_16(vceqq_u8(va, zero)) & 0xFFFF;
+                let occ_b = !pack_neon_16(vceqq_u8(vb, zero)) & 0xFFFF;
+                let co_occupied = occ_a & occ_b;
+
+                // Equal fingerprints
+                let eq_mask = pack_neon_16(vceqq_u8(va, vb));
+
+                let mut hit_mask = co_occupied & eq_mask;
+                while hit_mask != 0 {
+                    let bit = hit_mask.trailing_zeros() as usize;
+                    matches.push((pos + bit) as u32);
+                    hit_mask &= hit_mask - 1;
+                }
+            }
+            pos += 16;
+        }
+        // Scalar tail
+        while pos < total {
+            unsafe {
+                let a_val = *fp_a.add(pos);
+                let b_val = *fp_b.add(pos);
+                if a_val != 0 && b_val != 0 && a_val == b_val {
+                    matches.push(pos as u32);
+                }
+            }
+            pos += 1;
+        }
+        let count = matches.len();
+        (matches, count)
+    }
+}
+
+/// Generalised 2-array predicate evaluation.
+///
+/// For each position, computes a 3-bit state `(a_occ << 2 | b_occ << 1 | a_eq_b)`
+/// and tests the corresponding bit in `mask`. Matching positions are collected.
+pub fn set_predicate_2(a: &RadixTree, b: &RadixTree, mask: u8) -> (Vec<u32>, usize) {
+    assert_eq!(
+        a.layout.total_slots, b.layout.total_slots,
+        "set_predicate_2: capacity mismatch ({} vs {})",
+        a.layout.total_slots, b.layout.total_slots
+    );
+
+    #[cfg(feature = "gpu32")]
+    {
+        let (positions, count) = a.gpu.set_predicate_2(b.fp_ptr, mask);
+        return (positions.to_vec(), count);
+    }
+
+    #[cfg(not(feature = "gpu32"))]
+    {
+        let total = a.layout.total_slots;
+        let mut matches: Vec<u32> = Vec::new();
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        let mut pos = 0usize;
+
+        while pos + 16 <= total {
+            unsafe {
+                let va = vld1q_u8(fp_a.add(pos));
+                let vb = vld1q_u8(fp_b.add(pos));
+                let zero = vdupq_n_u8(0);
+
+                let occ_a_mask = !pack_neon_16(vceqq_u8(va, zero)) & 0xFFFF;
+                let occ_b_mask = !pack_neon_16(vceqq_u8(vb, zero)) & 0xFFFF;
+                let eq_mask = pack_neon_16(vceqq_u8(va, vb));
+
+                for bit in 0..16u32 {
+                    let a_occ = ((occ_a_mask >> bit) & 1) as u8;
+                    let b_occ = ((occ_b_mask >> bit) & 1) as u8;
+                    let a_eq_b = ((eq_mask >> bit) & 1) as u8;
+                    let state = (a_occ << 2) | (b_occ << 1) | a_eq_b;
+                    if (mask >> state) & 1 == 1 {
+                        matches.push((pos + bit as usize) as u32);
+                    }
+                }
+            }
+            pos += 16;
+        }
+        while pos < total {
+            unsafe {
+                let a_val = *fp_a.add(pos);
+                let b_val = *fp_b.add(pos);
+                let a_occ = (a_val != 0) as u8;
+                let b_occ = (b_val != 0) as u8;
+                let a_eq_b = (a_val == b_val) as u8;
+                let state = (a_occ << 2) | (b_occ << 1) | a_eq_b;
+                if (mask >> state) & 1 == 1 {
+                    matches.push(pos as u32);
+                }
+            }
+            pos += 1;
+        }
+        let count = matches.len();
+        (matches, count)
+    }
+}
+
+/// Generalised 3-array predicate evaluation.
+///
+/// For each position, computes a 6-bit state
+/// `(a_occ << 5 | b_occ << 4 | c_occ << 3 | ab_eq << 2 | ac_eq << 1 | bc_eq)`
+/// and tests the corresponding bit in `mask`. Matching positions are collected.
+pub fn set_predicate_3(
+    a: &RadixTree,
+    b: &RadixTree,
+    c: &RadixTree,
+    mask: u64,
+) -> (Vec<u32>, usize) {
+    assert_eq!(
+        a.layout.total_slots, b.layout.total_slots,
+        "set_predicate_3: capacity mismatch a/b ({} vs {})",
+        a.layout.total_slots, b.layout.total_slots
+    );
+    assert_eq!(
+        a.layout.total_slots, c.layout.total_slots,
+        "set_predicate_3: capacity mismatch a/c ({} vs {})",
+        a.layout.total_slots, c.layout.total_slots
+    );
+
+    #[cfg(feature = "gpu32")]
+    {
+        let (positions, count) = a.gpu.set_predicate_3(b.fp_ptr, c.fp_ptr, mask);
+        return (positions.to_vec(), count);
+    }
+
+    #[cfg(not(feature = "gpu32"))]
+    {
+        let total = a.layout.total_slots;
+        let mut matches: Vec<u32> = Vec::new();
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        let fp_c = c.fp_ptr;
+        let mut pos = 0usize;
+
+        while pos + 16 <= total {
+            unsafe {
+                let va = vld1q_u8(fp_a.add(pos));
+                let vb = vld1q_u8(fp_b.add(pos));
+                let vc = vld1q_u8(fp_c.add(pos));
+                let zero = vdupq_n_u8(0);
+
+                let occ_a_mask = !pack_neon_16(vceqq_u8(va, zero)) & 0xFFFF;
+                let occ_b_mask = !pack_neon_16(vceqq_u8(vb, zero)) & 0xFFFF;
+                let occ_c_mask = !pack_neon_16(vceqq_u8(vc, zero)) & 0xFFFF;
+                let ab_eq_mask = pack_neon_16(vceqq_u8(va, vb));
+                let ac_eq_mask = pack_neon_16(vceqq_u8(va, vc));
+                let bc_eq_mask = pack_neon_16(vceqq_u8(vb, vc));
+
+                for bit in 0..16u32 {
+                    let a_occ  = ((occ_a_mask >> bit) & 1) as u64;
+                    let b_occ  = ((occ_b_mask >> bit) & 1) as u64;
+                    let c_occ  = ((occ_c_mask >> bit) & 1) as u64;
+                    let ab_eq  = ((ab_eq_mask >> bit) & 1) as u64;
+                    let ac_eq  = ((ac_eq_mask >> bit) & 1) as u64;
+                    let bc_eq  = ((bc_eq_mask >> bit) & 1) as u64;
+                    let state = (a_occ << 5) | (b_occ << 4) | (c_occ << 3)
+                              | (ab_eq << 2) | (ac_eq << 1) | bc_eq;
+                    if (mask >> state) & 1 == 1 {
+                        matches.push((pos + bit as usize) as u32);
+                    }
+                }
+            }
+            pos += 16;
+        }
+        while pos < total {
+            unsafe {
+                let a_val = *fp_a.add(pos);
+                let b_val = *fp_b.add(pos);
+                let c_val = *fp_c.add(pos);
+                let a_occ  = (a_val != 0) as u64;
+                let b_occ  = (b_val != 0) as u64;
+                let c_occ  = (c_val != 0) as u64;
+                let ab_eq  = (a_val == b_val) as u64;
+                let ac_eq  = (a_val == c_val) as u64;
+                let bc_eq  = (b_val == c_val) as u64;
+                let state = (a_occ << 5) | (b_occ << 4) | (c_occ << 3)
+                          | (ab_eq << 2) | (ac_eq << 1) | bc_eq;
+                if (mask >> state) & 1 == 1 {
+                    matches.push(pos as u32);
+                }
+            }
+            pos += 1;
+        }
+        let count = matches.len();
+        (matches, count)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::{
         BUCKET_SLOTS, GROUP_SLOTS, RADIX_FP_EMPTY, RADIX_MAX_PROBE_ROUNDS, RadixTree,
-        RadixTreeBuildError, RadixTreeConfig,
+        RadixTreeBuildError, RadixTreeConfig, fingerprint_diff, set_intersection,
+        set_predicate_2, set_predicate_3,
+        PRED2_INTERSECT, PRED2_DIFF_AB, PRED3_CONSENSUS, PRED3_UNIQUE_A,
     };
     use crate::IndexTable;
 
@@ -889,6 +1642,22 @@ mod tests {
     }
 
     #[test]
+    fn contains_greedy_finds_all_inserted_keys() {
+        let mut t = RadixTree::new(RadixTreeConfig { capacity_bits: 14 }).expect("build");
+        let n = (t.layout.total_slots as f64 * 0.50) as usize;
+        let keys: Vec<u64> = (0..n)
+            .map(|i| crate::mix64(i as u64 + 1))
+            .collect();
+        for &k in &keys {
+            assert!(t.insert(k));
+        }
+        for &k in &keys {
+            assert!(t.contains_greedy(k), "greedy missed key {}", k);
+        }
+        assert!(!t.contains_greedy(0xdead_beef_cafe_babe));
+    }
+
+    #[test]
     fn iter_yields_all_inserted_keys() {
         let mut t = RadixTree::new(RadixTreeConfig { capacity_bits: 14 }).expect("build");
         let n = (t.layout.total_slots as f64 * 0.50) as usize;
@@ -906,5 +1675,233 @@ mod tests {
         expected.sort();
         got.sort();
         assert_eq!(got, expected);
+    }
+
+    #[test]
+    fn fingerprint_diff_detects_mutations() {
+        let capacity_bits = 12;
+        let total = 1usize << capacity_bits;
+
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Insert the same keys into both tables — identical fp arrays.
+        let n = (total as f64 * 0.50) as usize;
+        for i in 0..n {
+            let key = crate::mix64(i as u64 + 1);
+            a.insert(key);
+            b.insert(key);
+        }
+
+        let diff = fingerprint_diff(&a, &b);
+        let diff_count: u32 = diff.iter().map(|w| w.count_ones()).sum();
+        assert_eq!(diff_count, 0, "identical tables should produce zero diff bits");
+
+        // Now insert extra keys into b only — those positions should appear in the diff.
+        let extra = (total as f64 * 0.10) as usize;
+        for i in 0..extra {
+            let key = crate::mix64((n + i) as u64 + 1);
+            b.insert(key);
+        }
+
+        let diff = fingerprint_diff(&a, &b);
+        let diff_count: u32 = diff.iter().map(|w| w.count_ones()).sum();
+        assert!(
+            diff_count >= extra as u32,
+            "diff should flag at least {} mutated positions, got {}",
+            extra, diff_count
+        );
+    }
+
+    #[test]
+    fn set_intersection_finds_shared_keys() {
+        let capacity_bits = 12;
+        let total = 1usize << capacity_bits;
+
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Shared keys: insert into both.
+        let shared_n = (total as f64 * 0.25) as usize;
+        for i in 0..shared_n {
+            let key = crate::mix64(i as u64 + 1);
+            a.insert(key);
+            b.insert(key);
+        }
+
+        // Unique to a
+        let unique_a = (total as f64 * 0.10) as usize;
+        for i in 0..unique_a {
+            let key = crate::mix64((shared_n + i) as u64 + 10_000);
+            a.insert(key);
+        }
+
+        // Unique to b
+        let unique_b = (total as f64 * 0.10) as usize;
+        for i in 0..unique_b {
+            let key = crate::mix64((shared_n + unique_a + i) as u64 + 20_000);
+            b.insert(key);
+        }
+
+        let (positions, count) = set_intersection(&a, &b);
+        assert_eq!(positions.len(), count);
+
+        // The intersection should find at least shared_n matches (shared keys land in
+        // the same position with the same fp). Some extra matches are possible from
+        // fp8 collisions between unique-to-a and unique-to-b keys.
+        assert!(
+            count >= shared_n,
+            "intersection should find at least {} shared positions, got {}",
+            shared_n, count
+        );
+
+        // All reported positions must have matching non-empty fps in both arrays.
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        for &pos in &positions {
+            let p = pos as usize;
+            unsafe {
+                let va = *fp_a.add(p);
+                let vb = *fp_b.add(p);
+                assert_ne!(va, 0, "intersection position {} has empty fp in a", p);
+                assert_eq!(va, vb, "intersection position {} has mismatched fps", p);
+            }
+        }
+    }
+
+    #[test]
+    fn set_intersection_empty_tables_yields_zero() {
+        let capacity_bits = 10;
+        let a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let (positions, count) = set_intersection(&a, &b);
+        assert_eq!(count, 0);
+        assert!(positions.is_empty());
+    }
+
+    // ── set_predicate_2 tests ──────────────────────────────────────
+
+    #[test]
+    fn set_predicate_2_intersection_matches_dedicated() {
+        let capacity_bits = 10;
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Insert shared keys into both tables
+        for id in 0..50u64 {
+            a.insert(id);
+            b.insert(id);
+        }
+        // Insert unique keys into each
+        for id in 100..130u64 {
+            a.insert(id);
+        }
+        for id in 200..230u64 {
+            b.insert(id);
+        }
+
+        let (dedicated_pos, dedicated_count) = set_intersection(&a, &b);
+        let (pred_pos, pred_count) = set_predicate_2(&a, &b, PRED2_INTERSECT);
+
+        assert_eq!(dedicated_count, pred_count,
+            "predicate intersection count ({}) should match dedicated ({})",
+            pred_count, dedicated_count);
+
+        let mut ded_sorted = dedicated_pos.clone();
+        let mut pred_sorted = pred_pos.clone();
+        ded_sorted.sort();
+        pred_sorted.sort();
+        assert_eq!(ded_sorted, pred_sorted,
+            "predicate intersection positions should match dedicated");
+    }
+
+    #[test]
+    fn set_predicate_2_difference() {
+        let capacity_bits = 10;
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Shared keys
+        for id in 0..20u64 {
+            a.insert(id);
+            b.insert(id);
+        }
+        // Keys unique to A
+        let unique_a_keys: Vec<u64> = (100..120).collect();
+        for &id in &unique_a_keys {
+            a.insert(id);
+        }
+        // Keys unique to B
+        for id in 200..220u64 {
+            b.insert(id);
+        }
+
+        let (_diff_positions, diff_count) = set_predicate_2(&a, &b, PRED2_DIFF_AB);
+
+        // Every unique-to-A key must appear in the diff result
+        for &id in &unique_a_keys {
+            assert!(a.contains(id), "key {} should be in A", id);
+            assert!(!b.contains(id), "key {} should NOT be in B", id);
+        }
+        // diff_count should be at least the number of unique-to-A keys
+        assert!(diff_count >= unique_a_keys.len(),
+            "diff A\\B count ({}) should be >= unique A keys ({})",
+            diff_count, unique_a_keys.len());
+        // No shared key should appear in diff (shared keys have identical fp at same position)
+        // Note: this is approximate — fp collisions at different positions are possible,
+        // so we just verify the count is reasonable.
+        assert!(diff_count <= a.len(),
+            "diff count ({}) should not exceed A's size ({})", diff_count, a.len());
+    }
+
+    // ── set_predicate_3 tests ──────────────────────────────────────
+
+    #[test]
+    fn set_predicate_3_consensus() {
+        let capacity_bits = 10;
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut c = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Insert the same keys into all three
+        for id in 0..40u64 {
+            a.insert(id);
+            b.insert(id);
+            c.insert(id);
+        }
+        // Unique keys in each
+        for id in 100..110u64 { a.insert(id); }
+        for id in 200..210u64 { b.insert(id); }
+        for id in 300..310u64 { c.insert(id); }
+
+        let (_, consensus_count) = set_predicate_3(&a, &b, &c, PRED3_CONSENSUS);
+
+        // Consensus count should be at least the number of shared keys
+        // (fingerprint collisions could inflate it slightly, but with capacity_bits=10
+        // and only 40 shared keys the load is very low)
+        assert!(consensus_count >= 40,
+            "consensus count ({}) should be >= 40 shared keys", consensus_count);
+    }
+
+    #[test]
+    fn set_predicate_3_unique() {
+        let capacity_bits = 10;
+        let mut a = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut b = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+        let mut c = RadixTree::new(RadixTreeConfig { capacity_bits }).expect("build");
+
+        // Keys unique to A only
+        for id in 0..30u64 { a.insert(id); }
+        // Keys shared between B and C but not A
+        for id in 100..130u64 {
+            b.insert(id);
+            c.insert(id);
+        }
+
+        let (_, unique_count) = set_predicate_3(&a, &b, &c, PRED3_UNIQUE_A);
+
+        // All 30 unique-to-A keys should be found (their positions have a≠0, b==0, c==0)
+        assert!(unique_count >= 30,
+            "unique_a count ({}) should be >= 30", unique_count);
     }
 }

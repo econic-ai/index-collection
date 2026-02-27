@@ -67,6 +67,13 @@ pub trait IndexTable {
     /// Returns an iterator over all stored keys.
     fn iter(&self) -> Self::KeyIter<'_>;
 
+    /// Brute-force membership test: linearly scans every slot in the arena
+    /// for a matching fingerprint and key. Semantically equivalent to
+    /// `contains` but ignores the entropy-directed probe path.
+    fn contains_greedy(&self, id: u64) -> bool {
+        self.contains(id)
+    }
+
     fn is_empty(&self) -> bool {
         self.len() == 0
     }
