@@ -13,7 +13,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--impl", required=True, dest="impl_name", help="Implementation key (e.g. hashbrown, radix_tree)")
     parser.add_argument("--csv-name", default="", help="Output CSV stem (e.g. m1_radix_tree_gpu). Defaults to --impl value.")
     parser.add_argument("--tag", default="", help="Optional run tag appended to each row")
-    parser.add_argument("--op", default="", help="Filter to a specific op (e.g. iter). Empty = all ops.")
+    parser.add_argument("--op", default="", help="Filter to specific op(s), comma-separated (e.g. iter,contains_greedy). Empty = all ops.")
     parser.add_argument(
         "--criterion-dir",
         default="target/criterion",
@@ -143,7 +143,8 @@ def main() -> int:
 
     rows = collect_rows(criterion_dir, impl_name, args.tag)
     if args.op:
-        rows = [r for r in rows if r["op"] == args.op]
+        op_filter = {s.strip() for s in args.op.split(",") if s.strip()}
+        rows = [r for r in rows if r["op"] in op_filter]
     if not rows:
         print(f"No matching Criterion summaries found for impl={impl_name}")
         return 1
