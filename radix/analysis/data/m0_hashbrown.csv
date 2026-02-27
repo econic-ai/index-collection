@@ -1,65 +1,137 @@
 timestamp,impl,op,load_factor,metric,value,unit,tag
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.01,mean,1662.424179,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.01,median,1635.628133,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.01,std_dev,464.895582,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.01,throughput_ops_per_sec,76995992.739698,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.25,mean,2008.291071,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.25,median,2370.313627,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.25,std_dev,787.450971,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.25,throughput_ops_per_sec,63735781.072244,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.50,mean,2116.155325,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.50,median,2407.567450,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.50,std_dev,772.374072,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.50,throughput_ops_per_sec,60487053.327360,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.75,mean,2754.766529,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.75,median,2816.684735,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.75,std_dev,783.765900,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,insert_marginal,0.75,throughput_ops_per_sec,46464917.684948,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.01,mean,2.728047,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.01,median,2.777204,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.01,std_dev,0.183286,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.01,throughput_ops_per_sec,366562587.595136,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.25,mean,2.900837,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.25,median,2.948013,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.25,std_dev,0.182345,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.25,throughput_ops_per_sec,344728072.467681,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.50,mean,3.003843,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.50,median,3.025279,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.50,std_dev,0.182389,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.50,throughput_ops_per_sec,332906825.462330,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,mean,3.446302,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,median,3.487811,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,std_dev,0.188400,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,throughput_ops_per_sec,290166101.097089,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,mean,1.811236,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,median,1.854512,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,std_dev,0.119994,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,throughput_ops_per_sec,552109176.165440,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.25,mean,2.033985,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.25,median,2.044497,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.25,std_dev,0.125140,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.25,throughput_ops_per_sec,491645759.661782,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.50,mean,2.764585,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.50,median,2.816703,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.50,std_dev,0.170082,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.50,throughput_ops_per_sec,361717950.114504,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.75,mean,8.701631,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.75,median,8.748859,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.75,std_dev,0.594478,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.75,throughput_ops_per_sec,114920978.560070,ops/s,Baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.01,mean,15331.944702,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.01,median,15331.944702,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.01,std_dev,321.278006,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.01,throughput_ops_per_sec,170950264.360967,ops/s,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.25,mean,272437.866211,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.25,median,272437.866211,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.25,std_dev,622.575756,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.25,throughput_ops_per_sec,240553932.210210,ops/s,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.50,mean,522813.804688,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.50,median,522813.804688,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.50,std_dev,17005.089447,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.50,throughput_ops_per_sec,250704933.237838,ops/s,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.75,mean,666359.863281,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.75,median,666359.863281,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.75,std_dev,15173.102835,ns,iter_baseline
-2026-02-26T07:15:32.830413+00:00,m0_hashbrown,iter,0.75,throughput_ops_per_sec,295047782.487790,ops/s,iter_baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.01,mean,79807.656433,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.01,median,79807.656433,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.01,std_dev,2371.633296,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.01,throughput_ops_per_sec,1603856.142641,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.25,mean,67128.051636,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.25,median,67128.051636,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.25,std_dev,3542.453229,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.25,throughput_ops_per_sec,1906803.443284,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.50,mean,69897.959290,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.50,median,69897.959290,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.50,std_dev,133.057177,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.50,throughput_ops_per_sec,1831240.873139,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.75,mean,58675.058960,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.75,median,58675.058960,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.75,std_dev,1929.596868,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,insert_marginal,0.75,throughput_ops_per_sec,2181506.116378,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.01,mean,14351.623596,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.01,median,14351.623596,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.01,std_dev,433.727232,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.01,throughput_ops_per_sec,182627420.683995,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.25,mean,124907.328369,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.25,median,124907.328369,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.25,std_dev,4299.351134,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.25,throughput_ops_per_sec,524676981.372305,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.50,mean,259718.830078,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.50,median,259718.830078,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.50,std_dev,3056.643076,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.50,throughput_ops_per_sec,504668837.298292,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.75,mean,283570.311523,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.75,median,283570.311523,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.75,std_dev,7119.865085,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,iter,0.75,throughput_ops_per_sec,693330690.874352,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.01,mean,2.782873,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.01,median,2.782873,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.01,std_dev,0.081894,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.01,throughput_ops_per_sec,359340844.539066,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.25,mean,2.831052,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.25,median,2.831052,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.25,std_dev,0.014041,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.25,throughput_ops_per_sec,353225540.119995,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.50,mean,2.988192,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.50,median,2.988192,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.50,std_dev,0.063779,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.50,throughput_ops_per_sec,334650525.337413,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.75,mean,3.622939,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.75,median,3.622939,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.75,std_dev,0.124495,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit,0.75,throughput_ops_per_sec,276018984.866837,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,mean,0.776497,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,median,0.776497,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,std_dev,0.023187,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1287834427.630521,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.01,mean,1.636120,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.01,median,1.636120,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.01,std_dev,0.008948,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.01,throughput_ops_per_sec,611202276.905913,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.25,mean,2.102760,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.25,median,2.102760,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.25,std_dev,0.061249,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.25,throughput_ops_per_sec,475565526.057667,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.50,mean,2.518549,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.50,median,2.518549,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.50,std_dev,0.026991,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.50,throughput_ops_per_sec,397054025.803411,ops/s,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.75,mean,8.066787,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.75,median,8.066787,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.75,std_dev,0.165537,ns,Hashtable baseline
+2026-02-27T04:10:04.043844+00:00,m0_hashbrown,lookup_miss,0.75,throughput_ops_per_sec,123965091.589259,ops/s,Hashtable baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.01,mean,79807.656433,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.01,median,79807.656433,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.01,std_dev,2371.633296,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.01,throughput_ops_per_sec,1603856.142641,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.25,mean,67128.051636,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.25,median,67128.051636,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.25,std_dev,3542.453229,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.25,throughput_ops_per_sec,1906803.443284,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.50,mean,69897.959290,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.50,median,69897.959290,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.50,std_dev,133.057177,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.50,throughput_ops_per_sec,1831240.873139,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.75,mean,58675.058960,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.75,median,58675.058960,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.75,std_dev,1929.596868,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,insert_marginal,0.75,throughput_ops_per_sec,2181506.116378,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.01,mean,14796.610352,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.01,median,14796.610352,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.01,std_dev,323.256213,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.01,throughput_ops_per_sec,177135163.914297,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.25,mean,119720.103271,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.25,median,119720.103271,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.25,std_dev,94.704317,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.25,throughput_ops_per_sec,547410152.590553,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.50,mean,263457.763672,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.50,median,263457.763672,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.50,std_dev,1728.061250,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.50,throughput_ops_per_sec,497506690.154876,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.75,mean,279957.277344,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.75,median,279957.277344,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.75,std_dev,4239.298503,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,iter,0.75,throughput_ops_per_sec,702278582.880315,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.01,mean,2.782873,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.01,median,2.782873,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.01,std_dev,0.081894,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.01,throughput_ops_per_sec,359340844.539066,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.25,mean,2.831052,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.25,median,2.831052,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.25,std_dev,0.014041,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.25,throughput_ops_per_sec,353225540.119995,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.50,mean,2.988192,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.50,median,2.988192,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.50,std_dev,0.063779,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.50,throughput_ops_per_sec,334650525.337413,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.75,mean,3.622939,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.75,median,3.622939,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.75,std_dev,0.124495,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit,0.75,throughput_ops_per_sec,276018984.866837,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,mean,0.776497,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,median,0.776497,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,std_dev,0.023187,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1287834427.630521,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.01,mean,1.636120,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.01,median,1.636120,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.01,std_dev,0.008948,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.01,throughput_ops_per_sec,611202276.905913,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.25,mean,2.102760,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.25,median,2.102760,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.25,std_dev,0.061249,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.25,throughput_ops_per_sec,475565526.057667,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.50,mean,2.518549,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.50,median,2.518549,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.50,std_dev,0.026991,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.50,throughput_ops_per_sec,397054025.803411,ops/s,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.75,mean,8.066787,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.75,median,8.066787,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.75,std_dev,0.165537,ns,Baseline
+2026-02-27T04:18:30.011502+00:00,m0_hashbrown,lookup_miss,0.75,throughput_ops_per_sec,123965091.589259,ops/s,Baseline
