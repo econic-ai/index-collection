@@ -9,6 +9,7 @@ edition = "2024"
 default = ["bench-m0-hashbrown"]
 bench-m0-hashbrown = []
 bench-radix-tree = []
+gpu32 = []
 
 [lib]
 bench = false
