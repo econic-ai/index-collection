@@ -6,10 +6,10 @@ edition = "2024"
 [workspace]
 
 [features]
-default = ["bench-m0-hashbrown"]
-bench-m0-hashbrown = []
+default = ["bench-hashbrown"]
+bench-hashbrown = []
 bench-radix-tree = []
-gpu32 = []
+gpu32 = ["dep:metal", "dep:libc"]
 
 [lib]
 bench = false
@@ -21,12 +21,18 @@ bench = false
 
 [dependencies]
 hashbrown = "0.16.1"
+metal = { version = "0.32.0", optional = true }
+libc = { version = "0.2", optional = true }
 
 [dev-dependencies]
 criterion = "0.8.2"
 
 [[bench]]
 name = "m0_bench"
+harness = false
+
+[[bench]]
+name = "m1_bench"
 harness = false
 
 [profile.bench]
