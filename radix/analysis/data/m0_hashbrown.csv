@@ -31,10 +31,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,median,3.487811,ns,Baseline
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,std_dev,0.188400,ns,Baseline
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit,0.75,throughput_ops_per_sec,290166101.097089,ops/s,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,mean,0.736466,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,median,0.735765,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,std_dev,0.044356,ns,Baseline
-2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1357836647.431006,ops/s,Baseline
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,mean,1.811236,ns,Baseline
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,median,1.854512,ns,Baseline
 2026-02-25T08:11:04.136202+00:00,m0_hashbrown,lookup_miss,0.01,std_dev,0.119994,ns,Baseline

@@ -180,3 +180,98 @@ Mode: `--quick`
 | 25% | 3.17 µs | 3.85 µs | 1.2x slower | +30% faster |
 | 50% | 3.45 µs | 4.70 µs | 1.4x slower | +7% faster |
 | 75% | 4.00 µs | 5.86 µs | 1.5x slower | +6% faster |
+
+## Run 6 — cleanup + NEON iter, GAT trait refactor
+
+Date: 2026-02-26
+Notes: Code reorganised into `m0_table/` and `radix_tree/` modules with analysis
+split out. `IndexTable::iter()` now returns a concrete associated type (GAT) —
+no `Box<dyn Iterator>`. RadixTree iter uses NEON 16-byte fingerprint scan with
+bitmask drain. No algorithmic changes to insert/contains from Run 5.
+Mode: `--quick`
+
+### Lookup Hit
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 5 |
+|------|-----------|------------|-------|----------|
+| tiny | 730 ps | 958 ps | 1.3x slower | ~same |
+| 1% | 2.80 ns | 2.84 ns | 1.0x | ~same |
+| 25% | 2.89 ns | 3.83 ns | 1.3x slower | ~same |
+| 50% | 3.07 ns | 6.30 ns | 2.1x slower | ~same |
+| 75% | 3.56 ns | 8.68 ns | 2.4x slower | ~same |
+
+### Lookup Miss
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 5 |
+|------|-----------|------------|-------|----------|
+| 1% | 1.77 ns | 2.74 ns | 1.5x slower | ~same |
+| 25% | 1.89 ns | 6.44 ns | 3.4x slower | ~same |
+| 50% | 2.56 ns | 10.73 ns | 4.2x slower | ~same |
+| 75% | 9.12 ns | 13.90 ns | 1.5x slower | ~same |
+
+### Insert Marginal
+
+| Load | hashbrown | radix_tree | Ratio | vs Run 5 |
+|------|-----------|------------|-------|----------|
+| 1% | 94.4 µs | 3.22 µs | 29x faster | noisy |
+| 25% | 3.61 µs | 3.84 µs | 1.1x slower | ~same |
+| 50% | 3.71 µs | 5.17 µs | 1.4x slower | ~same |
+| 75% | 4.80 µs | 36.3 µs | 7.6x slower | noisy |
+
+### Iter (new)
+
+| Load | hashbrown | radix_tree | Ratio |
+|------|-----------|------------|-------|
+| 1% | 14.1 µs | 13.6 µs | 1.0x (even) |
+| 25% | 126 µs | 52.0 µs | **2.4x faster** |
+| 50% | 244 µs | 104 µs | **2.3x faster** |
+| 75% | 276 µs | 200 µs | **1.4x faster** |
+
+## Run 7 - matrix summary (mean only)
+
+Date: 2026-02-26  
+Notes: Summary aligned to notebook matrix views. Mean latency (`ns`) only.  
+Rows represented in matrix: `last value` and `group mean` (across runs).  
+Mode: analysis CSV aggregation
+
+### Last Value (latest timestamp per impl/op/load)
+
+| Operation | Load | hashbrown (ns) | radix_tree (ns) | Ratio |
+|----------|------|----------------|-----------------|-------|
+| insert_marginal | 1%  | 1662.424 | 2662.594 | 1.6x slower |
+| insert_marginal | 25% | 2008.291 | 3210.233 | 1.6x slower |
+| insert_marginal | 50% | 2116.155 | 4257.986 | 2.0x slower |
+| insert_marginal | 75% | 2754.767 | 5052.132 | 1.8x slower |
+| lookup_hit      | 1%  | 2.728    | 2.840    | 1.0x (near even) |
+| lookup_hit      | 25% | 2.901    | 3.760    | 1.3x slower |
+| lookup_hit      | 50% | 3.004    | 5.592    | 1.9x slower |
+| lookup_hit      | 75% | 3.446    | 8.156    | 2.4x slower |
+| lookup_miss     | 1%  | 1.811    | 2.879    | 1.6x slower |
+| lookup_miss     | 25% | 2.034    | 6.329    | 3.1x slower |
+| lookup_miss     | 50% | 2.765    | 10.486   | 3.8x slower |
+| lookup_miss     | 75% | 8.702    | 12.966   | 1.5x slower |
+| iter            | 1%  | 15331.945 | 12963.780 | **1.2x faster** |
+| iter            | 25% | 272437.866 | 43883.677 | **6.2x faster** |
+| iter            | 50% | 522813.805 | 101085.452 | **5.2x faster** |
+| iter            | 75% | 666359.863 | 206730.208 | **3.2x faster** |
+
+### Group Mean (mean across all runs in group)
+
+| Operation | Load | hashbrown (ns) | radix_tree mean (ns) | Ratio |
+|----------|------|----------------|----------------------|-------|
+| insert_marginal | 1%  | 1662.424 | 3673.870 | 2.2x slower |
+| insert_marginal | 25% | 2008.291 | 4210.808 | 2.1x slower |
+| insert_marginal | 50% | 2116.155 | 6760.996 | 3.2x slower |
+| insert_marginal | 75% | 2754.767 | 8478.535 | 3.1x slower |
+| lookup_hit      | 1%  | 2.728    | 3.496    | 1.3x slower |
+| lookup_hit      | 25% | 2.901    | 4.384    | 1.5x slower |
+| lookup_hit      | 50% | 3.004    | 7.659    | 2.5x slower |
+| lookup_hit      | 75% | 3.446    | 10.876   | 3.2x slower |
+| lookup_miss     | 1%  | 1.811    | 3.361    | 1.9x slower |
+| lookup_miss     | 25% | 2.034    | 6.749    | 3.3x slower |
+| lookup_miss     | 50% | 2.765    | 11.543   | 4.2x slower |
+| lookup_miss     | 75% | 8.702    | 15.072   | 1.7x slower |
+| iter            | 1%  | 15331.945 | 56063.042 | 3.7x slower |
+| iter            | 25% | 272437.866 | 205177.030 | **1.3x faster** |
+| iter            | 50% | 522813.805 | 346719.434 | **1.5x faster** |
+| iter            | 75% | 666359.863 | 276515.453 | **2.4x faster** |

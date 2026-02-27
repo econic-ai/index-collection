@@ -79,10 +79,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,median,12.243226,ns,slot aligned
 2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,std_dev,0.982815,ns,slot aligned
 2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,83378838.758391,ops/s,slot aligned
-2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,1.686657,ns,slot aligned
-2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.686657,ns,slot aligned
-2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.032428,ns,slot aligned
-2026-02-25T08:25:35.261066+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,592888607.049264,ops/s,slot aligned
 2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,mean,3128.753796,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,median,3439.404786,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,insert_marginal,0.01,std_dev,885.525498,ns,preferred linear SIMD/NEON
@@ -115,10 +111,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,median,15.235223,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,std_dev,1.484506,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,66233606.748366,ops/s,preferred linear SIMD/NEON
-2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,3.798094,ns,preferred linear SIMD/NEON
-2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,median,3.811805,ns,preferred linear SIMD/NEON
-2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.296254,ns,preferred linear SIMD/NEON
-2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,263289935.014413,ops/s,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,mean,5.472053,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,median,5.596555,ns,preferred linear SIMD/NEON
 2026-02-25T09:57:11.537607+00:00,radix_tree,lookup_miss,0.01,std_dev,0.355411,ns,preferred linear SIMD/NEON
@@ -167,10 +159,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,median,7.963712,ns,prefetching
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,std_dev,0.606550,ns,prefetching
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,125872267.605150,ops/s,prefetching
-2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.973354,ns,prefetching
-2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,median,0.974261,ns,prefetching
-2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.057950,ns,prefetching
-2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1027375603.383991,ops/s,prefetching
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,mean,2.932593,ns,prefetching
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,median,2.995774,ns,prefetching
 2026-02-25T11:15:32.495232+00:00,radix_tree,lookup_miss,0.01,std_dev,0.206423,ns,prefetching
@@ -219,10 +207,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,median,7.972288,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,std_dev,0.485164,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,126846585.673018,ops/s,minor tweak on zero/target instruction
-2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.989432,ns,minor tweak on zero/target instruction
-2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.016785,ns,minor tweak on zero/target instruction
-2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.059107,ns,minor tweak on zero/target instruction
-2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1010680529.570544,ops/s,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,mean,2.800604,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,median,2.766815,ns,minor tweak on zero/target instruction
 2026-02-25T11:19:33.740525+00:00,radix_tree,lookup_miss,0.01,std_dev,0.185688,ns,minor tweak on zero/target instruction
@@ -271,10 +255,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,median,5.628660,ns,NEON only + empty check
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,std_dev,0.365705,ns,NEON only + empty check
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,178211960.580869,ops/s,NEON only + empty check
-2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,3.207463,ns,NEON only + empty check
-2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,median,3.251292,ns,NEON only + empty check
-2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.191601,ns,NEON only + empty check
-2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,311772883.229144,ops/s,NEON only + empty check
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,mean,3.172185,ns,NEON only + empty check
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,median,3.168811,ns,NEON only + empty check
 2026-02-25T22:44:41.591567+00:00,radix_tree,lookup_miss,0.01,std_dev,0.216929,ns,NEON only + empty check
@@ -323,10 +303,6 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,median,7.692860,ns,Reverted to preferred+NEON
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,std_dev,0.633619,ns,Reverted to preferred+NEON
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,128665810.270196,ops/s,Reverted to preferred+NEON
-2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,mean,0.986142,ns,Reverted to preferred+NEON
-2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,median,1.001941,ns,Reverted to preferred+NEON
-2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,std_dev,0.054682,ns,Reverted to preferred+NEON
-2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_hit_tiny,0.000004,throughput_ops_per_sec,1014052933.742091,ops/s,Reverted to preferred+NEON
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,mean,2.912725,ns,Reverted to preferred+NEON
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,median,2.959244,ns,Reverted to preferred+NEON
 2026-02-25T22:52:48.109435+00:00,radix_tree,lookup_miss,0.01,std_dev,0.198223,ns,Reverted to preferred+NEON
@@ -391,3 +367,67 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,median,200643.575195,ns,iter using neon
 2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,std_dev,3057.771409,ns,iter using neon
 2026-02-26T07:17:43.612208+00:00,radix_tree,iter,0.75,throughput_ops_per_sec,979886845.659602,ops/s,iter using neon
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.01,mean,2662.594427,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.01,median,2837.712083,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.01,std_dev,615.203165,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.01,throughput_ops_per_sec,48073412.412370,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.25,mean,3210.232722,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.25,median,3447.632805,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.25,std_dev,649.653674,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.25,throughput_ops_per_sec,39872498.688723,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.50,mean,4257.986130,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.50,median,4437.795222,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.50,std_dev,842.570359,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.50,throughput_ops_per_sec,30061159.452881,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.75,mean,5052.131866,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.75,median,5355.439799,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.75,std_dev,1327.463143,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,insert_marginal,0.75,throughput_ops_per_sec,25335839.088404,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.01,mean,12963.779782,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.01,median,13147.555506,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.01,std_dev,710.336925,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.01,throughput_ops_per_sec,202178688.941486,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.25,mean,43883.677379,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.25,median,43930.858652,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.25,std_dev,4054.017459,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.25,throughput_ops_per_sec,1493402647.960680,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.50,mean,101085.451979,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.50,median,100444.332692,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.50,std_dev,11472.492592,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.50,throughput_ops_per_sec,1296645535.377268,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.75,mean,206730.208219,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.75,median,206705.872476,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.75,std_dev,12925.721175,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,iter,0.75,throughput_ops_per_sec,951036627.369164,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.01,mean,2.839592,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.01,median,2.824711,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.01,std_dev,0.170561,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.01,throughput_ops_per_sec,352163304.196020,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.25,mean,3.760169,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.25,median,3.769078,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.25,std_dev,0.226092,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.25,throughput_ops_per_sec,265945526.466096,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.50,mean,5.591691,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.50,median,5.575678,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.50,std_dev,0.514674,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.50,throughput_ops_per_sec,178836788.065764,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.75,mean,8.156234,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.75,median,8.237479,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.75,std_dev,0.788588,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_hit,0.75,throughput_ops_per_sec,122605611.584367,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.01,mean,2.878558,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.01,median,2.847603,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.01,std_dev,0.181813,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.01,throughput_ops_per_sec,347396121.696351,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.25,mean,6.329239,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.25,median,6.433231,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.25,std_dev,0.449212,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.25,throughput_ops_per_sec,157996879.698903,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.50,mean,10.485676,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.50,median,10.576301,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.50,std_dev,0.767566,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.50,throughput_ops_per_sec,95368195.875976,ops/s,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.75,mean,12.966304,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.75,median,13.024439,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.75,std_dev,0.771773,ns,Code layout improvements
+2026-02-26T09:42:04.051762+00:00,radix_tree,lookup_miss,0.75,throughput_ops_per_sec,77122978.411193,ops/s,Code layout improvements
