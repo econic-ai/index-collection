@@ -12,6 +12,12 @@ pub mod analysis;
 
 use crate::{IndexTable, mix64};
 use core::arch::aarch64::*;
+#[cfg(feature = "gpu32")]
+use core::ffi::c_void;
+#[cfg(feature = "gpu32")]
+use std::cell::RefCell;
+#[cfg(feature = "gpu32")]
+use metal::{CompileOptions, ComputePipelineState, Device, MTLResourceOptions, MTLSize};
 
 /// Hint the CPU to prefetch a cache line for reading.
 #[inline(always)]
@@ -144,36 +150,51 @@ const CHUNK_WIDTH: usize = 16;
 /// Number of 16-byte chunks per group.
 const CHUNKS_PER_GROUP: usize = GROUP_SLOTS / CHUNK_WIDTH;
 
-#[cfg(feature = "gpu32")]
-type IterMask = u32;
 #[cfg(not(feature = "gpu32"))]
 type IterMask = u16;
 
-#[cfg(feature = "gpu32")]
-const ITER_CHUNK_WIDTH: usize = 32;
 #[cfg(not(feature = "gpu32"))]
 const ITER_CHUNK_WIDTH: usize = 16;
 
-#[inline]
-unsafe fn iter_occupied_mask(ptr: *const u8) -> IterMask {
-    unsafe {
-        let zero = vdupq_n_u8(0);
-        #[cfg(feature = "gpu32")]
-        {
-            let lo = vld1q_u8(ptr);
-            let hi = vld1q_u8(ptr.add(16));
-            let lo_empty = pack_neon_16(vceqq_u8(lo, zero)) as u32;
-            let hi_empty = pack_neon_16(vceqq_u8(hi, zero)) as u32;
-            let empty = lo_empty | (hi_empty << 16);
-            !empty
-        }
-        #[cfg(not(feature = "gpu32"))]
-        {
-            let chunk = vld1q_u8(ptr);
-            let empty = pack_neon_16(vceqq_u8(chunk, zero));
-            !empty
-        }
+#[cfg(feature = "gpu32")]
+struct GpuScanContext {
+    device: Device,
+    pipeline: ComputePipelineState,
+    queue: metal::CommandQueue,
+}
+
+#[cfg(feature = "gpu32")]
+impl GpuScanContext {
+    fn new() -> Option<Self> {
+        let device = Device::system_default()?;
+        let queue = device.new_command_queue();
+        let opts = CompileOptions::new();
+        let src = r#"
+#include <metal_stdlib>
+using namespace metal;
+
+kernel void mark_occupied(
+    const device uchar* fps [[buffer(0)]],
+    device uchar* flags [[buffer(1)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    flags[gid] = fps[gid] != 0;
+}
+"#;
+        let lib = device.new_library_with_source(src, &opts).ok()?;
+        let func = lib.get_function("mark_occupied", None).ok()?;
+        let pipeline = device.new_compute_pipeline_state_with_function(&func).ok()?;
+        Some(Self {
+            device,
+            pipeline,
+            queue,
+        })
     }
+}
+
+#[cfg(feature = "gpu32")]
+thread_local! {
+    static GPU_SCAN_CONTEXT: RefCell<Option<GpuScanContext>> = const { RefCell::new(None) };
 }
 
 impl RadixTree {
@@ -243,11 +264,80 @@ impl RadixTree {
 
 }
 
+#[cfg(feature = "gpu32")]
+impl RadixTree {
+    fn collect_iter_keys_gpu(&self) -> Vec<u64> {
+        let total = self.layout.total_slots;
+        if total == 0 {
+            return Vec::new();
+        }
+
+        let mut occupied = vec![0u8; total];
+
+        GPU_SCAN_CONTEXT.with(|ctx_cell| {
+            if ctx_cell.borrow().is_none() {
+                *ctx_cell.borrow_mut() = GpuScanContext::new();
+            }
+
+            let ctx_borrow = ctx_cell.borrow();
+            let Some(ctx) = ctx_borrow.as_ref() else {
+                panic!("gpu32 enabled but no Metal device/pipeline available");
+            };
+
+            let fp_buf = ctx.device.new_buffer_with_data(
+                self.fp_ptr.cast::<c_void>(),
+                total as u64,
+                MTLResourceOptions::StorageModeShared,
+            );
+            let flag_buf = ctx
+                .device
+                .new_buffer(total as u64, MTLResourceOptions::StorageModeShared);
+
+            let cmd = ctx.queue.new_command_buffer();
+            let enc = cmd.new_compute_command_encoder();
+            enc.set_compute_pipeline_state(&ctx.pipeline);
+            enc.set_buffer(0, Some(&fp_buf), 0);
+            enc.set_buffer(1, Some(&flag_buf), 0);
+
+            let grid = MTLSize {
+                width: total as u64,
+                height: 1,
+                depth: 1,
+            };
+            let tg_width = ctx.pipeline.thread_execution_width().max(1) as u64;
+            let threadgroup = MTLSize {
+                width: tg_width,
+                height: 1,
+                depth: 1,
+            };
+            enc.dispatch_threads(grid, threadgroup);
+            enc.end_encoding();
+
+            cmd.commit();
+            cmd.wait_until_completed();
+
+            unsafe {
+                let src = std::slice::from_raw_parts(flag_buf.contents().cast::<u8>(), total);
+                occupied.copy_from_slice(src);
+            }
+        });
+
+        let mut keys = Vec::with_capacity(self.len);
+        for (slot, &is_set) in occupied.iter().enumerate() {
+            if is_set != 0 {
+                keys.push(unsafe { *self.hash_ptr.add(slot) });
+            }
+        }
+        keys
+    }
+}
+
 // ── Iteration ──────────────────────────────────────────────────────
 
 /// NEON-accelerated iterator over stored keys.
 /// Loads 16 fingerprint bytes at a time, compares against zero to build
 /// an occupied bitmask, then iterates set bits to yield hashes.
+#[cfg(not(feature = "gpu32"))]
 pub struct Iter<'a> {
     fp_ptr: *const u8,
     hash_ptr: *const u64,
@@ -259,12 +349,34 @@ pub struct Iter<'a> {
     _marker: std::marker::PhantomData<&'a ()>,
 }
 
+#[cfg(not(feature = "gpu32"))]
 impl<'a> Iter<'a> {
     /// Advance to the next iterator chunk that has at least one occupied slot.
     #[inline]
     fn advance_chunk(&mut self) -> bool {
         while self.chunk_base < self.total {
-            let occupied = unsafe { iter_occupied_mask(self.fp_ptr.add(self.chunk_base)) };
+            #[cfg(feature = "gpu32")]
+            let occupied = unsafe {
+                let ptr = self.fp_ptr.add(self.chunk_base);
+                let zero = vdupq_n_u8(0);
+                let lo = vld1q_u8(ptr);
+                let hi = vld1q_u8(ptr.add(16));
+                let lo_empty = pack_neon_16(vceqq_u8(lo, zero)) as u32;
+                let hi_empty = pack_neon_16(vceqq_u8(hi, zero)) as u32;
+                let empty = lo_empty | (hi_empty << 16);
+                !empty
+            };            
+            #[cfg(not(feature = "gpu32"))]
+            let occupied = unsafe {
+                // Keep the default 16B path identical to the original hot loop.
+                let ptr = self.fp_ptr.add(self.chunk_base);
+                let chunk = vld1q_u8(ptr);
+                let zero = vdupq_n_u8(0);
+                let eq = vceqq_u8(chunk, zero);
+                let empty_mask = pack_neon_16(eq);
+                !empty_mask & 0xFFFF
+            };
+
             if occupied != 0 {
                 self.mask = occupied;
                 return true;
@@ -275,6 +387,7 @@ impl<'a> Iter<'a> {
     }
 }
 
+#[cfg(not(feature = "gpu32"))]
 impl<'a> Iterator for Iter<'a> {
     type Item = u64;
     #[inline]
@@ -291,6 +404,22 @@ impl<'a> Iterator for Iter<'a> {
                 return None;
             }
         }
+    }
+}
+
+#[cfg(feature = "gpu32")]
+pub struct Iter<'a> {
+    inner: std::vec::IntoIter<u64>,
+    _marker: std::marker::PhantomData<&'a ()>,
+}
+
+#[cfg(feature = "gpu32")]
+impl<'a> Iterator for Iter<'a> {
+    type Item = u64;
+
+    #[inline]
+    fn next(&mut self) -> Option<u64> {
+        self.inner.next()
     }
 }
 
@@ -483,6 +612,16 @@ impl IndexTable for RadixTree {
     }
 
     fn iter(&self) -> Self::KeyIter<'_> {
+        #[cfg(feature = "gpu32")]
+        {
+            let keys = self.collect_iter_keys_gpu();
+            return Iter {
+                inner: keys.into_iter(),
+                _marker: std::marker::PhantomData,
+            };
+        }
+        #[cfg(not(feature = "gpu32"))]
+        {
         let mut it = Iter {
             fp_ptr: self.fp_ptr,
             hash_ptr: self.hash_ptr,
@@ -493,6 +632,7 @@ impl IndexTable for RadixTree {
         };
         it.advance_chunk();
         it
+        }
     }
 }
 
