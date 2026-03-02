@@ -279,483 +279,771 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-27T07:28:01.097803+00:00,radix_tree_gpu,set_intersection,size=8M/lf=0.90/overlap=0.90,median,1260484.054688,ns,
 2026-02-27T07:28:01.097803+00:00,radix_tree_gpu,set_intersection,size=8M/lf=0.90/overlap=0.90,std_dev,21718.221308,ns,
 2026-02-27T07:28:01.097803+00:00,radix_tree_gpu,set_intersection,size=8M/lf=0.90/overlap=0.90,throughput_ops_per_sec,6655068716.501700,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,mean,12735880.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,median,12735880.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,4014.421973,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,10538551453.270687,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,mean,13015354.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,median,13015354.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,333651.339907,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,10312260942.803967,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,mean,11281041.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,median,11281041.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,161750.676196,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,11897636224.456758,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,mean,14169401.000000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,median,14169401.000000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,98796.252361,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,9472364286.958920,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,mean,14592380.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,median,14592380.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,33550.625777,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,9197795483.003839,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,mean,13706791.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,median,13706791.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,295128.869574,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,9792059967.351040,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,mean,11958513.062500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,median,11958513.062500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,84989.020186,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,11223613445.795824,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,mean,11904562.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,median,11904562.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,30906.488357,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,11274477940.314491,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,mean,13134682.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,median,13134682.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,401982.868872,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,10218574367.213116,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,mean,13968208.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,median,13968208.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,149479.368339,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,9608800527.361835,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,mean,14290776.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,median,14290776.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,172511.780746,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,9391913053.008579,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,mean,11170989.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,median,11170989.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,52473.156795,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,12014846715.068899,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,mean,12577411.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,median,12577411.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,84668.435649,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,10671331431.438303,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,mean,11373997.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,median,11373997.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,47055.746579,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,11800400889.183874,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,mean,12662872.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,median,12662872.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,5122.811853,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,10599311437.820599,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,mean,15057827.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,median,15057827.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,226369.806172,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,8913485338.933720,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,mean,20988515.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,median,20988515.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,158576.297079,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,6394817546.798286,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,mean,12700948.000000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,median,12700948.000000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,11328.557741,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,10567536218.556284,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,mean,22366760.437500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,median,22366760.437500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,514493.810807,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,6000767450.210234,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,mean,21855421.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,median,21855421.875000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,596378.278670,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,6141163907.411419,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,mean,19503911.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,median,19503911.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,226163.861322,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,6881580035.881520,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,mean,17057687.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,median,17057687.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,88358.825940,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,7868459720.371975,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,mean,17367359.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,median,17367359.375000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,82606.158722,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,7728159768.099461,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,mean,18497427.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,median,18497427.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,427313.466706,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,7256021401.570859,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,mean,15436291.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,median,15436291.625000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,97315.393984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,8694946380.944653,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,mean,22409986.937500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,median,22409986.937500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,168331.984174,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,5989192603.026701,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,mean,12890221.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,median,12890221.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,172442.042340,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,10412368007.199799,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,mean,21296187.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,median,21296187.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,477105.716528,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,6302429841.308363,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,mean,13368718.687500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,median,13368718.687500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,190093.902472,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,10039685263.591946,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,mean,13066419.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,median,13066419.250000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,135289.326231,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,10271959396.986286,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,mean,344118.408203,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,median,344118.408203,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,6802.568871,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,3047137191.745494,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,mean,342124.919922,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,median,342124.919922,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,4261.171857,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,3064892204.401377,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,mean,274397.218750,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,median,274397.218750,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,672.469597,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,3821379840.425223,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,mean,329683.351562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,median,329683.351562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,1554.507967,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,3180554902.242964,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,mean,379699.058594,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,median,379699.058594,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,1540.117239,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,2761597576.468840,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,mean,359319.335938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,median,359319.335938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,2255.283933,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,2918228703.902507,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,mean,306689.373047,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,median,306689.373047,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,2806.907324,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,3419016412.543690,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,mean,345034.996094,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,median,345034.996094,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,2157.918644,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,3039042450.392742,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,mean,326860.351562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,median,326860.351562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,1845.106757,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,3208024451.382561,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,mean,350807.291016,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,median,350807.291016,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,3350.932080,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,2989037077.776403,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,mean,371539.062500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,median,371539.062500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,296.476615,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,2822249679.332170,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,mean,322210.613281,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,median,322210.613281,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,1738.306012,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,3254318625.081176,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,mean,329656.433105,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,median,329656.433105,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,864.691466,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,3180814613.936333,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,mean,329082.523438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,median,329082.523438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,872.602914,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,3186361855.521470,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,mean,331630.455078,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,median,331630.455078,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,3521.377960,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,3161880894.663242,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,mean,357552.734375,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,median,357552.734375,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,3588.014487,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,2932647129.193137,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,mean,408869.789062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,median,408869.789062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,15007.601178,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,2564571968.998458,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,mean,332908.691406,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,median,332908.691406,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,7017.896696,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,3149740535.672642,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,mean,411947.753906,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,median,411947.753906,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,14961.799441,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,2545410164.412821,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,mean,421719.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,median,421719.562500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,3893.462520,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,2486429592.651396,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,mean,423541.019531,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,median,423541.019531,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,3630.369079,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,2475736591.370776,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,mean,372977.699219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,median,372977.699219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,4229.056503,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,2811363795.198421,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,mean,372574.050781,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,median,372574.050781,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,10148.777698,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,2814409639.644099,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,mean,393546.382812,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,median,393546.382812,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,7358.097922,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,2664427995.770908,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,mean,375344.074219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,median,375344.074219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,12520.303357,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,2793639415.201987,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,mean,417432.781250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,median,417432.781250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,1161.710150,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,2511963715.116109,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,mean,327331.458984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,median,327331.458984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,1288.191114,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,3203407345.121855,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,mean,393199.542969,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,median,393199.542969,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,4672.147290,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,2666778277.723829,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,mean,333077.796875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,median,333077.796875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,5025.242166,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,3148141394.707008,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,mean,352864.421875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,median,352864.421875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,5169.569289,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,2971611573.726329,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,mean,220004.150391,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,median,220004.150391,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,2027.979486,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,1191541157.448867,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,mean,210857.503906,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,median,210857.503906,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,1271.615536,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,1243228223.533143,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,mean,209039.754883,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,median,209039.754883,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,2268.231445,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1254038975.251180,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,mean,220094.320312,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,median,220094.320312,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,6458.912213,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,1191052997.768393,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,mean,223993.449219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,median,223993.449219,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,std_dev,2255.571195,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,1170319939.776420,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,mean,202277.832031,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,median,202277.832031,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,4639.697718,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,1295960102.832728,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,mean,219547.607422,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,median,219547.607422,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,4384.545417,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,1194018933.197816,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,mean,216183.673828,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,median,216183.673828,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,5117.433974,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,1212598506.436778,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,mean,206620.689453,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,median,206620.689453,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,728.858601,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,1268720962.522348,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,mean,207695.760742,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,median,207695.760742,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,std_dev,2291.593590,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,1262153830.503065,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,mean,212496.498047,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,median,212496.498047,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,3233.198801,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,1233639153.630537,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,mean,206235.921875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,median,206235.921875,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,2325.143873,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1271087973.504858,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,mean,210274.333984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,median,210274.333984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,640.011739,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,1246676163.622895,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,mean,210438.638672,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,median,210438.638672,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,1698.025785,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1245702793.243907,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,mean,211516.357422,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,median,211516.357422,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,std_dev,707.452048,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,1239355684.804778,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,mean,199854.005859,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,median,199854.005859,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,49.483664,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,1311677486.136828,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,mean,244516.031250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,median,244516.031250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,3432.296316,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,1072093304.720690,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,mean,210942.462891,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,median,210942.462891,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,950.287985,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1242727502.124233,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,mean,234175.292969,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,median,234175.292969,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,6384.677050,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,1119434918.503475,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,mean,241698.568359,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,median,241698.568359,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,std_dev,967.667344,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,1084590619.544859,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,mean,234686.850586,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,median,234686.850586,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,1563.370280,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,1116994835.226221,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,mean,231895.833984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,median,231895.833984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,381.636026,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,1130438591.741424,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,mean,228333.536133,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,median,228333.536133,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,2708.330838,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,1148074892.719751,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,mean,232137.208984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,median,232137.208984,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,576.134585,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,1129263167.877773,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,mean,216409.177734,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,median,216409.177734,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,std_dev,5276.604816,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,1211334947.733875,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,mean,244539.224609,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,median,244539.224609,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,77.569061,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,1071991621.870670,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,mean,222368.978516,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,median,222368.978516,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,7457.079061,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1178869470.687343,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,mean,281774.738281,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,median,281774.738281,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,4332.868617,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,930331801.917403,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,mean,204863.219238,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,median,204863.219238,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,7710.703210,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1279605001.691856,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,mean,225548.991211,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,median,225548.991211,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,std_dev,3014.182143,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,1162248603.252844,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,mean,1032906.906250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,median,1032906.906250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,1634.256354,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,8121359194.368345,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,mean,1004674.484375,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,median,1004674.484375,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,18587.340307,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,8349578027.970409,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,mean,919717.773438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,median,919717.773438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,23924.239786,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,9120850158.899374,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,mean,1075853.597656,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,median,1075853.597656,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,2092.201907,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,7797164984.412940,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,mean,1119386.406250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,median,1119386.406250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,11339.959838,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,7493934134.953678,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,mean,1054016.593750,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,median,1054016.593750,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,750.859013,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,7958705820.896854,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,mean,968812.164062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,median,968812.164062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,8476.519879,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,8658652637.910969,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,mean,948643.554688,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,median,948643.554688,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,6583.550832,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,8842739676.614738,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,mean,995437.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,median,995437.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,3391.902841,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,8427056445.030452,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,mean,1058547.523438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,median,1058547.523438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,498.101485,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,7924639956.417875,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,mean,1093058.585938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,median,1093058.585938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,1968.485842,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,7674435851.766551,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,mean,971333.656250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,median,971333.656250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,17062.177271,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,8636175577.798527,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,mean,1061905.273438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,median,1061905.273438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,10965.204293,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,7899582203.641561,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,mean,924889.648438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,median,924889.648438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,5735.575122,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,9069847429.011274,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,mean,1016681.960938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,median,1016681.960938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,12112.418754,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,8250965712.290911,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,mean,1128856.765625,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,median,1128856.765625,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,20817.289929,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,7431064999.070617,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,mean,1539223.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,median,1539223.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,13551.966626,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,5449896666.634589,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,mean,979466.552734,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,median,979466.552734,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,1161.823398,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,8564466011.199197,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,mean,1590083.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,median,1590083.312500,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,28019.106205,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,5275577659.393869,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,mean,1677450.531250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,median,1677450.531250,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,24406.188300,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,5000807978.372388,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,mean,1340326.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,median,1340326.500000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,1048.241609,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,6258630266.580568,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,mean,1263554.039062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,median,1263554.039062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,792.744042,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,6638899279.862988,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,mean,1271786.789062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,median,1271786.789062,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,11913.544972,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,6595923209.883064,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,mean,1320069.335938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,median,1320069.335938,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,6401.249865,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,6354672267.303668,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,mean,1386842.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,median,1386842.125000,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,18636.594713,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,6048711564.771657,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,mean,1723177.078125,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,median,1723177.078125,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,46451.766903,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,4868105609.394304,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,mean,965699.226562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,median,965699.226562,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,5818.903236,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,8686563858.873598,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,mean,1557508.453125,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,median,1557508.453125,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,11226.226132,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,5385914909.912056,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,mean,1011677.398438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,median,1011677.398438,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,1966.165648,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,8291781562.932916,ops/s,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,mean,1101371.429688,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,median,1101371.429688,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,5699.667355,ns,
-2026-02-27T07:57:19.732904+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,7616511354.739027,ops/s,
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,mean,13112302.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,median,13112302.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,168806.894766,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,10236015613.429281,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,mean,16260135.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,median,16260135.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,275079.210347,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,8254404093.483754,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,mean,12991559.937500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,median,12991559.937500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,32110.691206,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,10331147964.193426,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,mean,11394682.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,median,11394682.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,206688.903131,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,11778979315.340504,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,16571671.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,16571671.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,137119.848911,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,8099226741.417725,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,mean,14159395.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,median,14159395.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,336671.569746,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,9479057607.384129,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,mean,14984078.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,median,14984078.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,281657.071179,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,8957356393.922298,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,18267458.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,median,18267458.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,485782.181898,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,7347367392.044215,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,mean,15068796.812500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,median,15068796.812500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,198306.770959,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,8906996999.830971,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,mean,18858367.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,median,18858367.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,162807.624058,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,7117144719.389379,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,mean,12205971.437500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,median,12205971.437500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,51644.692812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,10996070954.880932,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,mean,11842237.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,median,11842237.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,63061.285348,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,11333815333.339178,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,18918682.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,18918682.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,275013.095863,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,7094454325.072943,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,mean,12809112.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,median,12809112.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,96251.109890,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,10478300708.519545,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,mean,14345104.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,median,14345104.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,88123.359382,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,9356343773.553059,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,19860187.500000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,median,19860187.500000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,625023.704706,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,6758129952.197078,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,mean,15219177.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,median,15219177.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,495784.914425,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,8818987182.922348,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,mean,20929411.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,median,20929411.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,459479.577405,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,6412876386.973879,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,mean,11603791.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,median,11603791.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,202733.524574,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,11566712923.816475,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,mean,13313067.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,median,13313067.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,73723.306560,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,10081652893.263462,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,20287578.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,20287578.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,443643.213934,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,6615759021.260700,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,mean,11576291.687500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,median,11576291.687500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,163960.296499,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,11594190231.482105,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,mean,13279025.554688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,median,13279025.554688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,52632.730908,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,10107498283.458088,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,19010109.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,median,19010109.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,155939.142339,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,7060334338.555061,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,mean,15004380.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,median,15004380.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,412677.770549,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,8945236375.224495,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,mean,21204016.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,median,21204016.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,381231.373019,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,6329825642.096019,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,mean,21253049.562500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,median,21253049.562500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,343922.861399,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,6315222086.378645,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,mean,13702182.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,median,13702182.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,363195.145108,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,9795354167.034233,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,19611041.015625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,19611041.015625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,125066.749787,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,6843987929.710752,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,mean,21932037.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,median,21932037.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,33648.339095,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,6119710778.300071,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,mean,24081150.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,median,24081150.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,232011.811179,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,5573559531.963192,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,27356369.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,median,27356369.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,410526.928497,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,4906269677.346948,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,mean,19261877.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,median,19261877.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,475231.088063,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,6968050083.850535,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,mean,21652181.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,median,21652181.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,822489.482634,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,6198808518.591651,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,mean,16755747.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,median,16755747.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,9932.552179,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,8010250154.538392,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,mean,17225416.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,median,17225416.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,76220.277381,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,7791842190.057914,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,35917145.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,35917145.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,324532.667633,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,3736870655.987468,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,mean,17942354.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,median,17942354.125000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,82996.835218,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,7480497100.042606,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,mean,14631531.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,median,14631531.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,17633.475356,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,9173183975.532295,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,21033286.500000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,median,21033286.500000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,63057.661426,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,6381205714.095132,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,mean,22572000.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,median,22572000.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,661144.840409,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,5946204501.151870,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,mean,25823428.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,median,25823428.375000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,536857.918917,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,5197517775.367811,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,mean,12841002.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,median,12841002.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,154587.507726,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,10452277903.805817,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,mean,20592052.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,median,20592052.250000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,19725.097215,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,6517938395.382617,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,25653989.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,25653989.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,131801.698809,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,5231846194.761217,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,mean,12954153.687500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,median,12954153.687500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,120668.567705,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,10360980056.112215,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,mean,12269968.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,median,12269968.750000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,73686.537007,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,10938717997.957411,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,17413297.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,median,17413297.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,165514.605593,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,7707772284.593780,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,mean,344140.705078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,median,344140.705078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,525.383101,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,3046939767.738193,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,mean,386918.457031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,median,386918.457031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,1570.964773,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,2710069734.190298,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,mean,348040.281250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,median,348040.281250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,2603.887576,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,3012800691.442954,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,mean,322522.214844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,median,322522.214844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,0.116010,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,3251174498.190756,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,399133.949219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,399133.949219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,5334.385936,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,2627128065.784541,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,mean,355056.884766,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,median,355056.884766,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,7933.199468,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,2953261984.180847,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,mean,371642.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,median,371642.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,1754.646808,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,2821464858.004623,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,393820.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,median,393820.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,8869.218259,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,2662570262.137673,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,mean,364522.296875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,median,364522.296875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,3261.397446,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,2876575751.303279,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,mean,390658.371094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,median,390658.371094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,11091.119018,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,2684125255.179450,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,mean,337586.671875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,median,337586.671875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,2865.141435,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,3106094189.607882,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,mean,328720.542969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,median,328720.542969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,3026.146334,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,3189870613.287724,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,396072.269531,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,396072.269531,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,1857.994883,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,2647436037.976063,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,mean,341270.830078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,median,341270.830078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,7373.518927,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,3072562632.323296,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,mean,356744.304688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,median,356744.304688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,7303.783283,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,2939292894.720573,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,389584.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,median,389584.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,6170.147481,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,2691520679.980033,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,mean,363286.621094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,median,363286.621094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,7245.772905,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,2886360078.009599,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,mean,389334.308594,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,median,389334.308594,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,2545.313723,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,2693253527.507986,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,mean,340903.564453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,median,340903.564453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,258.831465,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,3075872796.114989,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,mean,346770.181641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,median,346770.181641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,366.444279,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,3023835541.565367,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,388287.759766,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,388287.759766,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,14646.222657,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,2700512631.747477,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,mean,333844.564453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,median,333844.564453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,11431.792569,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,3140910805.954518,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,mean,337457.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,median,337457.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,9177.428428,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,3107279974.137510,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,389445.476562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,median,389445.476562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,7197.430003,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,2692484733.050224,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,mean,369460.449219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,median,369460.449219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,1827.390418,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,2838127875.980467,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,mean,403414.382812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,median,403414.382812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,172.633492,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,2599252889.025922,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,mean,408671.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,median,408671.875000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,14792.165629,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,2565813955.266679,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,mean,334742.839844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,median,334742.839844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,3487.655043,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,3132482237.676691,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,403597.167969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,403597.167969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,1604.110403,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,2598075713.160579,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,mean,429670.414062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,median,429670.414062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,520.883581,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,2440419367.221020,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,mean,435543.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,median,435543.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,5252.654336,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,2407510843.488985,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,473052.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,median,473052.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,8777.609261,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,2216616969.890616,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,mean,410718.582031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,median,410718.582031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,3426.191996,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,2553027902.497525,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,mean,442779.621094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,median,442779.621094,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,4076.454021,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,2368166803.634317,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,mean,388531.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,median,388531.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,8684.381652,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,2698819123.988739,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,mean,397363.929688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,median,397363.929688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,3238.140262,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,2638830355.902295,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,441897.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,441897.625000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,2076.441160,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,2372893495.410843,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,mean,397112.628906,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,median,397112.628906,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,2368.990018,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,2640500260.311658,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,mean,403104.003906,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,median,403104.003906,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,7709.811730,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,2601254241.681677,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,435015.136719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,median,435015.136719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,1989.428356,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,2410435664.168475,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,mean,445661.136719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,median,445661.136719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,14753.037213,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,2352854924.080446,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,mean,476407.714844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,median,476407.714844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,2211.780293,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,2201005498.712184,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,mean,343110.109375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,median,343110.109375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,8217.928720,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,3056091824.021325,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,mean,425111.167969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,median,425111.167969,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,5727.062219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,2466592456.298586,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,468822.261719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,468822.261719,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,672.121568,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,2236617340.131874,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,mean,346093.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,median,346093.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,431.928996,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,3029749092.314120,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,mean,377338.707031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,median,377338.707031,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,421.452214,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,2778872086.168356,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,400502.113281,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,median,400502.113281,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,3525.639935,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,2618153475.918476,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,mean,218989.644531,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,median,218989.644531,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,4092.305918,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,1197061169.541247,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,mean,236989.135742,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,median,236989.135742,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,2605.557287,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,1106143533.453692,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,mean,225307.048828,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,median,225307.048828,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,4493.191269,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,1163496665.388290,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,mean,224770.548584,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,median,224770.548584,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,7186.272010,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1166273791.880039,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,239457.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,median,239457.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,4112.477797,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,1094740773.687983,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,mean,259506.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,median,259506.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,2767.430878,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,1010164122.537075,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,mean,222515.705078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,median,222515.705078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,std_dev,3311.687653,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,1178092125.712931,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,mean,240089.191406,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,median,240089.191406,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,7078.895705,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,1091860897.463025,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,mean,263595.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,median,263595.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,2077.468675,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,994492395.731390,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,mean,238515.360352,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,median,238515.360352,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,4493.046257,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,1099065484.141608,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,mean,226142.335938,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,median,226142.335938,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,5041.008437,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,1159199134.090708,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,mean,218661.072266,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,median,218661.072266,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,5435.681744,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,1198859940.106544,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,249212.324219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,median,249212.324219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,3356.343104,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,1051890193.720512,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,mean,259330.730469,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,median,259330.730469,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,875.138554,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,1010848191.906007,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,mean,252632.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,median,252632.000000,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,std_dev,7565.722151,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,1037651603.913993,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,mean,256288.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,median,256288.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,7255.269128,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,1022845864.776482,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,mean,256520.589844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,median,256520.589844,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,5681.365443,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,1021921866.621604,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,mean,240807.005859,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,median,240807.005859,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,7573.489277,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,1088606201.736029,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,mean,252825.439453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,median,252825.439453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,5346.923271,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1036857685.551864,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,mean,258317.708984,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,median,258317.708984,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,1877.332596,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,1014812344.963374,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,273858.642578,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,median,273858.642578,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,4054.006143,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,957223761.617152,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,mean,256869.222656,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,median,256869.222656,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,1642.437800,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1020534874.864354,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,mean,229405.782227,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,median,229405.782227,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,std_dev,4938.611918,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,1142708773.317252,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,mean,287465.005859,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,median,287465.005859,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,3937.195417,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,911916214.693061,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,mean,241803.913086,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,median,241803.913086,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,3786.828884,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,1084118104.849832,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,mean,269400.064453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,median,269400.064453,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,7933.315478,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,973065839.951246,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,mean,262288.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,median,262288.410156,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,6744.677265,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,999449422.274648,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,mean,220617.756836,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,median,220617.756836,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,8072.688711,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1188227111.723122,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,246477.610352,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,median,246477.610352,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,2650.053915,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,1063561106.528466,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,mean,289604.658203,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,median,289604.658203,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,560.025809,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,905178810.404823,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,mean,293895.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,median,293895.345703,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,std_dev,55.930489,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,891963768.166651,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,mean,265674.480469,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,median,265674.480469,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,5703.805035,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,986711254.831398,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,mean,242761.150391,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,median,242761.150391,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,5565.126480,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,1079843292.792880,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,mean,307065.837891,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,median,307065.837891,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,2088.287961,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,853706168.686124,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,mean,270705.892578,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,median,270705.892578,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,4834.425534,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,968371975.590986,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,mean,233996.824219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,median,233996.824219,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,8144.737644,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,1120288708.512287,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,306407.306641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,median,306407.306641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,5898.654385,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,855540955.841043,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,mean,269632.488281,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,median,269632.488281,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,8717.759301,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,972227054.948071,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,mean,278535.724609,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,median,278535.724609,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,std_dev,7485.501439,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,941150369.015094,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,mean,314747.232422,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,median,314747.232422,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,1968.709575,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,832871501.308810,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,mean,291667.804688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,median,291667.804688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,2302.008223,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,898775921.740377,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,mean,315027.751953,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,median,315027.751953,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,4375.336456,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,832129862.765253,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,mean,252486.820312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,median,252486.820312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,1295.673740,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1038248252.623830,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,mean,279749.023438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,median,279749.023438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,1074.470851,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,937068507.974852,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,316635.091797,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,median,316635.091797,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,3942.487669,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,827905708.468246,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,mean,265104.164062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,median,265104.164062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,1814.259224,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,988833958.632946,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,mean,254707.681641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,median,254707.681641,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,std_dev,7285.130579,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,1029195500.942398,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,mean,237755.330078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,median,237755.330078,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,8253.894491,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,1102578856.650074,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,mean,1059284.820312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,median,1059284.820312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,5367.305071,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,7919124147.861643,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,mean,1263187.828125,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,median,1263187.828125,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,27445.974061,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,6640823963.963890,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,mean,1029187.171875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,median,1029187.171875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,32939.840198,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,8150711774.533115,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,mean,984232.429688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,median,984232.429688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,1707.916993,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,8522994921.701001,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,1230363.929688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,1230363.929688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,18897.616552,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,6817989212.452467,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,mean,1106179.679688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,median,1106179.679688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,4086.115972,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,7583404535.481807,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,mean,1175006.179688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,median,1175006.179688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,11636.425405,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,7139203303.791135,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,1346694.984375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,median,1346694.984375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,5381.104702,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,6229033372.314181,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,mean,1129875.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,median,1129875.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,25303.462611,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,7424361816.704936,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,mean,1290190.757812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,median,1290190.757812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,17987.945776,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,6501835445.033543,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,mean,993872.398438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,median,993872.398438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,9336.030269,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,8440326960.672226,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,mean,1035882.972656,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,median,1035882.972656,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,14260.680971,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,8098026728.337484,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,1265662.109375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,1265662.109375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,16605.054834,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,6627841615.755094,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,mean,1001355.148438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,median,1001355.148438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,8018.933404,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,8377255575.196734,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,mean,1118546.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,median,1118546.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,12223.379276,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,7499558851.461283,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,1283126.632812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,median,1283126.632812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,398.200555,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,6537630648.046728,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,mean,1138945.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,median,1138945.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,9619.149195,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,7365240008.642313,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,mean,1324524.734375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,median,1324524.734375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,5815.224071,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,6333296602.390978,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,mean,939323.898438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,median,939323.898438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,17167.127385,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,8930474369.867376,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,mean,1045862.296875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,median,1045862.296875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,640.351482,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,8020757632.304814,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,1335134.429688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,1335134.429688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,30283.582526,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,6282968825.815860,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,mean,979889.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,median,979889.968750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,11999.646271,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,8560765256.838945,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,mean,1090828.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,median,1090828.781250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,4236.188338,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,7690123458.593883,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,1240942.054688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,median,1240942.054688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,11817.334255,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,6759870832.254500,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,mean,1187370.132812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,median,1187370.132812,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,21709.934901,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,7064863573.863081,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,mean,1313735.679688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,median,1313735.679688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,39093.425912,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,6385308802.753541,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,mean,1556257.148438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,median,1556257.148438,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,4681.831338,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,5390245441.392676,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,mean,1052020.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,median,1052020.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,16386.846101,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,7973803988.615126,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,1350333.335938,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,1350333.335938,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,23479.999951,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,6212249802.879980,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,mean,1620775.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,median,1620775.062500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,1020.620250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,5175676868.485876,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,mean,1711949.218750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,median,1711949.218750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,51591.173668,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,4900033194.982876,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,1934112.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,median,1934112.640625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,56748.125520,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,4337186895.841422,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,mean,1418091.804688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,median,1418091.804688,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,4319.063462,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,5915419560.476601,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,mean,1688880.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,median,1688880.843750,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,6514.000251,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,4966962607.837916,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,mean,1317790.031250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,median,1317790.031250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,2856.490425,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,6365663573.917706,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,mean,1316246.742188,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,median,1316246.742188,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,188.742268,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,6373127264.922065,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,1608755.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,1608755.859375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,12172.732753,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,5214344955.522938,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,mean,1348151.031250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,median,1348151.031250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,6334.483517,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,6222305814.076423,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,mean,1391191.070312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,median,1391191.070312,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,29905.169912,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,6029802935.779114,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,1605040.039062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,median,1605040.039062,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,18264.623401,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,5226416659.923179,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,mean,1665851.562500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,median,1665851.562500,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,3303.514493,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,5035627536.592114,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,mean,1896689.453125,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,median,1896689.453125,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,15240.515523,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,4422763033.863485,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,mean,1013071.617188,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,median,1013071.617188,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,16053.522593,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,8280370170.954489,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,mean,1649498.046875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,median,1649498.046875,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,45931.557283,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,5085551944.661196,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,1836974.609375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,1836974.609375,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,22950.586894,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,4566534538.468163,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,mean,1091863.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,median,1091863.601562,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,4443.823615,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,7682835097.713277,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,mean,1155703.765625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,median,1155703.765625,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,1943.637668,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,7258441349.339616,ops/s,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,1357430.656250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,median,1357430.656250,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,21426.351936,ns,With 5 arrays
+2026-03-01T11:28:02.648705+00:00,radix_tree_gpu,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,6179769081.666488,ops/s,With 5 arrays

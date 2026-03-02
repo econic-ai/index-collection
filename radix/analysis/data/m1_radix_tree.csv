@@ -279,483 +279,771 @@ timestamp,impl,op,load_factor,metric,value,unit,tag
 2026-02-27T07:28:10.175551+00:00,radix_tree,set_intersection,size=8M/lf=0.90/overlap=0.90,median,11463057.250000,ns,
 2026-02-27T07:28:10.175551+00:00,radix_tree,set_intersection,size=8M/lf=0.90/overlap=0.90,std_dev,102449.519546,ns,
 2026-02-27T07:28:10.175551+00:00,radix_tree,set_intersection,size=8M/lf=0.90/overlap=0.90,throughput_ops_per_sec,731795001.721727,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,mean,236818812.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,median,236818812.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,4126999.737017,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,566752812.342558,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,mean,201977051.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,median,201977051.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,6629318.053115,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,664519690.910876,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,mean,115202000.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,median,115202000.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,809873.438124,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1165064217.635111,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,mean,287025510.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,median,287025510.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,3931203.990627,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,467616024.791664,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,mean,341033479.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,median,341033479.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,10290614.082062,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,393561735.913910,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,mean,291618437.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,median,291618437.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,10799082.194045,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,460251172.853010,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,mean,162974666.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,median,162974666.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,1014580.497724,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,823549639.195688,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,mean,160792333.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,median,160792333.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,1264955.341680,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,834727160.670257,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,mean,210798739.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,median,210798739.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,1270390.517953,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,636710297.592541,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,mean,283717104.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,median,283717104.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,4705766.283865,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,473068863.277742,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,mean,334922948.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,median,334922948.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,1461162.624217,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,400742107.405552,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,mean,113099406.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,median,113099406.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,1224163.765687,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1186723539.526266,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,mean,198625531.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,median,198625531.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,305337.546951,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,675732506.064726,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,mean,126281166.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,median,126281166.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,1923919.818330,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1062848336.408802,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,mean,221249229.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,median,221249229.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,5719992.874645,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,606635912.156517,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,mean,349470823.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,median,349470823.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,11565571.095609,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,384059895.907204,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,mean,373558615.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,median,373558615.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,5772333.272142,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,359294960.979551,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,mean,212096260.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,median,212096260.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,6693752.451444,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,632815155.919280,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,mean,275281292.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,median,275281292.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,850943.614188,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,487565744.206112,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,mean,526532916.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,median,526532916.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,9198987.583014,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,254908522.893839,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,mean,679012687.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,median,679012687.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,13316500.068348,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,197666009.002225,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,mean,541743781.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,median,541743781.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,6426613.519919,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,247751303.673941,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,mean,535896875.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,median,535896875.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,1350544.607135,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,250454395.609951,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,mean,572991083.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,median,572991083.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,8283579.164905,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,234240517.840659,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,mean,338217812.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,median,338217812.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,9618096.136184,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,396838141.688410,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,mean,498848921.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,median,498848921.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,2349826.319317,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,269054862.332913,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,mean,206517895.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,median,206517895.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,1512236.593468,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,649908461.988578,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,mean,356122841.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,median,356122841.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,23764131.630590,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,376886041.838831,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,mean,220440562.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,median,220440562.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,1730614.855576,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,608861302.465602,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,mean,228116471.312500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,median,228116471.312500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,3243406.793033,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,588373681.338132,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,mean,1804972.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,median,1804972.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,6414.607554,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,580937543.629486,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,mean,1521385.742188,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,median,1521385.742188,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,19253.468040,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,689224284.757869,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,mean,915205.070312,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,median,915205.070312,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,21186.499106,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1145727918.270776,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,mean,2179527.343750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,median,2179527.343750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,84600.509204,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,481102475.271481,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,mean,2634348.312500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,median,2634348.312500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,72405.701462,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,398039999.124072,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,mean,2185198.578125,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,median,2185198.578125,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,27138.029058,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,479853872.548154,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,mean,1164370.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,median,1164370.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,387.140963,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,900552133.283220,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,mean,1182330.398438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,median,1182330.398438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,33530.020243,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,886872232.487415,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,mean,1512603.523438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,median,1512603.523438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,12981.099435,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,693225940.408387,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,mean,2235692.046875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,median,2235692.046875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,209.016345,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,469016294.737764,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,mean,2550238.937500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,median,2550238.937500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,92712.924334,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,411167747.688740,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,mean,890327.148438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,median,890327.148438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,15590.875884,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1177742363.400041,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,mean,1538106.453125,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,median,1538106.453125,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,40266.880664,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,681731747.415524,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,mean,966784.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,median,966784.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,3580.656157,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1084601583.910375,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,mean,1884994.804688,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,median,1884994.804688,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,4292.348084,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,556275273.222218,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,mean,2551160.140625,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,median,2551160.140625,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,9337.853279,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,411019278.367650,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,mean,2341888.031250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,median,2341888.031250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,27072.599584,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,447748135.695589,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,mean,1488491.546875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,median,1488491.546875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,11202.317084,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,704455461.773648,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,mean,1754645.843750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,median,1754645.843750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,16097.683621,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,597599796.981823,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,mean,3373352.218750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,median,3373352.218750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,59670.398973,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,310840947.521499,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,mean,4895542.968750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,median,4895542.968750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,90043.728817,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,214189928.817587,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,mean,3824591.156250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,median,3824591.156250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,25894.117745,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,274166821.278781,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,mean,3763690.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,median,3763690.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,19257.611244,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,278603174.700175,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,mean,3969018.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,median,3969018.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,49110.864050,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,264190269.218339,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,mean,4744118.468750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,median,4744118.468750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,34871.015108,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,221026520.924188,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,mean,3395550.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,median,3395550.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,32208.360330,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,308808814.004621,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,mean,1527452.796875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,median,1527452.796875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,56015.651283,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,686486680.403657,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,mean,2216367.843750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,median,2216367.843750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,862.714467,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,473105582.612069,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,mean,1791755.218750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,median,1791755.218750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,38268.486415,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,585222796.633755,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,mean,2575516.906250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,median,2575516.906250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,24014.009202,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,407132252.735528,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,mean,448090.332031,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,median,448090.332031,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,14489.474209,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,585024896.233909,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,mean,312181.397461,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,median,312181.397461,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,1617.806454,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,839716915.011893,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,mean,214360.393555,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,median,214360.393555,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,755.271525,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1222912477.687358,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,mean,432617.027344,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,median,432617.027344,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,7915.126813,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,605949334.933840,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,mean,616815.273438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,median,616815.273438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,std_dev,7173.962897,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,424995961.171773,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,mean,480080.246094,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,median,480080.246094,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,948.556126,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,546042046.372407,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,mean,281057.455078,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,median,281057.455078,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,2633.122022,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,932706090.031066,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,mean,267396.566406,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,median,267396.566406,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,4829.942587,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,980356642.282871,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,mean,312846.760742,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,median,312846.760742,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,958.805031,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,837931002.955243,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,mean,503882.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,median,503882.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,std_dev,7807.409039,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,520248788.406810,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,mean,541928.707031,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,median,541928.707031,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,20152.084749,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,483724144.151831,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,mean,215963.378906,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,median,215963.378906,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,35.217232,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1213835425.837623,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,mean,311416.015625,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,median,311416.015625,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,1306.490264,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,841780726.896422,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,mean,232568.602539,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,median,232568.602539,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,381.289378,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1127168487.655035,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,mean,467967.773438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,median,467967.773438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,std_dev,8010.646996,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,560175325.908443,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,mean,545461.746094,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,median,545461.746094,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,13471.174152,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,480590988.969086,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,mean,525054.199219,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,median,525054.199219,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,1027.752085,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,499270361.783707,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,mean,325996.662109,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,median,325996.662109,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,8656.420550,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,804130932.825466,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,mean,350775.146484,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,median,350775.146484,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,4545.439831,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,747327747.211637,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,mean,759621.421875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,median,759621.421875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,std_dev,1602.502840,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,345098219.258931,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,mean,1136965.820312,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,median,1136965.820312,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,19061.974685,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,230564538.807287,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,mean,853256.671875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,median,853256.671875,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,211.535413,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,307227600.604573,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,mean,836302.894531,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,median,836302.894531,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,7400.916552,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,313455808.552393,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,mean,865193.351562,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,median,865193.351562,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,6558.249667,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,302988920.946491,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,mean,1168035.148438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,median,1168035.148438,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,std_dev,521.126649,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,224431602.380009,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,mean,881980.789062,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,median,881980.789062,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,12228.428460,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,297221893.323374,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,mean,312642.253906,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,median,312642.253906,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,8302.521893,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,838479113.826397,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,mean,472658.447266,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,median,472658.447266,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,6478.934936,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,554616132.466326,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,mean,348001.464844,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,median,348001.464844,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,7290.657613,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,753284185.506807,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,mean,599364.906250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,median,599364.906250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,std_dev,16329.283189,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,437369617.851229,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,mean,15496109.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,median,15496109.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,87644.294538,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,541336404.663451,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,mean,12741432.375000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,median,12741432.375000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,212448.641417,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,658372446.135594,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,mean,6913374.937500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,median,6913374.937500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,13729.627205,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1213388262.004703,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,mean,18722026.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,median,18722026.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,29087.014221,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,448060906.655743,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,mean,20552218.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,median,20552218.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,238515.956129,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,408160700.410996,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,mean,18020380.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,median,18020380.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,17611.555046,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,465506714.265921,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,mean,9613427.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,median,9613427.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,81670.921615,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,872592879.257620,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,mean,9620270.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,median,9620270.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,99009.798609,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,871972132.385151,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,mean,12558489.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,median,12558489.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,106728.929785,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,667963133.623673,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,mean,18403645.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,median,18403645.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,55950.177615,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,455812294.691665,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,mean,20551682.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,median,20551682.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,556692.087353,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,408171355.413010,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,mean,7335393.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,median,7335393.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,236295.287283,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1143579861.924921,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,mean,12564210.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,median,12564210.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,110791.081467,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,667658962.704253,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,mean,7915080.718750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,median,7915080.718750,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,143509.575145,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1059825957.318194,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,mean,14603432.375000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,median,14603432.375000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,89191.090622,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,574427147.302759,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,mean,20649994.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,median,20649994.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,191132.553945,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,406228091.134090,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,mean,21884921.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,median,21884921.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,687550.859269,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,383305366.494483,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,mean,12340898.437500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,median,12340898.437500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,261662.654669,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,679740461.562323,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,mean,16911380.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,median,16911380.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,615381.950191,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,496033314.607777,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,mean,30683020.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,median,30683020.875000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,132670.733043,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,273395766.152703,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,mean,40908906.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,median,40908906.500000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,607596.350977,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,205055786.568140,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,mean,31966104.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,median,31966104.250000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,159806.486102,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,262421968.419877,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,mean,31417406.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,median,31417406.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,143792.815605,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,267005110.690054,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,mean,33259390.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,median,33259390.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,191810.139018,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,252217728.913149,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,mean,42567187.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,median,42567187.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,1472933.477250,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,197067470.119635,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,mean,31465000.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,median,31465000.000000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,208861.665493,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,266601239.472430,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,mean,12271776.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,median,12271776.062500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,387222.014814,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,683569188.133562,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,mean,21246015.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,median,21246015.750000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,131205.431016,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,394832052.216661,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,mean,14116338.562500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,median,14116338.562500,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,131455.658428,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,594248144.648805,ops/s,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,mean,21208531.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,median,21208531.125000,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,361051.727678,ns,
-2026-02-27T07:54:34.971746+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,395529890.804732,ops/s,
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,mean,230318364.250000,ns,With 5 arrays HAAAARRRRRRRR
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,median,230318364.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,1098917.123516,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,582748702.809963,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,mean,431289156.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,median,431289156.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,8798102.585808,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,311201258.211092,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,mean,199219260.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,median,199219260.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,4194778.043314,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,673718635.437156,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,mean,111656906.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,median,111656906.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,1261375.967154,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1202054867.962870,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,418973021.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,418973021.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,5198914.927433,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,320349333.424025,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,mean,278078854.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,median,278078854.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,3357843.982228,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,482660676.814120,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,mean,331332359.375000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,median,331332359.375000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,9307933.822888,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,405084876.868586,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,540147802.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,median,540147802.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,6538896.066364,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,248483336.303346,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,mean,275607521.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,median,275607521.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,8864733.257800,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,486988626.119532,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,mean,475864719.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,median,475864719.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,3925046.504776,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,282050176.533470,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,mean,151785979.812500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,median,151785979.812500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,247779.231739,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,884256425.829303,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,mean,153360208.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,median,153360208.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,5379432.924709,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,875179613.491462,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,487727801.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,487727801.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,9841026.044642,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,275189824.156872,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,mean,191762468.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,median,191762468.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,148300.798111,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,699916563.704435,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,mean,274354718.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,median,274354718.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,9158844.777493,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,489212391.212061,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,478721583.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,median,478721583.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,4946860.351318,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,280366987.046449,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,mean,310755552.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,median,310755552.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,2618784.459813,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,431907739.148046,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,mean,541574687.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,median,541574687.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,15873339.145702,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,247828658.096132,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,mean,105907718.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,median,105907718.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,30832.330533,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1267308271.617360,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,mean,193385390.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,median,193385390.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,4458330.352468,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,694042748.349414,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,539043510.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,539043510.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,6927038.999373,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,248992382.476241,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,mean,119931350.890625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,median,119931350.890625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,507826.965006,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1119121288.998103,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,mean,216157302.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,median,216157302.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,4091305.340256,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,620926180.161004,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,414509323.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,median,414509323.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,4505257.317225,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,323799057.228925,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,mean,310027083.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,median,310027083.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,2817349.236359,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,432922590.481456,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,mean,536668927.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,median,536668927.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,8906289.569777,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,250094091.878505,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,mean,326823364.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,median,326823364.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,10481458.666771,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,410673601.030137,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,mean,194758625.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,median,194758625.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,781176.216516,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,689149083.898082,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,546155062.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,546155062.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,6695682.499403,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,245750222.264030,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,mean,238894510.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,median,238894510.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,4511208.681449,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,561828430.375519,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,mean,460036333.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,median,460036333.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,1714557.167682,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,291754625.389556,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,721960963.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,median,721960963.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,21102843.335713,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,185907181.637753,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,mean,612947968.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,median,612947968.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,8495401.840044,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,218970834.137380,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,mean,985866926.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,median,985866926.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,25795741.513597,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,136141830.462313,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,mean,497571124.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,median,497571124.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,6719754.182002,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,269745813.862162,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,mean,501848403.687500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,median,501848403.687500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,22598355.704758,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,267446756.856832,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,952966833.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,952966833.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,847408.787389,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,140841971.915280,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,mean,495137041.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,median,495137041.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,3460344.767015,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,271071878.455355,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,mean,305753833.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,median,305753833.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,7201941.256248,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,438973164.992222,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,950485645.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,median,950485645.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,13344490.183174,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,141209631.766080,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,mean,419079531.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,median,419079531.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,10029646.778524,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,320267915.733477,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,mean,689964406.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,median,689964406.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,7326701.762507,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,194528481.086220,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,mean,196832572.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,median,196832572.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,4058719.031352,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,681887789.834826,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,mean,304896500.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,median,304896500.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,1061013.725170,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,440207506.481708,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,685023864.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,685023864.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,11465368.231084,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,195931463.020598,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,mean,223801369.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,median,223801369.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,783437.720779,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,599718081.372309,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,mean,211901875.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,median,211901875.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,3942120.305115,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,633395660.137505,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,533048625.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,median,533048625.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,487726.902323,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=128M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,251792654.000374,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,mean,1779010.421875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,median,1779010.421875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,63315.512333,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,589415321.634174,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,mean,3173572.281250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,median,3173572.281250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,2796.209572,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,330408734.092859,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,mean,1362853.515625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,median,1362853.515625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,28233.646821,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,769397435.585090,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,mean,820714.531250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,median,820714.531250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,263.795024,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1277637911.933827,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,3202298.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,3202298.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,32569.294147,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,327444837.687418,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,mean,2093413.734375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,median,2093413.734375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,58888.272582,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,500892863.547137,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,mean,2421255.207031,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,median,2421255.207031,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,69898.615699,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,433071242.120602,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,3916540.343750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,median,3916540.343750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,44615.830437,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,267730166.924825,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,mean,2103750.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,median,2103750.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,40381.498254,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,498431692.408414,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,mean,3920626.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,median,3920626.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,70263.167915,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,267451145.919431,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,mean,1079429.031250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,median,1079429.031250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,2507.091287,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,971417267.502736,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,mean,1162121.421875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,median,1162121.421875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,6081.759134,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,902294700.245864,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,3913319.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,3913319.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,68292.903257,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,267950555.525885,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,mean,1611375.015625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,median,1611375.015625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,40905.353894,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,650733683.861476,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,mean,2150938.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,median,2150938.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,49224.045330,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,487497047.255005,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,3558408.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,median,3558408.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,9056.093323,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,294675524.043032,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,mean,2289541.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,median,2289541.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,4691.962852,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,457985115.552536,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,mean,4085843.742188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,median,4085843.742188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,41932.901581,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,256636343.963220,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,mean,901689.140625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,median,901689.140625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,19720.257953,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1162901883.539582,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,mean,1403090.484375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,median,1403090.484375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,41911.743620,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,747333127.604442,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,3962959.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,3962959.656250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,7183.365208,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,264594164.703717,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,mean,908649.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,median,908649.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,5993.834825,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1153993604.246301,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,mean,1762004.562500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,median,1762004.562500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,10311.031083,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,595104020.906870,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,3246242.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,median,3246242.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,3001.447315,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,323012255.256797,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,mean,2411782.554688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,median,2411782.554688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,31250.816214,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,434772197.005076,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,mean,3939687.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,median,3939687.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,38404.737053,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,266157150.789244,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,mean,2206096.984375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,median,2206096.984375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,24188.023761,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,475308206.042930,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,mean,1595745.757812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,median,1595745.757812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,25816.302853,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,657107183.187767,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,4233147.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,4233147.156250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,56773.028937,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,247706011.932951,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,mean,1645733.078125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,median,1645733.078125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,37345.910940,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,637148279.959623,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,mean,3119449.234375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,median,3119449.234375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,14096.107392,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,336141389.462326,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,5036293.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,median,5036293.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,48184.554167,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,208203930.946829,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,mean,4904735.718750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,median,4904735.718750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,93612.408354,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,213788481.200213,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,mean,7021106.812500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,median,7021106.812500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,10846.045752,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,149346253.803342,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,mean,3595509.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,median,3595509.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,48895.373259,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,291634915.542037,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,mean,3582637.359375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,median,3582637.359375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,76651.988168,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,292682706.848936,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,6851789.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,6851789.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,12024.527591,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,153036817.226917,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,mean,3610613.343750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,median,3610613.343750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,36892.898561,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,290414924.050257,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,mean,4878546.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,median,4878546.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,26619.565108,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,214936133.005794,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,6916359.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,median,6916359.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,50653.859435,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,151608086.367766,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,mean,3232147.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,median,3232147.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,32466.100751,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,324420875.488457,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,mean,5350421.843750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,median,5350421.843750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,22045.512311,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,195980061.128241,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,mean,1338011.390625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,median,1338011.390625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,13236.619099,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,783682416.567619,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,mean,2038811.187500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,median,2038811.187500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,6538.881571,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,514307556.496082,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,5719974.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,5719974.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,108224.107074,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,183318315.782554,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,mean,1525050.132812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,median,1525050.132812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,2030.158812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,687568216.571487,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,mean,2452647.460938,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,median,2452647.460938,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,46836.156778,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,427528218.669956,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,4396849.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,median,4396849.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,4758.298307,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=1M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,238483513.989223,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,mean,427997.562500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,median,427997.562500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,4787.930501,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,612489469.493182,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,mean,805893.882812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,median,805893.882812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,245.819043,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,325283521.305733,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,mean,318945.474609,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,median,318945.474609,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,1526.773361,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,821908510.603758,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,mean,215346.679688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,median,215346.679688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,6901.886990,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1217311547.967258,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,801945.632812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,median,801945.632812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,5157.360648,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,326885002.267094,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,mean,439661.453125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,median,439661.453125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,2508.019365,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,596240580.421022,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,mean,501550.292969,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,median,501550.292969,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,std_dev,2003.239035,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,522667424.732884,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,mean,1027913.078125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,median,1027913.078125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,27118.185874,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,255025454.562922,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,mean,467320.638672,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,median,467320.638672,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,11439.388443,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,560951043.688148,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,mean,868849.601562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,median,868849.601562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,12229.820577,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,301713897.927296,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,mean,248619.546875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,median,248619.546875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,4940.886536,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,1054398189.100553,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,mean,243156.496094,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,median,243156.496094,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,202.900976,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,1078087586.436224,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,864367.179688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,median,864367.179688,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,13586.007189,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,303278521.165941,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,mean,293337.199219,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,median,293337.199219,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,3963.836217,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,893660949.576708,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,mean,490879.722656,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,median,490879.722656,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,std_dev,4305.943317,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,534028984.903849,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,mean,971633.132812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,median,971633.132812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,14506.284567,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,269797304.298583,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,mean,528569.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,median,528569.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,8555.947858,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,495949917.655105,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,mean,965335.609375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,median,965335.609375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,3324.219464,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,271557370.777737,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,mean,204080.320312,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,median,204080.320312,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,896.887612,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1284513860.026236,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,mean,268084.308594,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,median,268084.308594,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,3591.235138,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,977841640.098556,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,913099.609375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,median,913099.609375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,31087.839149,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,287092445.674610,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,mean,218174.478516,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,median,218174.478516,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,446.546219,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1201533753.093060,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,mean,464280.277344,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,median,464280.277344,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,std_dev,895.390534,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,564624458.096268,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,mean,800841.796875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,median,800841.796875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,544.140765,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,327335562.433084,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,mean,523891.521484,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,median,523891.521484,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,6876.223986,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,500378397.530181,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,mean,925314.373047,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,median,925314.373047,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,35874.043315,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,283302634.905381,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,mean,487950.359375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,median,487950.359375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,17913.600127,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,537234976.803320,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,mean,279961.667969,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,median,279961.667969,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,1852.128107,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,936356758.773352,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,877527.992188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,median,877527.992188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,12476.556649,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,298730071.671592,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,mean,337309.326172,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,median,337309.326172,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,3777.566061,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,777162028.026540,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,mean,803633.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,median,803633.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,std_dev,20365.238774,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,326198456.939981,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,mean,1173858.276367,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,median,1173858.276367,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,13510.469678,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,223318270.422962,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,mean,1018925.140625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,median,1018925.140625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,1439.072785,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,257275033.805921,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,mean,1554174.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,median,1554174.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,43065.377285,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,168670895.033488,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,mean,872284.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,median,872284.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,28918.634419,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,300525803.221311,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,mean,791779.953125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,median,791779.953125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,27043.144167,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,331081885.775674,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,1649040.695312,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,median,1649040.695312,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,911.051845,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,158967574.751284,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,mean,829371.742188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,median,829371.742188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,3390.985812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,316075393.777687,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,mean,1024759.117188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,median,1024759.117188,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,std_dev,34349.910556,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,255810361.287116,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,mean,1669736.984375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,median,1669736.984375,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,3038.371547,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,156997181.264523,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,mean,782239.585938,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,median,782239.585938,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,18587.329258,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,335119833.760171,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,mean,1266711.921875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,median,1266711.921875,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,34640.387812,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,206948395.663611,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,mean,311477.619141,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,median,311477.619141,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,118.885090,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,841614240.930897,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,mean,466514.160156,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,median,466514.160156,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,10275.835948,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,561920778.379374,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,1113410.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,median,1113410.476562,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,8070.508004,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,235442368.756340,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,mean,294452.394531,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,median,294452.394531,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,2611.715469,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,890276339.634857,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,mean,497643.390625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,median,497643.390625,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,std_dev,3574.888818,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,526770785.945269,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,mean,870650.703125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,median,870650.703125,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,15527.335711,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=256K/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,301089747.081228,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,mean,14434208.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,median,14434208.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,std_dev,122329.473145,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,581161620.327155,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,mean,25574297.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,median,25574297.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,std_dev,149501.465426,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,328009329.054089,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,mean,11435880.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,median,11435880.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,std_dev,74710.339238,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,733534084.895137,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,mean,6609390.593750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,median,6609390.593750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,std_dev,15961.477178,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,1269195379.061493,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,mean,25679781.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,median,25679781.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,std_dev,95415.221286,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,326661972.636546,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,mean,16777000.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,median,16777000.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,std_dev,143454.288233,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,500006437.384515,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,mean,19404755.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,median,19404755.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,std_dev,233485.068158,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a,throughput_ops_per_sec,432296514.228751,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,mean,33085046.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,median,33085046.875000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,std_dev,836559.117715,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,253546807.163168,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,mean,16675656.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,median,16675656.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,std_dev,174876.345822,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,503045150.022207,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,mean,29478812.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,median,29478812.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,std_dev,164137.161583,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,284563972.853384,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,mean,9030937.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,median,9030937.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,std_dev,37211.494360,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,928874549.292363,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,mean,9152112.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,median,9152112.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,std_dev,64674.461081,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,916576195.745856,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,mean,28784164.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,median,28784164.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,std_dev,168575.140518,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,291431356.615779,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,mean,12438156.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,median,12438156.312500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,std_dev,351314.071806,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,674425356.077065,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,mean,16640677.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,median,16640677.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,std_dev,182919.508681,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a,throughput_ops_per_sec,504102563.674974,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,mean,28917005.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,median,28917005.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,std_dev,7343.657476,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,290092557.215966,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,mean,19588953.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,median,19588953.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,std_dev,776749.197736,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,428231562.272422,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,mean,33942854.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,median,33942854.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,std_dev,406203.147307,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,247139147.462379,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,mean,7028863.218750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,median,7028863.218750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,std_dev,93030.547861,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,1193451592.232266,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,mean,11370531.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,median,11370531.250000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,std_dev,28814.601333,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,737749874.263790,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,mean,32496338.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,median,32496338.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,std_dev,693546.594444,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,258140097.845177,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,mean,7600776.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,median,7600776.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,std_dev,287799.884564,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,1103651521.897238,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,mean,14375028.687500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,median,14375028.687500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,std_dev,542258.888900,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a,throughput_ops_per_sec,583554174.559278,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,mean,25617119.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,median,25617119.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,std_dev,159032.911283,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.10/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,327461013.644986,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,mean,19820421.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,median,19820421.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,std_dev,57975.331436,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_3,throughput_ops_per_sec,423230550.076463,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,mean,32708677.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,median,32708677.125000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,std_dev,337687.858967,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=consensus_5,throughput_ops_per_sec,256464300.526186,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,mean,21581224.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,median,21581224.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,std_dev,296064.195069,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=diff_ab,throughput_ops_per_sec,388699362.000969,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,mean,11748096.437500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,median,11748096.437500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,std_dev,193014.253478,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=intersect_2,throughput_ops_per_sec,714039763.346129,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,mean,32155072.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,median,32155072.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,std_dev,74614.261104,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=quorum_3of5,throughput_ops_per_sec,260879770.517702,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,mean,17555484.375000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,median,17555484.375000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,std_dev,473695.252134,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=sym_diff,throughput_ops_per_sec,477834038.686272,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,mean,30279700.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,median,30279700.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,std_dev,125036.277904,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a,throughput_ops_per_sec,277037350.485022,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,mean,45746500.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,median,45746500.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,std_dev,396510.127550,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.10/pred=unique_a_5,throughput_ops_per_sec,183371580.339480,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,mean,37072187.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,median,37072187.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,std_dev,164667.491669,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_3,throughput_ops_per_sec,226277664.354174,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,mean,58196750.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,median,58196750.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,std_dev,131992.794417,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=consensus_5,throughput_ops_per_sec,144142207.253841,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,mean,30302239.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,median,30302239.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,std_dev,136751.623054,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=diff_ab,throughput_ops_per_sec,276831288.327716,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,mean,30040312.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,median,30040312.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,std_dev,259508.188695,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=intersect_2,throughput_ops_per_sec,279245031.156051,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,mean,59560687.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,median,59560687.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,std_dev,1724014.720880,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=quorum_3of5,throughput_ops_per_sec,140841356.137805,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,mean,32463951.843750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,median,32463951.843750,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,std_dev,626174.388410,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=sym_diff,throughput_ops_per_sec,258397623.320002,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,mean,41270197.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,median,41270197.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,std_dev,276287.479060,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a,throughput_ops_per_sec,203260668.892724,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,mean,60749375.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,median,60749375.000000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,std_dev,1154234.440561,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.50/pred=unique_a_5,throughput_ops_per_sec,138085502.937273,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,mean,27659312.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,median,27659312.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,std_dev,155298.326818,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_3,throughput_ops_per_sec,303283315.519863,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,mean,43978218.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,median,43978218.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,std_dev,1199326.286444,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=consensus_5,throughput_ops_per_sec,190744605.816942,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,mean,11659036.437500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,median,11659036.437500,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,std_dev,449491.605733,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=diff_ab,throughput_ops_per_sec,719494106.135475,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,mean,19817140.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,median,19817140.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,std_dev,26509.079673,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=intersect_2,throughput_ops_per_sec,423300621.710526,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,mean,47578395.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,median,47578395.750000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,std_dev,873070.753139,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=quorum_3of5,throughput_ops_per_sec,176311283.046991,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,mean,13627794.281250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,median,13627794.281250,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,std_dev,44492.528692,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=sym_diff,throughput_ops_per_sec,615551411.099710,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,mean,18877890.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,median,18877890.625000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,std_dev,99959.796569,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a,throughput_ops_per_sec,444361510.861333,ops/s,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,mean,32059510.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,median,32059510.500000,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,std_dev,252451.970126,ns,With 5 arrays
+2026-03-01T11:23:08.069020+00:00,radix_tree,set_predicate,size=8M/lf=0.90/overlap=0.90/pred=unique_a_5,throughput_ops_per_sec,261657394.924979,ops/s,With 5 arrays
