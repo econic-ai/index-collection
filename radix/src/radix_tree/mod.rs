@@ -32,6 +32,101 @@ pub const PRED3_UNIQUE_A: u64 = 0x0303_0303_0000_0000;
 /// (A ∩ B) \ C — a and b occupied with same fp, c absent or different.
 pub const PRED3_SHARED_AB_NOT_C: u64 = 0x3030_3030_0000_0000;
 
+// ── 5-array predicate masks ─────────────────────────────────────
+//
+// 5-array state encoding:
+// (a_occ<<14 | b_occ<<13 | c_occ<<12 | d_occ<<11 | e_occ<<10
+//  | ab_eq<<9 | ac_eq<<8 | ad_eq<<7 | ae_eq<<6
+//  | bc_eq<<5 | bd_eq<<4 | be_eq<<3
+//  | cd_eq<<2 | ce_eq<<1 | de_eq)
+// 32768 possible states → [u8; 4096] bit table.
+
+/// 5-array predicate mask: 15-bit state → 32768 possible states → 4096-byte bit table.
+/// Test: `(mask[state >> 3] >> (state & 7)) & 1`
+pub type Pred5Mask = [u8; 4096];
+
+/// Build a 5-array predicate mask from a closure.
+///
+/// The closure receives the 5 occupancy flags and 10 pairwise equality flags
+/// as booleans and returns `true` if that state should satisfy the predicate.
+pub fn build_pred5_mask<F>(f: F) -> Pred5Mask
+where
+    F: Fn(bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool, bool) -> bool,
+{
+    let mut mask = [0u8; 4096];
+    for state in 0u16..32768 {
+        let a_occ = (state >> 14) & 1 == 1;
+        let b_occ = (state >> 13) & 1 == 1;
+        let c_occ = (state >> 12) & 1 == 1;
+        let d_occ = (state >> 11) & 1 == 1;
+        let e_occ = (state >> 10) & 1 == 1;
+        let ab_eq = (state >> 9) & 1 == 1;
+        let ac_eq = (state >> 8) & 1 == 1;
+        let ad_eq = (state >> 7) & 1 == 1;
+        let ae_eq = (state >> 6) & 1 == 1;
+        let bc_eq = (state >> 5) & 1 == 1;
+        let bd_eq = (state >> 4) & 1 == 1;
+        let be_eq = (state >> 3) & 1 == 1;
+        let cd_eq = (state >> 2) & 1 == 1;
+        let ce_eq = (state >> 1) & 1 == 1;
+        let de_eq = state & 1 == 1;
+        if f(
+            a_occ, b_occ, c_occ, d_occ, e_occ, ab_eq, ac_eq, ad_eq, ae_eq, bc_eq, bd_eq, be_eq,
+            cd_eq, ce_eq, de_eq,
+        ) {
+            mask[(state >> 3) as usize] |= 1 << (state & 7);
+        }
+    }
+    mask
+}
+
+use std::sync::LazyLock;
+
+/// A ∩ B ∩ C ∩ D ∩ E — all five occupied, all fingerprints equal.
+pub static PRED5_CONSENSUS: LazyLock<Pred5Mask> = LazyLock::new(|| {
+    build_pred5_mask(
+        |a, b, c, d, e, ab, ac, ad, ae, bc, bd, be, cd, ce, de| {
+            a && b && c && d && e && ab && ac && ad && ae && bc && bd && be && cd && ce && de
+        },
+    )
+});
+
+/// Quorum: at least 3 occupied arrays share the same fingerprint.
+/// Checks all C(5,3) = 10 triples for a pairwise-equal clique among occupied arrays.
+pub static PRED5_QUORUM_3OF5: LazyLock<Pred5Mask> = LazyLock::new(|| {
+    build_pred5_mask(
+        |a, b, c, d, e, ab, ac, ad, ae, bc, bd, be, cd, ce, de| {
+            let occ = [a, b, c, d, e];
+            let eq = [
+                [false, ab, ac, ad, ae],
+                [ab, false, bc, bd, be],
+                [ac, bc, false, cd, ce],
+                [ad, bd, cd, false, de],
+                [ae, be, ce, de, false],
+            ];
+            for i in 0..5 {
+                for j in (i + 1)..5 {
+                    for k in (j + 1)..5 {
+                        if occ[i] && occ[j] && occ[k] && eq[i][j] && eq[i][k] && eq[j][k] {
+                            return true;
+                        }
+                    }
+                }
+            }
+            false
+        },
+    )
+});
+
+/// Unique to A — a occupied, a ≠ b, a ≠ c, a ≠ d, a ≠ e.
+pub static PRED5_UNIQUE_A: LazyLock<Pred5Mask> = LazyLock::new(|| {
+    build_pred5_mask(
+        |a, _b, _c, _d, _e, ab, ac, ad, ae, _bc, _bd, _be, _cd, _ce, _de| {
+            a && !ab && !ac && !ad && !ae
+        },
+    )
+});
+
 pub mod analysis;
 
 use crate::{IndexTable, mix64};
@@ -335,6 +430,45 @@ kernel void set_predicate_3(
         matches[idx] = gid;
     }
 }
+
+kernel void set_predicate_5(
+    const device uchar* fp_a     [[buffer(0)]],
+    const device uchar* fp_b     [[buffer(1)]],
+    const device uchar* fp_c     [[buffer(2)]],
+    const device uchar* fp_d     [[buffer(3)]],
+    const device uchar* fp_e     [[buffer(4)]],
+    device uint*        matches  [[buffer(5)]],
+    device atomic_uint* count    [[buffer(6)]],
+    constant uchar*     mask     [[buffer(7)]],
+    uint gid [[thread_position_in_grid]]
+) {
+    uchar a = fp_a[gid];
+    uchar b = fp_b[gid];
+    uchar c = fp_c[gid];
+    uchar d = fp_d[gid];
+    uchar e = fp_e[gid];
+
+    uint state = (uint(a != 0) << 14)
+               | (uint(b != 0) << 13)
+               | (uint(c != 0) << 12)
+               | (uint(d != 0) << 11)
+               | (uint(e != 0) << 10)
+               | (uint(a == b) << 9)
+               | (uint(a == c) << 8)
+               | (uint(a == d) << 7)
+               | (uint(a == e) << 6)
+               | (uint(b == c) << 5)
+               | (uint(b == d) << 4)
+               | (uint(b == e) << 3)
+               | (uint(c == d) << 2)
+               | (uint(c == e) << 1)
+               | uint(d == e);
+
+    if ((mask[state >> 3] >> (state & 7)) & 1) {
+        uint idx = atomic_fetch_add_explicit(count, 1, memory_order_relaxed);
+        matches[idx] = gid;
+    }
+}
 "#;
 
 /// Persistent Metal resources for GPU-accelerated iteration.
@@ -377,6 +511,10 @@ struct GpuState {
     pred_mask_u8_buf: Buffer,
     /// 8-byte constant buffer for the 3-array predicate mask.
     pred_mask_u64_buf: Buffer,
+    /// Pipeline for the generalised 5-array predicate kernel.
+    pred5_pipeline: ComputePipelineState,
+    /// 4096-byte buffer for the 5-array predicate mask (constant address space on GPU).
+    pred5_mask_buf: Buffer,
     /// Metal device handle, retained for creating per-call buffers.
     device: Device,
     total_slots: usize,
@@ -480,6 +618,14 @@ impl GpuState {
         let pred_mask_u8_buf = device.new_buffer(1, shared);
         let pred_mask_u64_buf = device.new_buffer(8, shared);
 
+        let pred5_func = lib
+            .get_function("set_predicate_5", None)
+            .expect("gpu32: set_predicate_5 function not found");
+        let pred5_pipeline = device
+            .new_compute_pipeline_state_with_function(&pred5_func)
+            .expect("gpu32: pred5 pipeline creation failed");
+        let pred5_mask_buf = device.new_buffer(4096, shared);
+
         let tg_width = pipeline.thread_execution_width().max(1) as u64;
 
         Self {
@@ -502,6 +648,8 @@ impl GpuState {
             pred3_pipeline,
             pred_mask_u8_buf,
             pred_mask_u64_buf,
+            pred5_pipeline,
+            pred5_mask_buf,
             device,
             total_slots,
             tg_width,
@@ -737,6 +885,77 @@ impl GpuState {
         enc.set_buffer(3, Some(&self.intersect_matches_buf), 0);
         enc.set_buffer(4, Some(&self.intersect_count_buf), 0);
         enc.set_buffer(5, Some(&self.pred_mask_u64_buf), 0);
+
+        let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
+        let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
+        enc.dispatch_threads(grid, threadgroup);
+        enc.end_encoding();
+
+        cmd.commit();
+        cmd.wait_until_completed();
+
+        let count = unsafe { *self.intersect_count_buf.contents().cast::<u32>() } as usize;
+        let positions = unsafe {
+            std::slice::from_raw_parts(self.intersect_matches_buf.contents().cast::<u32>(), count)
+        };
+        (positions, count)
+    }
+
+    /// Dispatch the generalised 5-array predicate kernel.
+    fn set_predicate_5(
+        &self,
+        b_fp_ptr: *const u8,
+        c_fp_ptr: *const u8,
+        d_fp_ptr: *const u8,
+        e_fp_ptr: *const u8,
+        mask: &Pred5Mask,
+    ) -> (&[u32], usize) {
+        unsafe {
+            *self.intersect_count_buf.contents().cast::<u32>() = 0;
+            std::ptr::copy_nonoverlapping(
+                mask.as_ptr(),
+                self.pred5_mask_buf.contents().cast::<u8>(),
+                4096,
+            );
+        }
+
+        let shared = MTLResourceOptions::StorageModeShared;
+        let b_buf = self.device.new_buffer_with_bytes_no_copy(
+            b_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+        let c_buf = self.device.new_buffer_with_bytes_no_copy(
+            c_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+        let d_buf = self.device.new_buffer_with_bytes_no_copy(
+            d_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+        let e_buf = self.device.new_buffer_with_bytes_no_copy(
+            e_fp_ptr as *const c_void,
+            page_ceil(self.total_slots) as u64,
+            shared,
+            None,
+        );
+
+        let cmd = self.queue.new_command_buffer();
+        let enc = cmd.new_compute_command_encoder();
+        enc.set_compute_pipeline_state(&self.pred5_pipeline);
+        enc.set_buffer(0, Some(&self.fp_buf), 0);
+        enc.set_buffer(1, Some(&b_buf), 0);
+        enc.set_buffer(2, Some(&c_buf), 0);
+        enc.set_buffer(3, Some(&d_buf), 0);
+        enc.set_buffer(4, Some(&e_buf), 0);
+        enc.set_buffer(5, Some(&self.intersect_matches_buf), 0);
+        enc.set_buffer(6, Some(&self.intersect_count_buf), 0);
+        enc.set_buffer(7, Some(&self.pred5_mask_buf), 0);
 
         let grid = MTLSize { width: self.total_slots as u64, height: 1, depth: 1 };
         let threadgroup = MTLSize { width: self.tg_width, height: 1, depth: 1 };
@@ -1545,13 +1764,155 @@ pub fn set_predicate_3(
     }
 }
 
+/// Generalised 5-array predicate evaluation.
+///
+/// For each position, computes a 15-bit state
+/// `(a_occ<<14 | b_occ<<13 | c_occ<<12 | d_occ<<11 | e_occ<<10
+///   | ab_eq<<9 | ac_eq<<8 | ad_eq<<7 | ae_eq<<6
+///   | bc_eq<<5 | bd_eq<<4 | be_eq<<3
+///   | cd_eq<<2 | ce_eq<<1 | de_eq)`
+/// and tests the corresponding bit in `mask`. Matching positions are collected.
+///
+/// GPU path: single-pass Metal kernel with 4KB mask in constant cache.
+/// CPU path: single-pass NEON with 4KB table lookup.
+pub fn set_predicate_5(
+    a: &RadixTree,
+    b: &RadixTree,
+    c: &RadixTree,
+    d: &RadixTree,
+    e: &RadixTree,
+    mask: &Pred5Mask,
+) -> (Vec<u32>, usize) {
+    assert_eq!(
+        a.layout.total_slots, b.layout.total_slots,
+        "set_predicate_5: capacity mismatch a/b ({} vs {})",
+        a.layout.total_slots, b.layout.total_slots
+    );
+    assert_eq!(
+        a.layout.total_slots, c.layout.total_slots,
+        "set_predicate_5: capacity mismatch a/c ({} vs {})",
+        a.layout.total_slots, c.layout.total_slots
+    );
+    assert_eq!(
+        a.layout.total_slots, d.layout.total_slots,
+        "set_predicate_5: capacity mismatch a/d ({} vs {})",
+        a.layout.total_slots, d.layout.total_slots
+    );
+    assert_eq!(
+        a.layout.total_slots, e.layout.total_slots,
+        "set_predicate_5: capacity mismatch a/e ({} vs {})",
+        a.layout.total_slots, e.layout.total_slots
+    );
+
+    #[cfg(feature = "gpu32")]
+    {
+        let (positions, count) =
+            a.gpu
+                .set_predicate_5(b.fp_ptr, c.fp_ptr, d.fp_ptr, e.fp_ptr, mask);
+        return (positions.to_vec(), count);
+    }
+
+    #[cfg(not(feature = "gpu32"))]
+    {
+        let total = a.layout.total_slots;
+        let mut matches: Vec<u32> = Vec::new();
+        let fp_a = a.fp_ptr;
+        let fp_b = b.fp_ptr;
+        let fp_c = c.fp_ptr;
+        let fp_d = d.fp_ptr;
+        let fp_e = e.fp_ptr;
+        let mut pos = 0usize;
+
+        while pos + 16 <= total {
+            unsafe {
+                let va = vld1q_u8(fp_a.add(pos));
+                let vb = vld1q_u8(fp_b.add(pos));
+                let vc = vld1q_u8(fp_c.add(pos));
+                let vd = vld1q_u8(fp_d.add(pos));
+                let ve = vld1q_u8(fp_e.add(pos));
+                let zero = vdupq_n_u8(0);
+
+                let occ_a_mask = !pack_neon_16(vceqq_u8(va, zero)) & 0xFFFF;
+                let occ_b_mask = !pack_neon_16(vceqq_u8(vb, zero)) & 0xFFFF;
+                let occ_c_mask = !pack_neon_16(vceqq_u8(vc, zero)) & 0xFFFF;
+                let occ_d_mask = !pack_neon_16(vceqq_u8(vd, zero)) & 0xFFFF;
+                let occ_e_mask = !pack_neon_16(vceqq_u8(ve, zero)) & 0xFFFF;
+
+                let ab_eq_mask = pack_neon_16(vceqq_u8(va, vb));
+                let ac_eq_mask = pack_neon_16(vceqq_u8(va, vc));
+                let ad_eq_mask = pack_neon_16(vceqq_u8(va, vd));
+                let ae_eq_mask = pack_neon_16(vceqq_u8(va, ve));
+                let bc_eq_mask = pack_neon_16(vceqq_u8(vb, vc));
+                let bd_eq_mask = pack_neon_16(vceqq_u8(vb, vd));
+                let be_eq_mask = pack_neon_16(vceqq_u8(vb, ve));
+                let cd_eq_mask = pack_neon_16(vceqq_u8(vc, vd));
+                let ce_eq_mask = pack_neon_16(vceqq_u8(vc, ve));
+                let de_eq_mask = pack_neon_16(vceqq_u8(vd, ve));
+
+                for bit in 0..16u32 {
+                    let state = (((occ_a_mask >> bit) & 1) as usize) << 14
+                        | (((occ_b_mask >> bit) & 1) as usize) << 13
+                        | (((occ_c_mask >> bit) & 1) as usize) << 12
+                        | (((occ_d_mask >> bit) & 1) as usize) << 11
+                        | (((occ_e_mask >> bit) & 1) as usize) << 10
+                        | (((ab_eq_mask >> bit) & 1) as usize) << 9
+                        | (((ac_eq_mask >> bit) & 1) as usize) << 8
+                        | (((ad_eq_mask >> bit) & 1) as usize) << 7
+                        | (((ae_eq_mask >> bit) & 1) as usize) << 6
+                        | (((bc_eq_mask >> bit) & 1) as usize) << 5
+                        | (((bd_eq_mask >> bit) & 1) as usize) << 4
+                        | (((be_eq_mask >> bit) & 1) as usize) << 3
+                        | (((cd_eq_mask >> bit) & 1) as usize) << 2
+                        | (((ce_eq_mask >> bit) & 1) as usize) << 1
+                        | ((de_eq_mask >> bit) & 1) as usize;
+                    if (mask[state >> 3] >> (state & 7)) & 1 == 1 {
+                        matches.push((pos + bit as usize) as u32);
+                    }
+                }
+            }
+            pos += 16;
+        }
+        while pos < total {
+            unsafe {
+                let a_val = *fp_a.add(pos);
+                let b_val = *fp_b.add(pos);
+                let c_val = *fp_c.add(pos);
+                let d_val = *fp_d.add(pos);
+                let e_val = *fp_e.add(pos);
+                let state = ((a_val != 0) as usize) << 14
+                    | ((b_val != 0) as usize) << 13
+                    | ((c_val != 0) as usize) << 12
+                    | ((d_val != 0) as usize) << 11
+                    | ((e_val != 0) as usize) << 10
+                    | ((a_val == b_val) as usize) << 9
+                    | ((a_val == c_val) as usize) << 8
+                    | ((a_val == d_val) as usize) << 7
+                    | ((a_val == e_val) as usize) << 6
+                    | ((b_val == c_val) as usize) << 5
+                    | ((b_val == d_val) as usize) << 4
+                    | ((b_val == e_val) as usize) << 3
+                    | ((c_val == d_val) as usize) << 2
+                    | ((c_val == e_val) as usize) << 1
+                    | (d_val == e_val) as usize;
+                if (mask[state >> 3] >> (state & 7)) & 1 == 1 {
+                    matches.push(pos as u32);
+                }
+            }
+            pos += 1;
+        }
+        let count = matches.len();
+        (matches, count)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::{
         BUCKET_SLOTS, GROUP_SLOTS, RADIX_FP_EMPTY, RADIX_MAX_PROBE_ROUNDS, RadixTree,
         RadixTreeBuildError, RadixTreeConfig, fingerprint_diff, set_intersection,
-        set_predicate_2, set_predicate_3,
+        set_predicate_2, set_predicate_3, set_predicate_5,
         PRED2_INTERSECT, PRED2_DIFF_AB, PRED3_CONSENSUS, PRED3_UNIQUE_A,
+        PRED5_CONSENSUS, PRED5_QUORUM_3OF5, PRED5_UNIQUE_A,
     };
     use crate::IndexTable;
 
@@ -1903,5 +2264,146 @@ mod tests {
         // All 30 unique-to-A keys should be found (their positions have a≠0, b==0, c==0)
         assert!(unique_count >= 30,
             "unique_a count ({}) should be >= 30", unique_count);
+    }
+
+    // ── set_predicate_5 tests ──────────────────────────────────────
+
+    #[test]
+    fn pred5_consensus_mask_single_bit() {
+        let mask = &*PRED5_CONSENSUS;
+        let total_set: u32 = mask.iter().map(|b| b.count_ones()).sum();
+        assert_eq!(
+            total_set, 1,
+            "consensus mask should have exactly 1 bit set, got {}",
+            total_set
+        );
+        assert_eq!(mask[4095], 0x80, "consensus bit should be at state 0x7FFF");
+    }
+
+    #[test]
+    fn pred5_unique_a_mask_count() {
+        let mask = &*PRED5_UNIQUE_A;
+        let total_set: u32 = mask.iter().map(|b| b.count_ones()).sum();
+        // a_occ=1, ab_eq=0, ac_eq=0, ad_eq=0, ae_eq=0 → 5 fixed bits, 10 don't-care → 2^10 = 1024
+        assert_eq!(
+            total_set, 1024,
+            "unique_a mask should have 1024 bits set, got {}",
+            total_set
+        );
+    }
+
+    #[test]
+    fn set_predicate_5_consensus() {
+        let capacity_bits = 10;
+        let cfg = RadixTreeConfig { capacity_bits };
+        let mut a = RadixTree::new(cfg).expect("build");
+        let mut b = RadixTree::new(cfg).expect("build");
+        let mut c = RadixTree::new(cfg).expect("build");
+        let mut d = RadixTree::new(cfg).expect("build");
+        let mut e = RadixTree::new(cfg).expect("build");
+
+        for id in 0..40u64 {
+            a.insert(id);
+            b.insert(id);
+            c.insert(id);
+            d.insert(id);
+            e.insert(id);
+        }
+        for id in 100..110u64 { a.insert(id); }
+        for id in 200..210u64 { b.insert(id); }
+        for id in 300..310u64 { c.insert(id); }
+        for id in 400..410u64 { d.insert(id); }
+        for id in 500..510u64 { e.insert(id); }
+
+        let (_, consensus_count) = set_predicate_5(&a, &b, &c, &d, &e, &*PRED5_CONSENSUS);
+
+        assert!(
+            consensus_count >= 40,
+            "consensus_5 count ({}) should be >= 40 shared keys",
+            consensus_count
+        );
+    }
+
+    #[test]
+    fn set_predicate_5_unique_a() {
+        let capacity_bits = 10;
+        let cfg = RadixTreeConfig { capacity_bits };
+        let mut a = RadixTree::new(cfg).expect("build");
+        let mut b = RadixTree::new(cfg).expect("build");
+        let mut c = RadixTree::new(cfg).expect("build");
+        let mut d = RadixTree::new(cfg).expect("build");
+        let mut e = RadixTree::new(cfg).expect("build");
+
+        for id in 0..30u64 { a.insert(id); }
+        for id in 100..130u64 {
+            b.insert(id);
+            c.insert(id);
+            d.insert(id);
+            e.insert(id);
+        }
+
+        let (_, unique_count) = set_predicate_5(&a, &b, &c, &d, &e, &*PRED5_UNIQUE_A);
+
+        assert!(
+            unique_count >= 30,
+            "unique_a_5 count ({}) should be >= 30",
+            unique_count
+        );
+    }
+
+    #[test]
+    fn set_predicate_5_quorum() {
+        let capacity_bits = 10;
+        let cfg = RadixTreeConfig { capacity_bits };
+        let mut a = RadixTree::new(cfg).expect("build");
+        let mut b = RadixTree::new(cfg).expect("build");
+        let mut c = RadixTree::new(cfg).expect("build");
+        let mut d = RadixTree::new(cfg).expect("build");
+        let mut e = RadixTree::new(cfg).expect("build");
+
+        // Keys shared in A, B, C (a quorum of 3) but not D, E
+        for id in 0..35u64 {
+            a.insert(id);
+            b.insert(id);
+            c.insert(id);
+        }
+        for id in 400..420u64 { d.insert(id); }
+        for id in 500..520u64 { e.insert(id); }
+
+        let (_, quorum_count) = set_predicate_5(&a, &b, &c, &d, &e, &*PRED5_QUORUM_3OF5);
+
+        assert!(
+            quorum_count >= 35,
+            "quorum_3of5 count ({}) should be >= 35 shared-in-3 keys",
+            quorum_count
+        );
+    }
+
+    #[test]
+    fn pred5_consensus_matches_pred3_on_identical_data() {
+        let capacity_bits = 10;
+        let cfg = RadixTreeConfig { capacity_bits };
+        let mut a = RadixTree::new(cfg).expect("build");
+        let mut b = RadixTree::new(cfg).expect("build");
+        let mut c = RadixTree::new(cfg).expect("build");
+        let mut d = RadixTree::new(cfg).expect("build");
+        let mut e = RadixTree::new(cfg).expect("build");
+
+        for id in 0..50u64 {
+            a.insert(id);
+            b.insert(id);
+            c.insert(id);
+            d.insert(id);
+            e.insert(id);
+        }
+
+        let (_, count_3) = set_predicate_3(&a, &b, &c, PRED3_CONSENSUS);
+        let (_, count_5) = set_predicate_5(&a, &b, &c, &d, &e, &*PRED5_CONSENSUS);
+
+        assert_eq!(
+            count_3, count_5,
+            "consensus_3 ({}) and consensus_5 ({}) should match when all tables identical",
+            count_3, count_5
+        );
     }
 }

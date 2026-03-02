@@ -1,11 +1,12 @@
 use criterion::{BenchmarkId, Criterion, Throughput, criterion_group, criterion_main};
 use radix::IndexTable;
 use radix::radix_tree::{
-    RadixTree, RadixTreeConfig,
+    RadixTree, RadixTreeConfig, Pred5Mask,
     fingerprint_diff, set_intersection,
-    set_predicate_2, set_predicate_3,
+    set_predicate_2, set_predicate_3, set_predicate_5,
     PRED2_INTERSECT, PRED2_DIFF_AB, PRED2_SYM_DIFF,
     PRED3_CONSENSUS, PRED3_UNIQUE_A,
+    PRED5_CONSENSUS, PRED5_QUORUM_3OF5, PRED5_UNIQUE_A,
 };
 use std::collections::HashSet;
 use std::hint::black_box;
@@ -208,6 +209,44 @@ fn build_triple(
     (a, b, c)
 }
 
+/// Build five RadixTree instances with controlled overlap.
+/// `overlap` fraction of keys are shared across all 5 tables.
+/// The remainder are unique to each table.
+fn build_quintuple(
+    capacity: usize,
+    lf: f64,
+    overlap: f64,
+) -> (RadixTree, RadixTree, RadixTree, RadixTree, RadixTree) {
+    let bits = capacity_bits_from_slots(capacity);
+    let target_len = (capacity as f64 * lf) as usize;
+    let shared_n = (target_len as f64 * overlap) as usize;
+    let unique_n = target_len - shared_n;
+
+    let shared_keys = make_ids(shared_n + 10_000, 0xAAAA_5555);
+    let unique_a_keys = make_ids(unique_n + 10_000, 0x1111_0001);
+    let unique_b_keys = make_ids(unique_n + 10_000, 0x2222_0002);
+    let unique_c_keys = make_ids(unique_n + 10_000, 0x3333_0003);
+    let unique_d_keys = make_ids(unique_n + 10_000, 0x4444_0004);
+    let unique_e_keys = make_ids(unique_n + 10_000, 0x5555_0005);
+
+    let mut a = RadixTree::new(RadixTreeConfig { capacity_bits: bits }).expect("build_quintuple: A");
+    let mut b = RadixTree::new(RadixTreeConfig { capacity_bits: bits }).expect("build_quintuple: B");
+    let mut c = RadixTree::new(RadixTreeConfig { capacity_bits: bits }).expect("build_quintuple: C");
+    let mut d = RadixTree::new(RadixTreeConfig { capacity_bits: bits }).expect("build_quintuple: D");
+    let mut e = RadixTree::new(RadixTreeConfig { capacity_bits: bits }).expect("build_quintuple: E");
+
+    for &k in shared_keys.iter().take(shared_n) {
+        a.insert(k); b.insert(k); c.insert(k); d.insert(k); e.insert(k);
+    }
+    for &k in unique_a_keys.iter().take(unique_n) { a.insert(k); }
+    for &k in unique_b_keys.iter().take(unique_n) { b.insert(k); }
+    for &k in unique_c_keys.iter().take(unique_n) { c.insert(k); }
+    for &k in unique_d_keys.iter().take(unique_n) { d.insert(k); }
+    for &k in unique_e_keys.iter().take(unique_n) { e.insert(k); }
+
+    (a, b, c, d, e)
+}
+
 const OVERLAPS: &[f64] = &[0.10, 0.50, 0.90];
 
 fn bench_fingerprint_diff(c: &mut Criterion) {
@@ -300,6 +339,14 @@ fn bench_set_predicate(c: &mut Criterion) {
         Pred3 { name: "unique_a",    mask: PRED3_UNIQUE_A },
     ];
 
+    struct Pred5 { name: &'static str, mask: &'static Pred5Mask }
+
+    let preds_5: &[Pred5] = &[
+        Pred5 { name: "consensus_5", mask: &*PRED5_CONSENSUS },
+        Pred5 { name: "quorum_3of5", mask: &*PRED5_QUORUM_3OF5 },
+        Pred5 { name: "unique_a_5",  mask: &*PRED5_UNIQUE_A },
+    ];
+
     for &(capacity, size_label) in CAPACITIES {
         for &lf in LOAD_FACTORS {
             for &overlap in OVERLAPS {
@@ -343,6 +390,29 @@ fn bench_set_predicate(c: &mut Criterion) {
                         |bench, _| {
                             bench.iter(|| {
                                 black_box(set_predicate_3(&a3, &b3, &c3, pred.mask))
+                            });
+                        },
+                    );
+                    group.finish();
+                }
+
+                // 5-array predicates
+                let (a5, b5, c5, d5, e5) = build_quintuple(capacity, lf, overlap);
+                for pred in preds_5 {
+                    let param = format!(
+                        "size={size_label}/lf={lf:.2}/overlap={overlap:.2}/pred={}",
+                        pred.name
+                    );
+                    let mut group = c.benchmark_group(
+                        format!("impl={impl_name}/op=set_predicate")
+                    );
+                    group.throughput(Throughput::Elements(capacity as u64));
+                    group.bench_with_input(
+                        BenchmarkId::from_parameter(&param),
+                        &param,
+                        |bench, _| {
+                            bench.iter(|| {
+                                black_box(set_predicate_5(&a5, &b5, &c5, &d5, &e5, pred.mask))
                             });
                         },
                     );
